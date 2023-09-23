@@ -1,0 +1,115 @@
+CRITICAL - 2023-08-06 12:02:47 --> Class "App\Controllers\Api\UserModel" not found
+in APPPATH\Controllers\Api\Post.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Api\Post->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-06 12:03:20 --> Undefined variable $data
+in APPPATH\Models\Api\PostModel.php on line 30.
+ 1 APPPATH\Models\Api\PostModel.php(30): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $data', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\PostModel.php', 30)
+ 2 APPPATH\Controllers\Api\Post.php(89): App\Models\Api\PostModel->getPosts(null, '10')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-06 12:03:36 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::where()
+in APPPATH\Models\Api\PostModel.php on line 33.
+ 1 APPPATH\Controllers\Api\Post.php(89): App\Models\Api\PostModel->getPosts(null, '10')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-06 12:04:24 --> Undefined variable $id
+in APPPATH\Models\Api\PostModel.php on line 32.
+ 1 APPPATH\Models\Api\PostModel.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $id', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\PostModel.php', 32)
+ 2 APPPATH\Controllers\Api\Post.php(89): App\Models\Api\PostModel->getPosts(null, '10')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-06 12:05:16 --> CodeIgniter\Database\BaseBuilder::get(): Argument #2 ($offset) must be of type int, null given, called in G:\xampp8.1\htdocs\miromie\app\Models\Api\PostModel.php on line 33
+in SYSTEMPATH\Database\BaseBuilder.php on line 1608.
+ 1 APPPATH\Models\Api\PostModel.php(33): CodeIgniter\Database\BaseBuilder->get(10, null)
+ 2 APPPATH\Controllers\Api\Post.php(89): App\Models\Api\PostModel->getPosts(null, '10')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-06 12:15:31 --> Call to undefined function App\Controllers\Api\int()
+in APPPATH\Controllers\Api\Post.php on line 36.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-06 12:33:34 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResultArray()
+in APPPATH\Models\Api\PostModel.php on line 33.
+ 1 APPPATH\Controllers\Api\Post.php(89): App\Models\Api\PostModel->getPosts(null, '3')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-06 12:35:05 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResultArray()
+in APPPATH\Models\Api\PostModel.php on line 34.
+ 1 APPPATH\Controllers\Api\Post.php(89): App\Models\Api\PostModel->getPosts(null, '3')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-06 12:35:39 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::getResultArray()
+in APPPATH\Models\Api\PostModel.php on line 34.
+ 1 APPPATH\Controllers\Api\Post.php(89): App\Models\Api\PostModel->getPosts(null, '3')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-06 12:37:38 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::resultArray()
+in APPPATH\Models\Api\PostModel.php on line 34.
+ 1 APPPATH\Controllers\Api\Post.php(89): App\Models\Api\PostModel->getPosts(null, '3')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-06 12:39:03 --> Call to undefined method CodeIgniter\Database\MySQLi\Result::limit()
+in APPPATH\Models\Api\PostModel.php on line 34.
+ 1 APPPATH\Controllers\Api\Post.php(89): App\Models\Api\PostModel->getPosts(null, '3')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-06 12:55:32 --> mysqli_sql_exception: Table 'miromie.likes' doesn't exist in G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 G:\xampp8.1\htdocs\miromie\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 G:\xampp8.1\htdocs\miromie\app\Models\Api\PostModel.php(43): CodeIgniter\Database\BaseBuilder->get()
+#5 G:\xampp8.1\htdocs\miromie\app\Controllers\Api\Post.php(96): App\Models\Api\PostModel->checkMyLike('1', '1')
+#6 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#7 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 G:\xampp8.1\htdocs\miromie\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-06 12:55:32 --> Table 'miromie.likes' doesn't exist
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `likes`
+WHERE `user_id` = \'1\'
+AND `post_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `likes`
+WHERE `user_id` = \'1\'
+AND `post_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `likes`
+WHERE `user_id` = \'1\'
+AND `post_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `likes`
+WHERE `user_id` = :user_id:
+AND `post_id` = :post_id:', [...], false)
+ 5 APPPATH\Models\Api\PostModel.php(43): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Api\Post.php(96): App\Models\Api\PostModel->checkMyLike('1', '1')
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

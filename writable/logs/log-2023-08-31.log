@@ -1,0 +1,14 @@
+CRITICAL - 2023-08-31 06:41:41 --> Undefined variable $newName
+in APPPATH/Controllers/Api/Users.php on line 147.
+ 1 APPPATH/Controllers/Api/Users.php(147): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->editProfile()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-31 06:43:53 --> Undefined variable $newName
+in APPPATH/Controllers/Api/Users.php on line 147.
+ 1 APPPATH/Controllers/Api/Users.php(147): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->editProfile()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,190 @@
+ERROR - 2023-08-09 06:55:09 --> mysqli_sql_exception: Column 'styles' cannot be null in /home/xcovbdpfaq7d/public_html/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/xcovbdpfaq7d/public_html/system/Database/MySQLi/Connection.php(295): mysqli->query()
+#1 /home/xcovbdpfaq7d/public_html/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/xcovbdpfaq7d/public_html/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/xcovbdpfaq7d/public_html/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+#4 /home/xcovbdpfaq7d/public_html/app/Models/Api/UserModel.php(43): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/xcovbdpfaq7d/public_html/app/Controllers/Api/Auth.php(87): App\Models\Api\UserModel->signup()
+#6 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+#7 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/xcovbdpfaq7d/public_html/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-09 06:55:09 --> Column 'styles' cannot be null
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH/Models/Api/UserModel.php(43): CodeIgniter\Database\BaseBuilder->insert()
+ 6 APPPATH/Controllers/Api/Auth.php(87): App\Models\Api\UserModel->signup()
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 06:58:34 --> Undefined property: stdClass::$userId
+in APPPATH/Controllers/Api/Users.php on line 23.
+ 1 APPPATH/Controllers/Api/Users.php(23): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->editUserName()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 06:59:25 --> Undefined property: stdClass::$userId
+in APPPATH/Controllers/Api/Users.php on line 23.
+ 1 APPPATH/Controllers/Api/Users.php(23): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->editUserName()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 06:59:49 --> Undefined property: stdClass::$userId
+in APPPATH/Controllers/Api/Users.php on line 23.
+ 1 APPPATH/Controllers/Api/Users.php(23): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->editUserName()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 07:02:00 --> Undefined property: stdClass::$userId
+in APPPATH/Controllers/Api/Users.php on line 54.
+ 1 APPPATH/Controllers/Api/Users.php(54): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->uploadFile()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 07:23:45 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Users.php on line 77.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->uploadFile()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 07:24:39 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Users.php on line 77.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->uploadFile()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 07:55:46 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 342.
+ 1 APPPATH/Controllers/Api/Post.php(342): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 07:57:19 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 342.
+ 1 APPPATH/Controllers/Api/Post.php(342): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 07:57:25 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 342.
+ 1 APPPATH/Controllers/Api/Post.php(342): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 07:57:46 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 342.
+ 1 APPPATH/Controllers/Api/Post.php(342): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 07:59:08 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 342.
+ 1 APPPATH/Controllers/Api/Post.php(342): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 08:02:39 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Users.php on line 301.
+ 1 APPPATH/Controllers/Api/Users.php(301): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->contacts()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 08:04:37 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Users.php on line 301.
+ 1 APPPATH/Controllers/Api/Users.php(301): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->contacts()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 08:12:18 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Users.php on line 162.
+ 1 APPPATH/Controllers/Api/Users.php(162): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 08:24:30 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 59.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 08:26:12 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 220.
+ 1 APPPATH/Controllers/Api/Post.php(220): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getDetail()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 08:26:43 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 342.
+ 1 APPPATH/Controllers/Api/Post.php(342): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 09:22:39 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 342.
+ 1 APPPATH/Controllers/Api/Post.php(342): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 09:23:01 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 342.
+ 1 APPPATH/Controllers/Api/Post.php(342): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 09:29:16 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 342.
+ 1 APPPATH/Controllers/Api/Post.php(342): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 09:34:29 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 353.
+ 1 APPPATH/Controllers/Api/Post.php(353): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 09:34:48 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 353.
+ 1 APPPATH/Controllers/Api/Post.php(353): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 09:35:50 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 353.
+ 1 APPPATH/Controllers/Api/Post.php(353): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-09 14:04:57 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 226.
+ 1 APPPATH/Controllers/Api/Post.php(226): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getDetail()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

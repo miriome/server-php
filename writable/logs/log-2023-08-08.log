@@ -1,0 +1,135 @@
+CRITICAL - 2023-08-08 03:24:31 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Api\Post.php(116): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1691465071_ad2f98a6fd306401b716')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->editPost('9')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-08 03:24:55 --> The original file is not a valid file.
+in SYSTEMPATH\HTTP\Files\UploadedFile.php on line 137.
+ 1 SYSTEMPATH\HTTP\Files\UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH\Controllers\Api\Post.php(115): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1691465095_cdef47a2a039cb68fec9')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->editPost('9')
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-08 03:25:06 --> Call to undefined method App\Models\Api\PostModel::editPost
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\Api\Post.php(129): CodeIgniter\Model->__call('editPost', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->editPost('9')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-08 03:26:05 --> Undefined variable $newName
+in APPPATH\Controllers\Api\Post.php on line 131.
+ 1 APPPATH\Controllers\Api\Post.php(131): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $newName', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 131)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->editPost('9')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-08 03:32:29 --> Declaration of App\Controllers\Api\Post::delete($postId) must be compatible with CodeIgniter\RESTful\ResourceController::delete($id = null)
+in APPPATH\Controllers\Api\Post.php on line 145.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-08-08 03:33:03 --> Class "App\Controllers\Api\EmployeeModel" not found
+in APPPATH\Controllers\Api\Users.php on line 704.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->delete('14')
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-08 03:33:44 --> Declaration of App\Controllers\Api\Post::delete($postId) must be compatible with CodeIgniter\RESTful\ResourceController::delete($id = null)
+in APPPATH\Controllers\Api\Post.php on line 145.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-08-08 03:40:04 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Users.php on line 261.
+ 1 APPPATH\Controllers\Api\Users.php(261): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 261)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-08 03:40:32 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Users.php on line 261.
+ 1 APPPATH\Controllers\Api\Users.php(261): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 261)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-08 03:41:44 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Users.php on line 261.
+ 1 APPPATH\Controllers\Api\Users.php(261): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 261)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-08 03:41:54 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Users.php on line 261.
+ 1 APPPATH\Controllers\Api\Users.php(261): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 261)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-08 14:24:28 --> Error connecting to the database: mysqli_sql_exception: Access denied for user 'root'@'localhost' (using password: NO) in /home/xcovbdpfaq7d/public_html/system/Database/MySQLi/Connection.php:174
+Stack trace:
+#0 /home/xcovbdpfaq7d/public_html/system/Database/MySQLi/Connection.php(174): mysqli->real_connect()
+#1 /home/xcovbdpfaq7d/public_html/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect()
+#2 /home/xcovbdpfaq7d/public_html/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#3 /home/xcovbdpfaq7d/public_html/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#4 /home/xcovbdpfaq7d/public_html/app/Models/Api/UserModel.php(75): CodeIgniter\Database\BaseBuilder->get()
+#5 /home/xcovbdpfaq7d/public_html/app/Models/Api/UserModel.php(53): App\Models\Api\UserModel->getUser()
+#6 /home/xcovbdpfaq7d/public_html/app/Controllers/Api/Auth.php(26): App\Models\Api\UserModel->login()
+#7 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(932): App\Controllers\Api\Auth->login()
+#8 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#9 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+#10 /home/xcovbdpfaq7d/public_html/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 {main}
+
+Next CodeIgniter\Database\Exceptions\DatabaseException: Access denied for user '****'@'localhost' (using password: NO) in /home/xcovbdpfaq7d/public_html/system/Database/MySQLi/Connection.php:218
+Stack trace:
+#0 /home/xcovbdpfaq7d/public_html/system/Database/BaseConnection.php(391): CodeIgniter\Database\MySQLi\Connection->connect()
+#1 /home/xcovbdpfaq7d/public_html/system/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+#2 /home/xcovbdpfaq7d/public_html/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+#3 /home/xcovbdpfaq7d/public_html/app/Models/Api/UserModel.php(75): CodeIgniter\Database\BaseBuilder->get()
+#4 /home/xcovbdpfaq7d/public_html/app/Models/Api/UserModel.php(53): App\Models\Api\UserModel->getUser()
+#5 /home/xcovbdpfaq7d/public_html/app/Controllers/Api/Auth.php(26): App\Models\Api\UserModel->login()
+#6 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(932): App\Controllers\Api\Auth->login()
+#7 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/xcovbdpfaq7d/public_html/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-08 14:24:28 --> Unable to connect to the database.
+Main connection [MySQLi]: Access denied for user '****'@'localhost' (using password: NO)
+in SYSTEMPATH/Database/BaseConnection.php on line 427.
+ 1 SYSTEMPATH/Database/BaseConnection.php(574): CodeIgniter\Database\BaseConnection->initialize()
+ 2 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query()
+ 3 APPPATH/Models/Api/UserModel.php(75): CodeIgniter\Database\BaseBuilder->get()
+ 4 APPPATH/Models/Api/UserModel.php(53): App\Models\Api\UserModel->getUser()
+ 5 APPPATH/Controllers/Api/Auth.php(26): App\Models\Api\UserModel->login()
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Auth->login()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-08 16:29:44 --> mysqli_sql_exception: Column 'styles' cannot be null in /home/xcovbdpfaq7d/public_html/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /home/xcovbdpfaq7d/public_html/system/Database/MySQLi/Connection.php(295): mysqli->query()
+#1 /home/xcovbdpfaq7d/public_html/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+#2 /home/xcovbdpfaq7d/public_html/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+#3 /home/xcovbdpfaq7d/public_html/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+#4 /home/xcovbdpfaq7d/public_html/app/Models/Api/UserModel.php(43): CodeIgniter\Database\BaseBuilder->insert()
+#5 /home/xcovbdpfaq7d/public_html/app/Controllers/Api/Auth.php(87): App\Models\Api\UserModel->signup()
+#6 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+#7 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+#8 /home/xcovbdpfaq7d/public_html/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+#9 /home/xcovbdpfaq7d/public_html/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-08 16:29:44 --> Column 'styles' cannot be null
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query()
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute()
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery()
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query()
+ 5 APPPATH/Models/Api/UserModel.php(43): CodeIgniter\Database\BaseBuilder->insert()
+ 6 APPPATH/Controllers/Api/Auth.php(87): App\Models\Api\UserModel->signup()
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,22 @@
+CRITICAL - 2023-08-16 06:05:35 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Post.php on line 338.
+ 1 APPPATH/Controllers/Api/Post.php(338): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-16 06:36:42 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Post.php on line 418.
+ 1 APPPATH/Controllers/Api/Post.php(418): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->search()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-16 06:37:01 --> CodeIgniter\Database\BaseBuilder::like(): Argument #2 ($match) must be of type string, null given, called in /home/xcovbdpfaq7d/public_html/app/Models/Api/PostModel.php on line 113
+in SYSTEMPATH/Database/BaseBuilder.php on line 984.
+ 1 APPPATH/Models/Api/PostModel.php(113): CodeIgniter\Database\BaseBuilder->like()
+ 2 APPPATH/Controllers/Api/Post.php(425): App\Models\Api\PostModel->searchPosts()
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->search()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,7 @@
+CRITICAL - 2023-08-24 08:28:20 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Users.php on line 329.
+ 1 APPPATH/Controllers/Api/Users.php(329): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

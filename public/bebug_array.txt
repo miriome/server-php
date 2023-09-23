@@ -1,0 +1,16 @@
+Array
+(
+    [file] => CodeIgniter\HTTP\Files\UploadedFile Object
+        (
+            [size:protected] => 5354278
+            [originalMimeType:protected] => image/jpg
+            [path:protected] => /tmp/phpIYVmiw
+            [originalName:protected] => image.jpg
+            [name:protected] => image.jpg
+            [error:protected] => 0
+            [hasMoved:protected] => 
+            [pathName:SplFileInfo:private] => /tmp/phpIYVmiw
+            [fileName:SplFileInfo:private] => phpIYVmiw
+        )
+
+)

@@ -1,0 +1,106 @@
+CRITICAL - 2023-09-13 16:31:23 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Post.php on line 469.
+ 1 APPPATH/Controllers/Api/Post.php(469): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->search()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:36:51 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:37:33 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:37:47 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:38:10 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:38:20 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:38:28 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:50:39 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:55:30 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:55:33 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:55:35 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-09-13 16:55:37 --> Undefined property: CodeIgniter\Database\MySQLi\Result::$likes
+in APPPATH/Models/Api/PostModel.php on line 124.
+ 1 APPPATH/Models/Api/PostModel.php(124): CodeIgniter\Debug\Exceptions->errorHandler()
+ 2 APPPATH/Models/Api/PostModel.php(108): App\Models\Api\PostModel->updateLikeCount()
+ 3 APPPATH/Controllers/Api/Post.php(348): App\Models\Api\PostModel->setLike()
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController()
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest()
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()

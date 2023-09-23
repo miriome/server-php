@@ -1,0 +1,158 @@
+CRITICAL - 2023-08-03 13:36:45 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::get_where()
+in APPPATH\Models\Api\UserModel.php on line 40.
+ 1 APPPATH\Controllers\Api\Auth.php(26): App\Models\Api\UserModel->login([...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->login()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 13:36:53 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::get_where()
+in APPPATH\Models\Api\UserModel.php on line 40.
+ 1 APPPATH\Controllers\Api\Auth.php(26): App\Models\Api\UserModel->login([...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->login()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 13:44:16 --> Too few arguments to function Firebase\JWT\JWT::encode(), 2 passed in G:\xampp8.1\htdocs\miromie\app\Controllers\Api\Auth.php on line 45 and at least 3 expected
+in VENDORPATH\firebase\php-jwt\src\JWT.php on line 193.
+ 1 APPPATH\Controllers\Api\Auth.php(45): Firebase\JWT\JWT::encode([...], '8OLkOSCfc31EtZQBBpvJnVwjyPJ702nI')
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->login()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:18:10 --> Declaration of App\Filters\AuthFilter::before(CodeIgniter\HTTP\RequestInterface $request) must be compatible with CodeIgniter\Filters\FilterInterface::before(CodeIgniter\HTTP\RequestInterface $request, $arguments = null)
+in APPPATH\Filters\AuthFilter.php on line 14.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+WARNING - 2023-08-03 14:20:31 --> [DEPRECATED] explode(): Passing null to parameter #2 ($string) of type string is deprecated in APPPATH\Filters\AuthFilter.php on line 20.
+ 1 APPPATH\Filters\AuthFilter.php(20): explode(' ', null)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('api/users/editUser', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:20:31 --> Undefined array key 1
+in APPPATH\Filters\AuthFilter.php on line 21.
+ 1 APPPATH\Filters\AuthFilter.php(21): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Filters\\AuthFilter.php', 21)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('api/users/editUser', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:22:28 --> Undefined array key 1
+in APPPATH\Filters\AuthFilter.php on line 22.
+ 1 APPPATH\Filters\AuthFilter.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key 1', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Filters\\AuthFilter.php', 22)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('api/users/editUser', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:22:48 --> Firebase\JWT\JWT::decode(): Argument #3 ($headers) cannot be passed by reference
+in APPPATH\Filters\AuthFilter.php on line 26.
+ 1 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('api/users/editUser', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:23:10 --> Firebase\JWT\JWT::decode(): Argument #3 ($headers) cannot be passed by reference
+in APPPATH\Filters\AuthFilter.php on line 26.
+ 1 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('api/users/editUser', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:31:45 --> Undefined variable $authHeader
+in APPPATH\Filters\AuthFilter.php on line 24.
+ 1 APPPATH\Filters\AuthFilter.php(24): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $authHeader', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Filters\\AuthFilter.php', 24)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('api/users/editUser', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:32:06 --> Class "App\Filters\Key" not found
+in APPPATH\Filters\AuthFilter.php on line 46.
+ 1 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 2 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('api/users/editUser', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:39:20 --> Undefined property: App\Filters\AuthFilter::$output
+in APPPATH\Filters\AuthFilter.php on line 48.
+ 1 APPPATH\Filters\AuthFilter.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Filters\\AuthFilter::$output', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Filters\\AuthFilter.php', 48)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('api/users/editUser', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:39:43 --> Undefined property: App\Filters\AuthFilter::$output
+in APPPATH\Filters\AuthFilter.php on line 48.
+ 1 APPPATH\Filters\AuthFilter.php(48): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: App\\Filters\\AuthFilter::$output', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Filters\\AuthFilter.php', 48)
+ 2 SYSTEMPATH\Filters\Filters.php(173): App\Filters\AuthFilter->before(Object(CodeIgniter\HTTP\IncomingRequest), null)
+ 3 SYSTEMPATH\CodeIgniter.php(471): CodeIgniter\Filters\Filters->run('api/users/editUser', 'before')
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:42:45 --> Array to string conversion
+in SYSTEMPATH\HTTP\ResponseTrait.php on line 489.
+ 1 SYSTEMPATH\HTTP\ResponseTrait.php(489): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'G:\\xampp8.1\\htdocs\\miromie\\system\\HTTP\\ResponseTrait.php', 489)
+ 2 SYSTEMPATH\HTTP\ResponseTrait.php(448): CodeIgniter\HTTP\Response->sendBody()
+ 3 SYSTEMPATH\CodeIgniter.php(476): CodeIgniter\HTTP\Response->send()
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:48:01 --> Class "App\Models\UserModel" not found
+in APPPATH\Controllers\Api\Users.php on line 16.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Api\Users->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:49:11 --> Call to undefined function App\Controllers\Api\getJWTFromRequest()
+in APPPATH\Controllers\Api\Users.php on line 18.
+ 1 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Api\Users->__construct()
+ 2 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:49:26 --> Undefined variable $userId
+in APPPATH\Controllers\Api\Users.php on line 23.
+ 1 APPPATH\Controllers\Api\Users.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $userId', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 23)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->editUser()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:49:50 --> Undefined constant "App\Controllers\Api\userId"
+in APPPATH\Controllers\Api\Users.php on line 23.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->editUser()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:51:20 --> Undefined variable $userId
+in APPPATH\Controllers\Api\Users.php on line 23.
+ 1 APPPATH\Controllers\Api\Users.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $userId', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 23)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->editUser()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 14:58:15 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$userId
+in APPPATH\Controllers\Api\Users.php on line 23.
+ 1 APPPATH\Controllers\Api\Users.php(23): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$userId', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 23)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->editUser()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 15:06:15 --> Call to undefined method CodeIgniter\Database\MySQLi\Connection::where()
+in APPPATH\Models\Api\UserModel.php on line 79.
+ 1 APPPATH\Controllers\Api\Users.php(34): App\Models\Api\UserModel->edit_user('1', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->editUser()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 15:11:58 --> Undefined variable $db
+in APPPATH\Models\Api\UserModel.php on line 14.
+ 1 APPPATH\Models\Api\UserModel.php(14): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\UserModel.php', 14)
+ 2 APPPATH\Controllers\Api\Users.php(16): App\Models\Api\UserModel->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Api\Users->__construct()
+ 4 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 15:13:50 --> Undefined variable $daata
+in APPPATH\Models\Api\UserModel.php on line 78.
+ 1 APPPATH\Models\Api\UserModel.php(78): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $daata', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\UserModel.php', 78)
+ 2 APPPATH\Controllers\Api\Users.php(34): App\Models\Api\UserModel->editUser('1', [...])
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->editUser()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-03 15:14:06 --> Call to undefined method App\Controllers\Api\Users::set_response()
+in APPPATH\Controllers\Api\Users.php on line 36.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->editUser()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

@@ -1,0 +1,518 @@
+
+
+
+<!--- form submit--->
+
+<cfif structkeyexists(form,'remove')>
+  <cfswitch expression="#form.type#">
+    <cfcase value="ie">
+      <!---Internal Tasks--->
+      <cfquery datasource="#request.datasource#" name="deactivatetasks">
+        update top (1) obtaskmaster
+        set taflag = 9
+        where cid = <cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">
+        and taskid = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.taskid#">
+      </cfquery>
+    </cfcase>
+    <cfcase value="ne">
+      <!---New Employee Tasks ---->
+      <cfquery datasource="#request.datasource#" name="deactivatetasks">
+        update top (1) OBTask
+        set aflag = 9
+        where tskcid = <cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">
+        and task_id = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.taskid#">
+      </cfquery>
+    </cfcase>
+    <cfdefaultcase>
+      <!---You didnt pass anything :( exit the page--->
+      <cfexit method="exittemplate">
+    </cfdefaultcase>
+  </cfswitch>
+<cfelseif structkeyexists(form,'type')>
+  <cfswitch expression="#form.type#">
+    <cfcase value="ie">
+      <!---Internal Tasks--->
+      <cfquery datasource="#request.datasource#blob" name="UpdateTasks">
+        DECLARE @TaskName nvarchar(500)  = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.subject#">,
+        @tskMessage nvarchar(max) = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.tskmessage#">,
+        @priority int = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.priority#">,
+        @datetocomplete int= <cfqueryparam cfsqltype="cf_sql_integer" value="#form.expirationdate#">,
+        @docid int =  <cfqueryparam cfsqltype="cf_sql_integer" value="#form.linkdoc#" null="#not len(trim(form.linkdoc))#">,
+        @assignID int = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.contact#" null="#not len(trim(form.contact))#">,
+        @taskglobal int= <cfqueryparam cfsqltype="cf_sql_integer" value="#form.global#">,
+        @cid int = <cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">,
+        @taskid int = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.taskid#">  
+  
+        Update top (1) obtaskmaster
+        set Taskname = @TaskName,
+        tskMessage = @tskMessage,
+        priority =@priority,
+        datetocomplete = @datetocomplete,
+        docid = @docid,
+        assignID = @assignID,
+        taskGlobal = @taskglobal
+        where cid = @cid
+        and taskid = @taskid
+        IF @@rowcount = 0
+        BEGIN
+        insert into obtaskmaster (taskname,tskmessage,priority,datetocomplete,docid,assignID,cid,TaskUUID,Taflag,taskGlobal)
+        values (@taskname,@tskmessage,@priority,@datetocomplete,@docid,@assignid,@cid,left(NEWID(),35),1,@taskglobal)
+        select scope_identity() as primaryKey
+        END  
+        select scope_identity() as primaryKey
+      </cfquery>
+      <cfif form.taskid EQ '0'>
+        <cfset taskID = UpdateTasks.primaryKey>
+      <cfelse>
+        <cfset taskID = form.taskid>
+      </cfif>	
+      <!---Deactivate all users first to activate them again later--->
+      <cfquery datasource="#request.datasource#" name="UpdateTasksCC">
+        DECLARE @cid int = <cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">,
+        @taskid int = <cfqueryparam cfsqltype="cf_sql_integer" value="#taskID#">;
+        update obtaskCC
+        set aflag = 0
+        where fkTskID = @taskID
+        and cid = @cid
+      </cfquery>	
+	
+      <cfif structkeyexists(form,'additionalcc')>
+        <cfloop list="#form.additionalCC#" index="i">
+          <cfquery datasource="#request.datasource#" name="UpdateTasksCCUser">
+            DECLARE @cid int = <cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">,
+            @taskid int = <cfqueryparam cfsqltype="cf_sql_integer" value="#taskID#">,
+            @recruiter_ID int =<cfqueryparam cfsqltype="cf_sql_integer" value="#i#">;
+
+            update top (1) obtaskCC
+            set aflag = 1,
+            statusdate = getdate()
+            where fkTskID = @taskID
+            and cid = @cid
+            and FKRecruiter_ID = @recruiter_ID
+            if @@rowcount  = 0
+            BEGIN
+            insert into obtaskCC (cid,fkTskID,FKRecruiter_ID)
+            values (@cid,@taskid,@recruiter_ID)
+            END
+          </cfquery>
+        </cfloop>
+      </cfif>
+	    <cfabort>
+    </cfcase>
+    <cfcase value="ne">
+      <!---New Employee Tasks ---->
+      <cfquery datasource="#request.datasource#" name="updateTasks">
+        DECLARE @TaskName nvarchar(200)  = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.subject#">,
+        @priority int = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.priority#">,
+        @datetocomplete int= <cfqueryparam cfsqltype="cf_sql_integer" value="#form.expirationdate#">,
+        @taskglobal int= <cfqueryparam cfsqltype="cf_sql_integer" value="#form.global#">,
+        @docid int =  <cfqueryparam cfsqltype="cf_sql_integer" value="#form.linkdoc#" null="#not len(trim(form.linkdoc))#">,
+        @contact nvarchar(200) = <cfqueryparam cfsqltype="cf_sql_varchar" value="#form.contact#" null="#not len(trim(form.contact))#">,
+        @cid int = <cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">,
+        @taskid int = <cfqueryparam cfsqltype="cf_sql_integer" value="#form.taskid#"> 
+
+        update top (1) obtask
+        set subject = @taskname,
+        datetocomplete = @datetocomplete,
+        docid = @docid,
+        contact = @contact,
+        priority=@priority,
+        taskglobal = @taskglobal
+        where tskcid = @cid
+        and task_id = @taskid
+
+        If @@rowcount =0
+        BEGIN
+        insert into obtask (subject,contact,priority,datetocomplete,docid,tskcid,aflag,taskuuid,taskglobal,taskOB)
+        values (@taskname,@contact,@priority,@datetocomplete,@docid,@cid,1,left(newid(),35),@taskglobal,1)
+        END
+      </cfquery>
+    </cfcase>
+    <cfdefaultcase>
+      <!---You didnt pass anything :( exit the page--->
+      <cfexit method="exittemplate">
+    </cfdefaultcase>
+  </cfswitch>
+<cfelseif structkeyexists(url,'remove')>
+  <!---Remove Task--->
+  <cfswitch expression="#url.type#">
+    <cfcase value="ie">
+      <!---Internal Tasks--->
+      <cfquery datasource="#request.datasource#blob" name="getEditTask">
+        select tm.taskname as subject, rt.rtfirstname + ' ' + rt.rtlastname as contact, tm.* from obtaskmaster tm
+        left outer join psrecruitteam rt
+        on rt.recruiter_id=tm.assignID
+        where tm.cid=<cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">
+        and tm.taflag=1
+        and tm.taskid = <cfqueryparam cfsqltype="cf_sql_integer" value="#url.taskid#">
+      </cfquery>
+    </cfcase>
+    <cfcase value="ne">
+      <!---New Employee Tasks ---->
+      <cfquery datasource="#request.datasource#blob" name="getEditTask">
+        select t.task_id as taskid,t.TaskUUID,t.subject,t.contact,t.due_date,t.priority,t.Comments,t.CreateDate,t.UpdateDate,t.Aflag,t.up_id,t.to_id,t.Stype,t.SID,t.Sendnote,t.RecruiterTask,t.fkJID,t.fkRID,t.fkLID,t.fkAID,t.tskGlobal,t.tskCID,t.UID,t.MasterTaskid,t.DateToComplete,t.TaskGlobal,t.TaskOB,t.DocID,t.TaskInitial,t.CompleteDate,t.TaskOrder , od.docdspname, od.docuuid, od.docglobal,od.docisimage,od.docfiletype,od.docname from OBTask t
+        left outer join obdocument od
+        on od.docid=t.docid
+        where tskcid=<cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">
+        and taskOB=1
+        and t.aflag=1
+        and t.task_id =  <cfqueryparam cfsqltype="cf_sql_integer" value="#url.taskid#">
+      </cfquery>
+    </cfcase>
+    <cfdefaultcase>
+      <!---You didnt pass anything :( exit the page--->
+      <cfexit method="exittemplate">
+    </cfdefaultcase>
+  </cfswitch>
+  
+  Are you sure you want to remove <strong><em><Cfoutput>#getEditTask.subject#</Cfoutput></em></strong>? <br/>
+  <br/>
+  <div class="text-center">
+    <button class="btn btn-primary" id="removeTask">Remove Task</button>
+    <button class="btn btn-warning" id="cancelTask">Cancel</button>
+  </div>
+  <br/>
+  <br/>
+  <br/>
+  <script>
+    $(document).ready(function(){
+      $("#removeTask").click(function(){
+        //ajax to remove update
+            $.ajax({
+            url: "/onboarding/tasks/editTasks.cfm",
+            data:"taskid=<cfoutput>#url.taskid#</cfoutput>&remove=1&type=<cfoutput>#url.type#</cfoutput>",
+            type:"post",
+            success:function(){
+            location.reload(); 	
+            }
+          
+        });//end ajax
+        
+        
+      });
+      $("#cancelTask").click(function(){
+        //close modal
+        $('#modal-generic').modal('hide');
+      });
+    });
+  </script>
+<cfelse>
+  <!--- This page accepts the URL variable &type. This value can either be "IE" for Internal Employee or "NE" for "New Employee". Depending on which tab you will get a different query--->
+  <!---Both queries that are going to be ran will be named the same so not much has to change later (hopefully) --->
+  <cfswitch expression="#url.type#">
+    <cfcase value="ie">
+      <!---Internal Tasks--->
+      <cfquery datasource="#request.datasource#" name="getEditTask">
+        select tm.taskname as subject, rt.rtfirstname + ' ' + rt.rtlastname as contact, tm.* from obtaskmaster tm
+        left outer join psrecruitteam rt
+        on rt.recruiter_id=tm.assignID and rt.aflag = 1
+        where tm.cid=<cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">        
+        and tm.taflag=1
+        and tm.taskid = <cfqueryparam cfsqltype="cf_sql_integer" value="#url.taskid#">
+      </cfquery>
+    </cfcase>
+    <cfcase value="ne">
+      <!---New Employee Tasks ---->
+      <cfquery datasource="#request.datasource#" name="getEditTask">
+        select  t.task_id as taskid,t.TaskUUID,t.subject,t.contact,t.due_date,t.priority,t.Comments,t.CreateDate,t.UpdateDate,t.Aflag,t.up_id,t.to_id,t.Stype,t.SID,t.Sendnote,t.RecruiterTask,t.fkJID,t.fkRID,t.fkLID,t.fkAID,t.tskGlobal,t.tskCID,t.UID,t.MasterTaskid,t.DateToComplete,t.TaskGlobal,t.TaskOB,t.DocID,t.TaskInitial,t.CompleteDate,t.TaskOrder , od.docdspname, od.docuuid, od.docglobal,od.docisimage,od.docfiletype,od.docname from OBTask t
+        left outer join obdocument od
+        on od.docid=t.docid
+        where tskcid=<cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">
+        and taskOB=1
+        and t.aflag=1
+        and t.task_id =  <cfqueryparam cfsqltype="cf_sql_integer" value="#url.taskid#">
+      </cfquery>
+    </cfcase>
+    <cfdefaultcase>
+      <!---You didnt pass anything :( exit the page--->
+      <cfexit method="exittemplate">
+    </cfdefaultcase>
+  </cfswitch>
+  <!---Get documents for our link docs list--->
+  <cfquery datasource="#request.datasource#" name="getDocs">
+    select * from OBDocument
+    where cid=<cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">
+    and Aflag=1 and docisimage <> 1
+    order by Docgroup, DocDspname
+  </cfquery>
+  <cfquery datasource="#request.datasource#" name="selectAdditionalCC">
+    select * from obtaskcc
+    where cid=<cfqueryparam cfsqltype="cf_sql_integer" value="#session.cid#">
+    and Aflag=1 and fktskID = <cfqueryparam cfsqltype="cf_sql_integer" value="#url.taskid#">
+  </cfquery>
+  <cfquery dbtype="query" name="getDocGroups">
+    select distinct docgroup from getDocs
+  </cfquery>
+  <!---Get our users for the assigned group--->
+  <cfquery datasource="#request.datasource#" name="getuser">
+    select CASE WHEN isnull(d.dname,'') !='' THEN d.dname
+		Else isnull(r.depname,'Default Business Unit') 
+    END fixedDepName,r.* from psrecruitteam r (nolock)
+    left outer join psdepartments d (nolock)
+    on r.cid = d.cid and r.dep_id = d.notes_id
+    where r.CID=#session.cid#
+    and r.Rttype in (7,8) 
+    and r.aflag = 1
+		order by r.depname,r.rtlastname,r.rtfirstname
+  </cfquery>
+  <cfquery dbtype="query" name="getUserDepartments">
+    select distinct fixedDepName from getuser
+  </cfquery>
+
+  <!---This is a tough one.. the idea is to make a "generic" layout for both type of tasks.. we will see how this goes before scrapping it...--->
+  <!---Things that alike
+  -Task Name
+  -Linked Document
+  -Days To Complete
+  -Priority
+
+  ...So these pages are completely different what can we do.. hm hidden divs? maybe...
+  --->
+
+  <!--- This is for Internal Tasks--->
+  <form action="" method="post" id="editTasks">
+    <input type="hidden" name="type" value="<cfoutput>#url.type#</cfoutput>">
+    <input type="hidden" name="taskid" value="<cfoutput>#url.taskid#</cfoutput>">
+    <div class="row">
+      <div class="col-md-8">
+        <div class="form-group">
+          <label for="subject">Task Name / Subject</label>
+          <input type="text" class="form-control required" value="<cfoutput>#getEditTask.subject#</cfoutput>" maxlength="100" size="100" name="subject">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <div class="form-group">
+          <label for="Contact">Assigned To</label>
+          <!---This should be a dropdown/input depending on what type of form...--->
+          <cfif url.type EQ 'IE'>
+            <select class="form-control" name="Contact">
+              <option value="">--- Select User ---</option>
+              <cfloop query="getUserDepartments">
+                <cfquery dbtype="query" name="getUsersInDepartments">
+                  select * from getuser where fixedDepName = '#getUserDepartments.fixedDepName#' order by rtlastname,rtfirstname
+                </cfquery>
+                <cfoutput>
+                  <optgroup label="<cfoutput>#getUserDepartments.fixedDepName#</cfoutput>">
+                    <cfloop query="getUsersInDepartments">
+                      <option value="#getUsersInDepartments.recruiter_id#" <cfif getEditTask.assignID EQ getUsersInDepartments.recruiter_id>selected</cfif>>
+                      <cfswitch expression="#getUsersInDepartments.Rttype#">
+                        <cfcase value="1">
+                          <cfset teamname="Recruiting Team">
+                          <cfset teammylabel="RT">
+                        </cfcase>
+                        <cfcase value="7">
+                          <cfset teamname="Onboarding Team">
+                          <cfset teammylabel="OT">
+                        </cfcase>
+                        <cfcase value="8">
+                          <cfset teamname="Onboarding/Recruit Team">
+                          <cfset teammylabel="OT/RT">			
+                        </cfcase>
+                      </cfswitch>
+                      [#teammylabel#] #getUsersInDepartments.rtfirstname# #getUsersInDepartments.rtlastname#
+                      </option>
+                    </cfloop>
+                  </optgroup>   
+                </cfoutput>
+              </cfloop>
+            </select>
+          <cfelse>
+            <input type="text"  class="form-control" name="Contact" value="<cfoutput>#getEditTask.contact#</cfoutput>">
+          </cfif>
+        </div>
+      </div>
+    </div>
+    <div class="row"> 
+      <!---Only show message if we are editing Internal Employee Tasks--->
+      <Cfif structkeyexists(getEditTask,'tskMessage')>
+        <div class="col-md-8">
+          <div class="form-group">
+            <label for="tskmessage">Message </label>
+        <!---Cfinvoke here---->
+      <cfinvoke component="onboarding.onboard.GenerateHelpers" method="OBvariableDropDown" returnVariable="variableOptions">
+      <Cfoutput>#variableOptions#</cfoutput>
+            <textarea cols="50" rows="12" name="tskmessage" id="tskmessage" class="js-summernote required"><cfoutput>#getEditTask.tskMessage#</cfoutput></textarea>
+          </div>
+        </div>
+      </Cfif>
+    
+      <div class=" <cfif structkeyexists(getEditTask,'tskMessage')>col-md-4<cfelse>col-md-12</cfif>"> 
+        <!---<div class="form-group">
+        <label for="taskorder">Order</label>
+        <select class="form-control" name="taskorder">
+          <option value="">---Select Order -- </option>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+          <option value="11">11</option>
+          <option value="12">12</option>
+          <option value="13">13</option>
+          <option value="14">14</option>
+          <option value="15">15</option>
+          <option value="16">16</option>
+          <option value="17">17</option>
+          <option value="18">18</option>
+          <option value="19">19</option>
+          <option value="20">20 </option>
+        </select>
+      </div>--->
+      <cfif url.type EQ 'IE'>
+      <div class="form-group">
+        <label for="additionalCC">Additional Contacts</label>
+        <select name="additionalCC" style="width:100%;" multiple>
+          <cfloop query="getUserDepartments">
+            <cfquery dbtype="query" name="getUsersInDepartments">
+              select * from getuser where fixedDepName = '#getUserDepartments.fixedDepName#'
+            </cfquery>
+            <cfoutput>
+              <optgroup label="<cfoutput>#getUserDepartments.fixedDepName#</cfoutput>">
+                <cfloop query="getUsersInDepartments">
+                  <cfquery dbtype="query" name="getThisCC">
+                    select * from selectAdditionalcc where fkRecruiter_id = #getUsersInDepartments.recruiter_id#
+                  </cfquery>
+                  <option value="#getUsersInDepartments.recruiter_id#" <cfif getThisCC.recordcount>selected</cfif>>
+                    <cfswitch expression="#getUsersInDepartments.Rttype#">
+                      <cfcase value="1">
+                        <cfset teamname="Recruiting Team">
+                        <cfset teammylabel="RT">
+                      </cfcase>
+                      <cfcase value="7">
+                        <cfset teamname="Onboarding Team">
+                        <cfset teammylabel="OT">
+                      </cfcase>
+                      <cfcase value="8">
+                        <cfset teamname="Onboarding/Recruit Team">
+                        <cfset teammylabel="OT/RT">			
+                      </cfcase>
+                    </cfswitch>
+                    [#teammylabel#] #getUsersInDepartments.rtfirstname# #getUsersInDepartments.rtlastname#
+                  </option>
+                </cfloop>
+              </optgroup>   
+            </cfoutput>
+          </cfloop>
+        </select>
+      </div>
+      </cfif>
+      <div class="form-group">
+        <label for="linkdoc">Linked Document</label>
+        <select class="form-control" name="linkdoc">
+          <option value="">--- Select Document ---</option>
+          <cfloop query="getDocGroups">
+            <cfquery dbtype="query" name="getdocsInGroup">
+              select * from getDocs where docgroup = '#getDocGroups.docgroup#'    
+            </cfquery>
+            <optgroup label="<cfoutput>#getDocGroups.docgroup#</cfoutput>">
+              <cfloop query="getdocsInGroup">
+                <option value="<cfoutput>#getdocsInGroup.docid#</cfoutput>" <cfif getdocsInGroup.docID EQ getEditTask.docid>selected</cfif>>
+                  <cfoutput>#getdocsInGroup.docdspname#</cfoutput>
+                </option>
+              </cfloop>
+            </optgroup>
+          </cfloop>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="expirationdate">Days To Complete</label>
+        <select class="form-control required" name="expirationdate">
+          <option value="">--Select Days-- </option>
+          <option value="1" <Cfif 1 EQ getEditTask.DATETOCOMPLETE>selected</cfif> >1 Day</option>
+          <option value="3" <Cfif 3 EQ getEditTask.DATETOCOMPLETE>selected</cfif> >3 Day</option>
+          <option value="5" <Cfif 5 EQ getEditTask.DATETOCOMPLETE>selected</cfif> >5 Day</option>
+          <option value="7" <Cfif 7 EQ getEditTask.DATETOCOMPLETE>selected</cfif> >7 Day</option>
+          <cfloop from="10" to="100" step="10" index="i">
+          <option value="<cfoutput>#i#</cfoutput>" <Cfif i EQ getEditTask.DATETOCOMPLETE>selected</cfif> ><cfoutput>#i#</cfoutput> Days</option>
+          </cfloop>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="priority">Priority</label>
+        <select class="form-control required" name="priority">
+          <option  value="1" <cfif getEditTask.priority EQ 1>selected</cfif>>Normal </option>
+          <option value="0" <cfif getEditTask.priority EQ 0>selected</cfif>>Low </option>
+          <option value="2" <cfif getEditTask.priority EQ 2>selected</cfif>>High </option>
+        </select>
+      </div>      
+      <!---Display for new employee tasks--->
+      <div class="form-group">
+        <label for="global">Global Display <!---Automatically Display In The Portal---></label><br/>
+        <label class="css-input css-radio css-radio-primary push-10-r">
+            <input type="radio" name="global" value="1" <cfif getEditTask.taskglobal EQ 1>checked</cfif>><span></span> Yes
+        </label>
+        <label class="css-input css-radio css-radio-primary">
+            <input type="radio" name="global" value="0"  <cfif getEditTask.taskglobal NEQ 1>checked</cfif>><span></span> No
+        </label>                                   
+      </div>
+    </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <input type="submit" value="Update Task" name="updateTask" class="pull-right btn btn-success">
+      </div>
+    </div>
+  </form>
+
+  <script>
+    $(document).ready(function()  {
+      $("[name='additionalCC']").select2();
+      $("#variableDropdown a").click(function() {
+        ///$("#tskmessage").append($(this).parent().data('val'));	
+        var variableDta = $(this).parent().data('val');		
+        $('#tskmessage').summernote('editor.saveRange');
+        // Editor loses selected range (e.g after blur)
+        $('#tskmessage').summernote('editor.restoreRange');
+        $('#tskmessage').summernote('editor.focus');
+        $('#tskmessage').summernote('editor.insertText', variableDta);		
+        /*
+        var selection = document.getSelection();
+        var cursorPos = selection.anchorOffset;
+        var oldContent = selection.anchorNode.nodeValue;
+        var toInsert = "InsertMe!";
+        var newContent = oldContent.substring(0, cursorPos) + toInsert + oldContent.substring(cursorPos);
+        selection.anchorNode.nodeValue = newContent;
+        */	
+      });
+
+      ///ajax for form	
+      $("#editTasks").submit(function(e){
+        e.preventDefault();		
+        var $form = $(this);
+        // check if the input is valid
+        if(! $form.valid()) return false;
+        $.ajax({
+          url: "/onboarding/tasks/editTasks.cfm",
+          data:$("#editTasks").serialize(),
+          type:"post",
+          success:function(){
+            location.reload(); 	
+          }
+        });//end ajax	
+      });//end form click
+    
+      //form validation
+      jQuery('#editTasks').validate({
+        errorClass: 'help-block animated fadeInDown',
+        errorElement: 'div',
+        errorPlacement: function(error, e) {
+          jQuery(e).parents('.form-group').append(error);
+        },
+        highlight: function(e) {
+          jQuery(e).closest('.form-group').removeClass('has-error').addClass('has-error');
+          jQuery(e).closest('.help-block').remove();
+        },
+        success: function(e) {
+          jQuery(e).closest('.form-group').removeClass('has-error');
+          jQuery(e).closest('.help-block').remove();
+        }			
+      });	
+    });
+  </script>
+
+</cfif>

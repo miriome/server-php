@@ -1,0 +1,155 @@
+CRITICAL - 2023-08-04 08:06:07 --> "authJwt" filter must have a matching alias defined.
+in SYSTEMPATH\Filters\Filters.php on line 340.
+ 1 SYSTEMPATH\Filters\Filters.php(340): CodeIgniter\Filters\Exceptions\FilterException::forNoAlias('authJwt')
+ 2 SYSTEMPATH\CodeIgniter.php(464): CodeIgniter\Filters\Filters->enableFilter('authJwt', 'before')
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 08:12:33 --> Undefined variable $file
+in APPPATH\Controllers\Api\Users.php on line 59.
+ 1 APPPATH\Controllers\Api\Users.php(59): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $file', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 59)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->uploadFile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 08:32:11 --> Undefined variable $validateImage
+in APPPATH\Controllers\Api\Users.php on line 67.
+ 1 APPPATH\Controllers\Api\Users.php(67): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $validateImage', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 67)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->uploadFile()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 08:50:40 --> Call to a member function insertID() on null
+in APPPATH\Models\Api\UserModel.php on line 40.
+ 1 APPPATH\Controllers\Api\Auth.php(83): App\Models\Api\UserModel->signup([...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 08:53:56 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::insertID()
+in APPPATH\Models\Api\UserModel.php on line 40.
+ 1 APPPATH\Controllers\Api\Auth.php(85): App\Models\Api\UserModel->signup([...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 08:56:13 --> Undefined variable $db
+in APPPATH\Models\Api\UserModel.php on line 15.
+ 1 APPPATH\Models\Api\UserModel.php(15): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\UserModel.php', 15)
+ 2 APPPATH\Controllers\Api\Auth.php(15): App\Models\Api\UserModel->__construct()
+ 3 SYSTEMPATH\CodeIgniter.php(904): App\Controllers\Api\Auth->__construct()
+ 4 SYSTEMPATH\CodeIgniter.php(488): CodeIgniter\CodeIgniter->createController()
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 08:57:39 --> Undefined variable $db
+in APPPATH\Models\Api\UserModel.php on line 40.
+ 1 APPPATH\Models\Api\UserModel.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\UserModel.php', 40)
+ 2 APPPATH\Controllers\Api\Auth.php(85): App\Models\Api\UserModel->signup([...])
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 08:59:00 --> Call to undefined method CodeIgniter\Database\MySQLi\Builder::insertRow()
+in APPPATH\Models\Api\UserModel.php on line 39.
+ 1 APPPATH\Controllers\Api\Auth.php(85): App\Models\Api\UserModel->signup([...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 11:59:18 --> Call to a member function getInsertID() on bool
+in APPPATH\Models\Api\UserModel.php on line 40.
+ 1 APPPATH\Controllers\Api\Auth.php(85): App\Models\Api\UserModel->signup([...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 11:59:53 --> Undefined variable $db
+in APPPATH\Models\Api\UserModel.php on line 41.
+ 1 APPPATH\Models\Api\UserModel.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\UserModel.php', 41)
+ 2 APPPATH\Controllers\Api\Auth.php(85): App\Models\Api\UserModel->signup([...])
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 12:00:13 --> Undefined variable $db
+in APPPATH\Models\Api\UserModel.php on line 41.
+ 1 APPPATH\Models\Api\UserModel.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\UserModel.php', 41)
+ 2 APPPATH\Controllers\Api\Auth.php(85): App\Models\Api\UserModel->signup([...])
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 12:00:27 --> Call to a member function insertID() on null
+in APPPATH\Models\Api\UserModel.php on line 41.
+ 1 APPPATH\Controllers\Api\Auth.php(85): App\Models\Api\UserModel->signup([...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 12:02:01 --> Call to a member function insert_id() on null
+in APPPATH\Models\Api\UserModel.php on line 41.
+ 1 APPPATH\Controllers\Api\Auth.php(85): App\Models\Api\UserModel->signup([...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 12:03:40 --> Undefined variable $db
+in APPPATH\Models\Api\UserModel.php on line 41.
+ 1 APPPATH\Models\Api\UserModel.php(41): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\UserModel.php', 41)
+ 2 APPPATH\Controllers\Api\Auth.php(85): App\Models\Api\UserModel->signup([...])
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 12:10:33 --> Undefined variable $db
+in APPPATH\Models\Api\UserModel.php on line 40.
+ 1 APPPATH\Models\Api\UserModel.php(40): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $db', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\UserModel.php', 40)
+ 2 APPPATH\Controllers\Api\Auth.php(85): App\Models\Api\UserModel->signup([...])
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->signup()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 13:17:10 --> Declaration of App\Models\Api\PostModel::insert($data) must be compatible with CodeIgniter\Model::insert($data = null, bool $returnID = true)
+in APPPATH\Models\Api\PostModel.php on line 21.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-08-04 13:17:49 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Post.php on line 25.
+ 1 APPPATH\Controllers\Api\Post.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 25)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 13:19:17 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Post.php on line 25.
+ 1 APPPATH\Controllers\Api\Post.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 25)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 13:20:25 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Post.php on line 25.
+ 1 APPPATH\Controllers\Api\Post.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 25)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 13:30:32 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Post.php on line 25.
+ 1 APPPATH\Controllers\Api\Post.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 25)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 13:32:37 --> Undefined variable $request
+in APPPATH\Controllers\Api\Post.php on line 25.
+ 1 APPPATH\Controllers\Api\Post.php(25): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $request', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 25)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-04 13:33:52 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Post.php on line 26.
+ 1 APPPATH\Controllers\Api\Post.php(26): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 26)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

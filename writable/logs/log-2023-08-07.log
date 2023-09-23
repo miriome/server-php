@@ -1,0 +1,368 @@
+CRITICAL - 2023-08-07 07:01:07 --> Too few arguments to function App\Controllers\Api\Post::setLike(), 0 passed in G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php on line 932 and exactly 1 expected
+in APPPATH\Controllers\Api\Post.php on line 130.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-07 07:01:48 --> mysqli_sql_exception: Unknown column 'user_id' in 'where clause' in G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 G:\xampp8.1\htdocs\miromie\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 G:\xampp8.1\htdocs\miromie\app\Models\Api\PostModel.php(49): CodeIgniter\Database\BaseBuilder->get()
+#5 G:\xampp8.1\htdocs\miromie\app\Controllers\Api\Post.php(140): App\Models\Api\PostModel->setLike(Array, '1')
+#6 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+#7 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 G:\xampp8.1\htdocs\miromie\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-07 07:01:48 --> Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `posts`
+WHERE `user_id` = \'1\'
+AND `post_id` IS NULL', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `posts`
+WHERE `user_id` = \'1\'
+AND `post_id` IS NULL')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `posts`
+WHERE `user_id` = \'1\'
+AND `post_id` IS NULL')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `posts`
+WHERE `user_id` = :user_id:
+AND `post_id` IS NULL', [...], false)
+ 5 APPPATH\Models\Api\PostModel.php(49): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Api\Post.php(140): App\Models\Api\PostModel->setLike([...], '1')
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-07 07:02:42 --> mysqli_sql_exception: Unknown column 'user_id' in 'field list' in G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `po...', 0)
+#1 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 G:\xampp8.1\htdocs\miromie\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', Array, false)
+#4 G:\xampp8.1\htdocs\miromie\app\Models\Api\PostModel.php(57): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 G:\xampp8.1\htdocs\miromie\app\Controllers\Api\Post.php(140): App\Models\Api\PostModel->setLike(Array, '1')
+#6 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+#7 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 G:\xampp8.1\htdocs\miromie\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-07 07:02:42 --> Unknown column 'user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `posts` (`user_id`, `post_id`) VALUES (\'1\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `posts` (`user_id`, `post_id`) VALUES (\'1\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `posts` (`user_id`, `post_id`) VALUES (\'1\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `posts` (`user_id`, `post_id`) VALUES (:user_id:, :post_id:)', [...], false)
+ 5 APPPATH\Models\Api\PostModel.php(57): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Api\Post.php(140): App\Models\Api\PostModel->setLike([...], '1')
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-07 07:03:05 --> mysqli_sql_exception: Unknown column 'user_id' in 'field list' in G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `po...', 0)
+#1 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 G:\xampp8.1\htdocs\miromie\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', Array, false)
+#4 G:\xampp8.1\htdocs\miromie\app\Models\Api\PostModel.php(57): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 G:\xampp8.1\htdocs\miromie\app\Controllers\Api\Post.php(140): App\Models\Api\PostModel->setLike(Array, '1')
+#6 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+#7 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 G:\xampp8.1\htdocs\miromie\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-07 07:03:05 --> Unknown column 'user_id' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `posts` (`user_id`, `post_id`) VALUES (\'1\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `posts` (`user_id`, `post_id`) VALUES (\'1\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `posts` (`user_id`, `post_id`) VALUES (\'1\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `posts` (`user_id`, `post_id`) VALUES (:user_id:, :post_id:)', [...], false)
+ 5 APPPATH\Models\Api\PostModel.php(57): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Api\Post.php(140): App\Models\Api\PostModel->setLike([...], '1')
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-07 07:05:12 --> mysqli_sql_exception: Column 'post_id' cannot be null in G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `li...', 0)
+#1 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `li...')
+#2 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `li...')
+#3 G:\xampp8.1\htdocs\miromie\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `li...', Array, false)
+#4 G:\xampp8.1\htdocs\miromie\app\Models\Api\PostModel.php(57): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 G:\xampp8.1\htdocs\miromie\app\Controllers\Api\Post.php(140): App\Models\Api\PostModel->setLike(Array, '1')
+#6 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+#7 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 G:\xampp8.1\htdocs\miromie\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-07 07:05:12 --> Column 'post_id' cannot be null
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `likes` (`user_id`, `post_id`) VALUES (\'1\', NULL)', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `likes` (`user_id`, `post_id`) VALUES (\'1\', NULL)')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `likes` (`user_id`, `post_id`) VALUES (\'1\', NULL)')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `likes` (`user_id`, `post_id`) VALUES (:user_id:, :post_id:)', [...], false)
+ 5 APPPATH\Models\Api\PostModel.php(57): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Api\Post.php(140): App\Models\Api\PostModel->setLike([...], '1')
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 07:05:31 --> Undefined variable $builder
+in APPPATH\Models\Api\PostModel.php on line 66.
+ 1 APPPATH\Models\Api\PostModel.php(66): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $builder', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Models\\Api\\PostModel.php', 66)
+ 2 APPPATH\Models\Api\PostModel.php(59): App\Models\Api\PostModel->updateLikeCount('1', '1')
+ 3 APPPATH\Controllers\Api\Post.php(140): App\Models\Api\PostModel->setLike([...], '1')
+ 4 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 5 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 6 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 07:06:05 --> Unsupported operand types: string + int
+in APPPATH\Models\Api\PostModel.php on line 66.
+ 1 APPPATH\Models\Api\PostModel.php(59): App\Models\Api\PostModel->updateLikeCount('1', '1')
+ 2 APPPATH\Controllers\Api\Post.php(140): App\Models\Api\PostModel->setLike([...], '1')
+ 3 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 4 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 07:25:36 --> Call to undefined function App\Controllers\Api\now()
+in APPPATH\Controllers\Api\Post.php on line 158.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 07:25:46 --> date() expects at least 1 argument, 0 given
+in APPPATH\Controllers\Api\Post.php on line 159.
+ 1 APPPATH\Controllers\Api\Post.php(159): date()
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 07:38:15 --> Call to undefined method App\Models\Api\PostModel::comments
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\Api\Post.php(182): CodeIgniter\Model->__call('comments', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->comments('1')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 13:24:27 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Users.php on line 139.
+ 1 APPPATH\Controllers\Api\Users.php(139): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 139)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->profile('1')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 13:24:31 --> Undefined array key "follwers"
+in APPPATH\Controllers\Api\Users.php on line 153.
+ 1 APPPATH\Controllers\Api\Users.php(153): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "follwers"', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 153)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->profile('1')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 13:25:23 --> Undefined array key "photo_name"
+in APPPATH\Controllers\Api\Users.php on line 155.
+ 1 APPPATH\Controllers\Api\Users.php(155): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "photo_name"', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 155)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->profile('1')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 13:25:43 --> Call to undefined method App\Models\Api\UserModel::getByUser
+in SYSTEMPATH\Model.php on line 838.
+ 1 APPPATH\Controllers\Api\Users.php(157): CodeIgniter\Model->__call('getByUser', [...])
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->profile('1')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 13:35:20 --> Undefined array key "user_id"
+in APPPATH\Controllers\Api\Post.php on line 95.
+ 1 APPPATH\Controllers\Api\Post.php(95): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "user_id"', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 95)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-07 13:56:06 --> mysqli_sql_exception: Unknown column 'user_id' in 'where clause' in G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 G:\xampp8.1\htdocs\miromie\system\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 G:\xampp8.1\htdocs\miromie\app\Models\Api\UserModel.php(126): CodeIgniter\Database\BaseBuilder->get()
+#5 G:\xampp8.1\htdocs\miromie\app\Controllers\Api\Users.php(154): App\Models\Api\UserModel->checMyFollow('1', '1')
+#6 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(932): App\Controllers\Api\Users->profile('1')
+#7 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+#8 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 G:\xampp8.1\htdocs\miromie\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-07 13:56:06 --> Unknown column 'user_id' in 'where clause'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('SELECT *
+FROM `users`
+WHERE `user_id` = \'1\'
+AND `target_id` = \'1\'', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `users`
+WHERE `user_id` = \'1\'
+AND `target_id` = \'1\'')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `users`
+WHERE `user_id` = \'1\'
+AND `target_id` = \'1\'')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `users`
+WHERE `user_id` = :user_id:
+AND `target_id` = :target_id:', [...], false)
+ 5 APPPATH\Models\Api\UserModel.php(126): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH\Controllers\Api\Users.php(154): App\Models\Api\UserModel->checMyFollow('1', '1')
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->profile('1')
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 15:19:04 --> Class "App\Controllers\Api\BaseController" not found
+in APPPATH\Controllers\Api\Users.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(314): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Api\\Users')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Api\\Users')
+ 5 SYSTEMPATH\CodeIgniter.php(890): class_exists('\\App\\Controllers\\Api\\Users', true)
+ 6 SYSTEMPATH\CodeIgniter.php(484): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 15:20:12 --> Class "App\Controllers\Api\BaseController" not found
+in APPPATH\Controllers\Api\Users.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(314): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Api\\Users')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Api\\Users')
+ 5 SYSTEMPATH\CodeIgniter.php(890): class_exists('\\App\\Controllers\\Api\\Users', true)
+ 6 SYSTEMPATH\CodeIgniter.php(484): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 15:20:22 --> Class "App\Controllers\Api\Base" not found
+in APPPATH\Controllers\Api\Users.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(314): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Api\\Users')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Api\\Users')
+ 5 SYSTEMPATH\CodeIgniter.php(890): class_exists('\\App\\Controllers\\Api\\Users', true)
+ 6 SYSTEMPATH\CodeIgniter.php(484): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 15:20:47 --> Class "App\Controllers\Api\Base" not found
+in APPPATH\Controllers\Api\Users.php on line 8.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(314): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Api\\Users')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Api\\Users')
+ 5 SYSTEMPATH\CodeIgniter.php(890): class_exists('\\App\\Controllers\\Api\\Users', true)
+ 6 SYSTEMPATH\CodeIgniter.php(484): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 17:21:55 --> Undefined array key "follwers"
+in APPPATH\Controllers\Api\Auth.php on line 57.
+ 1 APPPATH\Controllers\Api\Auth.php(57): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "follwers"', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Auth.php', 57)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Auth->login()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Auth))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 17:22:55 --> Class "App\Controllers\Api\ResourceController" not found
+in APPPATH\Controllers\Api\Post.php on line 9.
+ 1 SYSTEMPATH\Autoloader\Autoloader.php(314): include_once()
+ 2 SYSTEMPATH\Autoloader\Autoloader.php(291): CodeIgniter\Autoloader\Autoloader->includeFile('G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php')
+ 3 SYSTEMPATH\Autoloader\Autoloader.php(269): CodeIgniter\Autoloader\Autoloader->loadInNamespace('App\\Controllers\\Api\\Post')
+ 4 [internal function]: CodeIgniter\Autoloader\Autoloader->loadClass('App\\Controllers\\Api\\Post')
+ 5 SYSTEMPATH\CodeIgniter.php(890): class_exists('\\App\\Controllers\\Api\\Post', true)
+ 6 SYSTEMPATH\CodeIgniter.php(484): CodeIgniter\CodeIgniter->startController()
+ 7 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 8 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 17:23:33 --> Array to string conversion
+in APPPATH\Controllers\Api\Post.php on line 156.
+ 1 APPPATH\Controllers\Api\Post.php(156): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 156)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 17:42:52 --> Undefined array key "added_by"
+in APPPATH\Controllers\Api\Users.php on line 218.
+ 1 APPPATH\Controllers\Api\Users.php(218): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "added_by"', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 218)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 18:54:24 --> Too few arguments to function App\Controllers\Api\Post::getDetail(), 0 passed in G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php on line 932 and exactly 1 expected
+in APPPATH\Controllers\Api\Post.php on line 131.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->getDetail()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+ERROR - 2023-08-07 19:30:58 --> mysqli_sql_exception: Unknown column 'message' in 'field list' in G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php:295
+Stack trace:
+#0 G:\xampp8.1\htdocs\miromie\system\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `co...', 0)
+#1 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `co...')
+#2 G:\xampp8.1\htdocs\miromie\system\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `co...')
+#3 G:\xampp8.1\htdocs\miromie\system\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `co...', Array, false)
+#4 G:\xampp8.1\htdocs\miromie\app\Models\Api\UserModel.php(165): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 G:\xampp8.1\htdocs\miromie\app\Controllers\Api\Users.php(273): App\Models\Api\UserModel->contact(Array)
+#6 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+#7 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+#8 G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 G:\xampp8.1\htdocs\miromie\public\index.php(67): CodeIgniter\CodeIgniter->run()
+#10 {main}
+CRITICAL - 2023-08-07 19:30:58 --> Unknown column 'message' in 'field list'
+in SYSTEMPATH\Database\MySQLi\Connection.php on line 295.
+ 1 SYSTEMPATH\Database\MySQLi\Connection.php(295): mysqli->query('INSERT INTO `contacts` (`user_id`, `target_id`, `message`, `last_timestamp`, `last_date`) VALUES (\'1\', \'2\', \'[Image file]\', 1691436658, \'2023-08-07 19:30:58\')', 0)
+ 2 SYSTEMPATH\Database\BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `contacts` (`user_id`, `target_id`, `message`, `last_timestamp`, `last_date`) VALUES (\'1\', \'2\', \'[Image file]\', 1691436658, \'2023-08-07 19:30:58\')')
+ 3 SYSTEMPATH\Database\BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `contacts` (`user_id`, `target_id`, `message`, `last_timestamp`, `last_date`) VALUES (\'1\', \'2\', \'[Image file]\', 1691436658, \'2023-08-07 19:30:58\')')
+ 4 SYSTEMPATH\Database\BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `contacts` (`user_id`, `target_id`, `message`, `last_timestamp`, `last_date`) VALUES (:user_id:, :target_id:, :message:, :last_timestamp:, :last_date:)', [...], false)
+ 5 APPPATH\Models\Api\UserModel.php(165): CodeIgniter\Database\BaseBuilder->insert([...])
+ 6 APPPATH\Controllers\Api\Users.php(273): App\Models\Api\UserModel->contact([...])
+ 7 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 8 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 9 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 19:31:16 --> Undefined variable $result
+in APPPATH\Controllers\Api\Users.php on line 277.
+ 1 APPPATH\Controllers\Api\Users.php(277): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $result', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Users.php', 277)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 20:02:36 --> Declaration of App\Controllers\Api\Post::edit($postId) must be compatible with CodeIgniter\RESTful\ResourceController::edit($id = null)
+in APPPATH\Controllers\Api\Post.php on line 83.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-08-07 20:04:35 --> Declaration of App\Controllers\Api\Post::edit() must be compatible with CodeIgniter\RESTful\ResourceController::edit($id = null)
+in APPPATH\Controllers\Api\Post.php on line 83.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-08-07 20:05:07 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Post.php on line 85.
+ 1 APPPATH\Controllers\Api\Post.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 85)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->editPost('9')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 20:06:01 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH\Controllers\Api\Post.php on line 85.
+ 1 APPPATH\Controllers\Api\Post.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', 'G:\\xampp8.1\\htdocs\\miromie\\app\\Controllers\\Api\\Post.php', 85)
+ 2 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->editPost('9')
+ 3 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 20:06:42 --> Too few arguments to function App\Controllers\Api\Post::editPost(), 0 passed in G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php on line 932 and exactly 1 expected
+in APPPATH\Controllers\Api\Post.php on line 83.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->editPost()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()
+CRITICAL - 2023-08-07 20:07:15 --> Too few arguments to function App\Controllers\Api\Post::editPost(), 0 passed in G:\xampp8.1\htdocs\miromie\system\CodeIgniter.php on line 932 and exactly 1 expected
+in APPPATH\Controllers\Api\Post.php on line 83.
+ 1 SYSTEMPATH\CodeIgniter.php(932): App\Controllers\Api\Post->editPost()
+ 2 SYSTEMPATH\CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH\CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH\index.php(67): CodeIgniter\CodeIgniter->run()

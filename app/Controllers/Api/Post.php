@@ -484,6 +484,22 @@ class Post extends Base
         return $this->response->setJSON($response);
     }
 
+    // delete comment
+    function deleteComment() {
+
+        $commentId = $this->request->getPost('comment_id');
+        $this->_postModel->deleteComment($commentId);
+
+        $response = [
+            'status' => true,
+            'data' => '',
+            'message' => "Comment deleted.",
+        ];
+
+        return $this->response->setJSON($response);
+
+    }
+
 
     function search() {
 

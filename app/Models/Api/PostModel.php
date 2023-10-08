@@ -190,9 +190,16 @@ class PostModel extends Model
         $builder->insert($data);
     }
 
+    function deleteComment($commentId) {
+        $builder = $this->db->table('comments')->where('id', $commentId);
+        $builder->set('is_deleted', 1, FALSE);
+        $builder->update();
+    }
+
     function comments($postId) {
         $builder = $this->db->table('comments');
         return $builder->where('post_id', $postId)
+                        ->where('is_deleted', FALSE)
                         ->get()
                         ->getResultArray();
     }

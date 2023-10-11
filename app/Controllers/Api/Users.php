@@ -10,10 +10,12 @@ class Users extends Base
 	protected $_userModel;
 	protected $_postModel;
 
+    
     public function __construct()
     {
         $this->_userModel = new UserModel();
         $this->_postModel = new PostModel();
+
     }
 
     // edit user information

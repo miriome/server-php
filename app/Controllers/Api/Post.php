@@ -25,7 +25,6 @@ class Post extends Base
     public function addPost() {
 
         $userId = $this->request->user->userId;
-
         $data = array(
             'caption' => $this->request->getPost('caption'),
             'chat_enabled' => $this->request->getPost('chat_enabled'),
@@ -406,8 +405,9 @@ class Post extends Base
 
     // Add comment
     function comment() {
-
+        
         $userId = $this->request->user->userId;
+
         $postId = $this->request->getPost('post_id');
 
         $data = ['user_id' => $userId,

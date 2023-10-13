@@ -1,0 +1,144 @@
+CRITICAL - 2023-10-12 14:37:07 --> openssl_sign(): Supplied key param cannot be coerced into a private key
+in VENDORPATH/firebase/php-jwt/src/JWT.php on line 247.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'openssl_sign(): Supplied key param cannot be coerced into a private key', '/Users/winson.heng/server-php/vendor/firebase/php-jwt/src/JWT.php', 247)
+ 2 VENDORPATH/firebase/php-jwt/src/JWT.php(247): openssl_sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiI2TjUyVVVKUUJHIiwiaWF0IjoxNjk3MTIxNDI3fQ', '', Object(SensitiveParameterValue), 'SHA256')
+ 3 VENDORPATH/firebase/php-jwt/src/JWT.php(212): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiI2TjUyVVVKUUJHIiwiaWF0IjoxNjk3MTIxNDI3fQ', '98JP9MCV4T', 'ES256')
+ 4 APPPATH/Controllers/Api/Base.php(77): Firebase\JWT\JWT::encode([...], '98JP9MCV4T', 'ES256')
+ 5 APPPATH/Controllers/Api/Users.php(377): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Ha', 'winsHas sent you a message')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:37:46 --> openssl_sign(): Supplied key param cannot be coerced into a private key
+in VENDORPATH/firebase/php-jwt/src/JWT.php on line 247.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'openssl_sign(): Supplied key param cannot be coerced into a private key', '/Users/winson.heng/server-php/vendor/firebase/php-jwt/src/JWT.php', 247)
+ 2 VENDORPATH/firebase/php-jwt/src/JWT.php(247): openssl_sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiI2TjUyVVVKUUJHIiwiaWF0IjoxNjk3MTIxNDY2fQ', '', Object(SensitiveParameterValue), 'SHA256')
+ 3 VENDORPATH/firebase/php-jwt/src/JWT.php(212): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiI2TjUyVVVKUUJHIiwiaWF0IjoxNjk3MTIxNDY2fQ', '98JP9MCV4T', 'ES256')
+ 4 APPPATH/Controllers/Api/Base.php(77): Firebase\JWT\JWT::encode([...], '98JP9MCV4T', 'ES256')
+ 5 APPPATH/Controllers/Api/Users.php(377): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Did', 'winsHas sent you a message')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:38:32 --> openssl_sign(): Supplied key param cannot be coerced into a private key
+in VENDORPATH/firebase/php-jwt/src/JWT.php on line 247.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'openssl_sign(): Supplied key param cannot be coerced into a private key', '/Users/winson.heng/server-php/vendor/firebase/php-jwt/src/JWT.php', 247)
+ 2 VENDORPATH/firebase/php-jwt/src/JWT.php(247): openssl_sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiI2TjUyVVVKUUJHIiwiaWF0IjoxNjk3MTIxNTEyfQ', '', Object(SensitiveParameterValue), 'SHA256')
+ 3 VENDORPATH/firebase/php-jwt/src/JWT.php(212): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiI2TjUyVVVKUUJHIiwiaWF0IjoxNjk3MTIxNTEyfQ', '98JP9MCV4T', 'ES256')
+ 4 APPPATH/Controllers/Api/Base.php(77): Firebase\JWT\JWT::encode([...], '98JP9MCV4T', 'ES256')
+ 5 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Ff', 'winsHas sent you a message')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:39:03 --> openssl_sign(): Supplied key param cannot be coerced into a private key
+in VENDORPATH/firebase/php-jwt/src/JWT.php on line 247.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'openssl_sign(): Supplied key param cannot be coerced into a private key', '/Users/winson.heng/server-php/vendor/firebase/php-jwt/src/JWT.php', 247)
+ 2 VENDORPATH/firebase/php-jwt/src/JWT.php(247): openssl_sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiI2TjUyVVVKUUJHIiwiaWF0IjoxNjk3MTIxNTQzfQ', '', Object(SensitiveParameterValue), 'SHA256')
+ 3 VENDORPATH/firebase/php-jwt/src/JWT.php(212): Firebase\JWT\JWT::sign('eyJ0eXAiOiJKV1QiLCJhbGciOiJFUzI1NiJ9.eyJpc3MiOiI2TjUyVVVKUUJHIiwiaWF0IjoxNjk3MTIxNTQzfQ', '98JP9MCV4T', 'ES256')
+ 4 APPPATH/Controllers/Api/Base.php(77): Firebase\JWT\JWT::encode([...], '98JP9MCV4T', 'ES256')
+ 5 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Fff', 'winsHas sent you a message')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:40:19 --> Undefined variable $jwt
+in APPPATH/Controllers/Api/Base.php on line 84.
+ 1 APPPATH/Controllers/Api/Base.php(84): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jwt', '/Users/winson.heng/server-php/app/Controllers/Api/Base.php', 84)
+ 2 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Ff', 'winsHas sent you a message')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:40:36 --> Undefined variable $jwt
+in APPPATH/Controllers/Api/Base.php on line 84.
+ 1 APPPATH/Controllers/Api/Base.php(84): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jwt', '/Users/winson.heng/server-php/app/Controllers/Api/Base.php', 84)
+ 2 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Ff', 'winsHas sent you a message')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:41:00 --> Undefined variable $jwt
+in APPPATH/Controllers/Api/Base.php on line 85.
+ 1 APPPATH/Controllers/Api/Base.php(85): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $jwt', '/Users/winson.heng/server-php/app/Controllers/Api/Base.php', 85)
+ 2 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Ff', 'winsHas sent you a message')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:41:20 --> error_log(): Argument #2 ($message_type) must be of type int, string given
+in APPPATH/Controllers/Api/Base.php on line 81.
+ 1 APPPATH/Controllers/Api/Base.php(81): error_log('Caught exception: ', 'openssl_sign(): Supplied key param cannot be coerced into a private key', '
+')
+ 2 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Ff', 'winsHas sent you a message')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:42:09 --> error_log(): Argument #2 ($message_type) must be of type int, string given
+in APPPATH/Controllers/Api/Base.php on line 81.
+ 1 APPPATH/Controllers/Api/Base.php(81): error_log('Caught exception: ', 'openssl_sign(): Supplied key param cannot be coerced into a private key', '
+')
+ 2 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Ff', 'winsHas sent you a message')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:52:51 --> file_get_contents(./AuthKey_B9GG868T6P.p8): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Api/Base.php on line 66.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(./AuthKey_B9GG868T6P.p8): Failed to open stream: No such file or directory', '/Users/winson.heng/server-php/app/Controllers/Api/Base.php', 66)
+ 2 APPPATH/Controllers/Api/Base.php(66): file_get_contents('./AuthKey_B9GG868T6P.p8')
+ 3 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Ff', 'winsHas sent you a message')
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:53:19 --> file_get_contents(./AuthKey_B9GG868T6P.p8): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Api/Base.php on line 66.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(./AuthKey_B9GG868T6P.p8): Failed to open stream: No such file or directory', '/Users/winson.heng/server-php/app/Controllers/Api/Base.php', 66)
+ 2 APPPATH/Controllers/Api/Base.php(66): file_get_contents('./AuthKey_B9GG868T6P.p8')
+ 3 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Ff', 'winsHas sent you a message')
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:54:19 --> file_get_contents(./AuthKey_B9GG868T6P.p8): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Api/Base.php on line 67.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(./AuthKey_B9GG868T6P.p8): Failed to open stream: No such file or directory', '/Users/winson.heng/server-php/app/Controllers/Api/Base.php', 67)
+ 2 APPPATH/Controllers/Api/Base.php(67): file_get_contents('./AuthKey_B9GG868T6P.p8')
+ 3 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Add', 'winsHas sent you a message')
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 14:58:02 --> file_get_contents(AuthKey_B9GG868T6P.p8): Failed to open stream: No such file or directory
+in APPPATH/Controllers/Api/Base.php on line 67.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->errorHandler(2, 'file_get_contents(AuthKey_B9GG868T6P.p8): Failed to open stream: No such file or directory', '/Users/winson.heng/server-php/app/Controllers/Api/Base.php', 67)
+ 2 APPPATH/Controllers/Api/Base.php(67): file_get_contents('AuthKey_B9GG868T6P.p8')
+ 3 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Add', 'winsHas sent you a message')
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-12 15:02:41 --> error_log(): Argument #1 ($message) must be of type string, array given
+in APPPATH/Controllers/Api/Base.php on line 119.
+ 1 APPPATH/Controllers/Api/Base.php(119): error_log([...])
+ 2 APPPATH/Controllers/Api/Users.php(378): App\Controllers\Api\Base->sendNotification('7c704243fe4608683f170764dfb098e1dad10feb2a6785af3898e89f34c9aca0', [...], 'Add', 'winsHas sent you a message')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendMessage()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

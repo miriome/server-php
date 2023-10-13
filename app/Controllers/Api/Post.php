@@ -5,16 +5,18 @@ namespace App\Controllers\Api;
 use App\Controllers\Api\Base;
 use App\Models\Api\PostModel;
 use App\Models\Api\UserModel;
+use App\Models\Api\DeviceModel;
 
 class Post extends Base
 {
     protected $_postModel;
     protected $_userModel;
-
+    protected $_deviceModel;
     public function __construct()
     {
         $this->_postModel = new PostModel();
         $this->_userModel = new UserModel();
+        $this->_deviceModel = new DeviceModel();
     }
 
     public function index()
@@ -25,7 +27,6 @@ class Post extends Base
     public function addPost() {
 
         $userId = $this->request->user->userId;
-
         $data = array(
             'caption' => $this->request->getPost('caption'),
             'chat_enabled' => $this->request->getPost('chat_enabled'),
@@ -376,9 +377,10 @@ class Post extends Base
             $post = $this->_postModel->getById($postId);
             if ($userId != $post['added_by']) {
                 $user = $this->_userModel->getUserById($userId);
-                $targetUser = $this->_userModel->getUserById($post['added_by']);
+                
                 $msg = $user['username'] . ' '. $likeMessage . ' your post';
-                $this->sendNotification($targetUser['token'], array(), $msg);
+                $token = $this->_deviceModel->getPushId($post['added_by']);
+                $this->sendNotification($token, array(), $msg);
 
                 if ($post['added_by'] != $userId) {
                     // Add notification history
@@ -406,8 +408,9 @@ class Post extends Base
 
     // Add comment
     function comment() {
-
+        
         $userId = $this->request->user->userId;
+
         $postId = $this->request->getPost('post_id');
 
         $data = ['user_id' => $userId,
@@ -422,10 +425,10 @@ class Post extends Base
         $post = $this->_postModel->getById($postId);
         if ($userId != $post['added_by']) {
             $user = $this->_userModel->getUserById($userId);
-            $targetUser = $this->_userModel->getUserById($post['added_by']);
-            $msg = $user['username'] . ' commented your post';
 
-            $this->sendNotification($targetUser['token'], array(), $msg);
+            $msg = $user['username'] . ' commented your post';
+            $token = $this->_deviceModel->getPushId($post['added_by']);
+            $this->sendNotification($token, array(), $msg);
             if ($post['added_by'] != $userId) {
                 // Add notification history
                 $notificationData = [

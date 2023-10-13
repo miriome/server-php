@@ -3,6 +3,7 @@
 use App\Controllers\Api\Base;
 use App\Models\Api\UserModel;
 use App\Models\Api\PostModel;
+use App\Models\Api\DeviceModel;
 
 
 class Users extends Base
@@ -10,10 +11,15 @@ class Users extends Base
 	protected $_userModel;
 	protected $_postModel;
 
+    protected $_deviceModel;
+
+    
     public function __construct()
     {
         $this->_userModel = new UserModel();
         $this->_postModel = new PostModel();
+        $this->_deviceModel = new DeviceModel();
+
     }
 
     // edit user information
@@ -194,7 +200,8 @@ class Users extends Base
             $user = $this->_userModel->getUserById($userId);
             $targetUser = $this->_userModel->getUserById($targetId);
             $msg = $user['username'] . ' started following you';
-            $this->sendNotification($targetUser['token'], array(), $msg);
+            $token = $this->_deviceModel->getPushId($targetId);
+            $this->sendNotification($token, array(), $msg);
 
             // Add notification history
             $notificationData = [
@@ -363,7 +370,14 @@ class Users extends Base
             'message_type' => $message_type,
             'message' => $message,
         ];
-        $this->sendNotification($targetUser['token'], $payload, $message);
+        $token = $this->_deviceModel->getPushId($targetId);
+        
+        
+        $title = strlen($user['name']) > 0 ? $user['name'] : $user['username'];
+        if ($token) {
+            $this->sendNotification($token, $payload, $message, $title, "Has sent you a message");
+        }
+        
 
         $response = [
             'status' => true,

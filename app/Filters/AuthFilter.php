@@ -40,8 +40,10 @@ class AuthFilter implements FilterInterface
 		try
 		{
 			// $decoded = JWT::decode($token, $key);
+			error_log("decoding");
 			$decoded = JWT::decode($token, new Key($key, 'HS256'));
 			$request->user = $decoded;
+			error_log($request->getUri());
 			return $request;
 		}
 		catch (\Exception $e)

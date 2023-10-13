@@ -43,6 +43,10 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('checkDuplicate', 'Auth::checkDuplicate');
     });
 
+    $routes->group('account', function ($routes) {
+        $routes->post('registerDeviceToken', 'Account::registerDevicePushToken', ['filter' => 'authFilter']);
+    });
+
 //    $routes->resource('users', ['filter' => 'authJwt']);
     $routes->group('users', function ($routes) {
 		$routes->post('editDisplayName', 'Users::editDisplayName', ['filter' => 'authFilter']);
@@ -85,6 +89,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('setLike', 'Post::setLike', ['filter' => 'authFilter']);
         $routes->post('comment', 'Post::comment', ['filter' => 'authFilter']);
         $routes->get('comments/(:segment)', 'Post::comments/$1', ['filter' => 'authFilter']);
+        $routes->post('deleteComment', 'Post::deleteComment', ['filter' => 'authFilter']);
 
 
         /*

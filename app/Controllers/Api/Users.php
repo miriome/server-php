@@ -55,6 +55,17 @@ class Users extends Base
         return $this->respond($result, 200);
     }
 
+    function editStyles(){
+
+        $result = array();
+        $userId = $this->request->user->userId;
+        $data = ['styles'  => $this->request->getPost('styles'),];
+
+        $this->_userModel->editUser($userId, $data);
+        $result = ['status' => true, 'data' => ""];
+        return $this->respond($result, 200);
+    }
+
     function uploadFile() {
 
         $userId = $this->request->user->userId;

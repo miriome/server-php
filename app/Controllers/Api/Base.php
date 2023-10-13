@@ -8,7 +8,9 @@ use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Psr\Log\LoggerInterface;
+use Firebase\JWT\JWT;
 use CodeIgniter\RESTful\ResourceController;
+
 
 /**
  * Class BaseController
@@ -57,51 +59,65 @@ abstract class Base extends ResourceController
         // E.g.: $this->session = \Config\Services::session();
     }
 
-    public function sendNotification($token, $data = [], $message = '') {
-
-        $url = "https://fcm.googleapis.com/fcm/send";
-        $api_key = FCM_API_KEY;
-
-        //$badge = $user['noti_count'];
-        if ($token == "" ) {
+    public function sendNotification($token, $data = [], $message = '', $title = APP_NAME, $subtitle = '') {
+        if ($token == "" || $token == null) {
             return;
         }
-
+        
+        $privateKeyPath = __DIR__ . '/AuthKey_B9GG868T6P.p8';
+        $p8key = file_get_contents($privateKeyPath);
+        
+        $url = "https://api.sandbox.push.apple.com:443";
+        // Swap this out when deploying.
+        // $url = "https://api.push.apple.com:443";
+        
+        
+        $payload = [
+            "iss" => "6N52UUJQBG",
+            "iat" => time()
+        ];
+        
+        
+        
+        $headers = array(
+            'kid' => "B9GG868T6P"
+         );
+        $jwt = JWT::encode($payload, $p8key, 'ES256', null, $headers);
+        
+        error_log($subtitle);
         $msg = array
                 (
                     'body'      => $message,
-                    'title'     => APP_NAME,
+                    'title'     => $title,
+                    'subtitle'  => $subtitle,
                     'badge'     => "1",
                     'sound'     => 'default'/*Default sound*/
                 );
 
-        $fields = array
-            (
-                //'registration_ids'    => $tokens,
-                'to'                => $token,
-                'notification'      => $msg,
-                'priority'          => 'high',
-                'data'              => $data
-            );
-
+        $fields = ["aps" => [ "alert" => $msg, "mutable-content" => "1"]];
+        $apnsUrl = $url . '/3/device/' . $token;
         $headers = array(
-            'Authorization: key=' . $api_key,
-            'Content-Type: application/json'
+            "apns-push-type: alert",
+            "Authorization: bearer $jwt",
+            'Content-Type: application/json',
+            "apns-topic: com.miromie.ios.miromie"
         );
 
         $ch = curl_init();
 
-        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_URL, $apnsUrl);
         curl_setopt($ch, CURLOPT_POST, true);
         curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
         curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
         curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
         curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 1);
 
-        $result['result'] = curl_exec($ch);
-
+        $lmao = curl_exec($ch);
+        error_log($lmao);
+        error_log($lmao == true);
         curl_close($ch);
     }
 }

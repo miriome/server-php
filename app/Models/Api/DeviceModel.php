@@ -38,5 +38,14 @@ class DeviceModel extends Model
         
     }
 
+    public function getPushId($uid) {
+        $tokenResult = $this->builder->where('uid', $uid)->get()->getRowArray();
+        if ($tokenResult) {
+            return $tokenResult['device_push_token'];
+        }
+        return null;
+        
+    }
+
 
 }

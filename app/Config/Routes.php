@@ -51,6 +51,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
     $routes->group('users', function ($routes) {
 		$routes->post('editDisplayName', 'Users::editDisplayName', ['filter' => 'authFilter']);
 		$routes->post('editProfile', 'Users::editProfile', ['filter' => 'authFilter']);
+        $routes->post('editStyles', 'Users::editStyles', ['filter' => 'authFilter']);
 		$routes->post('editMeasurement', 'Users::editMeasurement', ['filter' => 'authFilter']);
 		$routes->post('uploadFile', 'Users::uploadFile', ['filter' => 'authFilter']);
 		$routes->post('follow', 'Users::follow', ['filter' => 'authFilter']);

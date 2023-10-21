@@ -24,32 +24,12 @@ class Database extends Config
     /**
      * The default database connection.
      */
-    public array $default = [
-        'DSN'      => '',
-        'hostname' => '184.168.98.206',
-        'username' => 'miromie_root',
-        'password' => 'KIaR*~E,L3D.',
-        'database' => 'miromie',
-        'DBDriver' => 'MySQLi',
-        'DBPrefix' => '',
-        'pConnect' => false,
-        'DBDebug'  => true,
-        'charset'  => 'utf8',
-        'DBCollat' => 'utf8_general_ci',
-        'swapPre'  => '',
-        'encrypt'  => false,
-        'compress' => false,
-        'strictOn' => false,
-        'failover' => [],
-        'port'     => 3306,
-    ];
-
     // public array $default = [
     //     'DSN'      => '',
-    //     'hostname' => 'localhost',
-    //     'username' => 'root',
-    //     'password' => 'winson',
-    //     'database' => 'miromie-local',
+    //     'hostname' => '184.168.98.206',
+    //     'username' => 'miromie_root',
+    //     'password' => 'KIaR*~E,L3D.',
+    //     'database' => 'miromie',
     //     'DBDriver' => 'MySQLi',
     //     'DBPrefix' => '',
     //     'pConnect' => false,
@@ -63,6 +43,26 @@ class Database extends Config
     //     'failover' => [],
     //     'port'     => 3306,
     // ];
+
+    public array $default = [
+        'DSN'      => '',
+        'hostname' => 'localhost',
+        'username' => 'root',
+        'password' => 'winson',
+        'database' => 'miromie-local',
+        'DBDriver' => 'MySQLi',
+        'DBPrefix' => '',
+        'pConnect' => false,
+        'DBDebug'  => true,
+        'charset'  => 'utf8',
+        'DBCollat' => 'utf8_general_ci',
+        'swapPre'  => '',
+        'encrypt'  => false,
+        'compress' => false,
+        'strictOn' => false,
+        'failover' => [],
+        'port'     => 3306,
+    ];
     
     // Doesnt work lmao
     // public array $local = [

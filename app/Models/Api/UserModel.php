@@ -117,6 +117,13 @@ class UserModel extends Model {
                 ->getRowArray();
     }
 
+    function deleteUserPermanently($id) {
+
+        return $this->builder
+                ->where('id', $id)
+                ->delete();
+    }
+
 
     function follow($data, $isFollow) {
 

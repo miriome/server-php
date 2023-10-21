@@ -1,0 +1,238 @@
+ERROR - 2023-10-21 09:48:56 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'REFERENCES users(id) 
+                          ON DELETE CASCADE ON UPDATE CASC' at line 4 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE pos...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pos...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pos...')
+#3 /Users/winson.heng/server-php/app/Database/Migrations/2023-10-21-094616_AlterPostAddedByColumnToForeignKey.php(12): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pos...')
+#4 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\AlterPostAddedByColumnToForeignKey->up()
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+CRITICAL - 2023-10-21 10:13:06 --> Declaration of App\Controllers\Api\Account::delete() must be compatible with CodeIgniter\RESTful\ResourceController::delete($id = null)
+in APPPATH/Controllers/Api/Account.php on line 28.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-10-21 10:14:07 --> Declaration of App\Controllers\Api\Account::delete() must be compatible with CodeIgniter\RESTful\ResourceController::delete($id = null)
+in APPPATH/Controllers/Api/Account.php on line 28.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-10-21 10:14:15 --> Declaration of App\Controllers\Api\Account::delete() must be compatible with CodeIgniter\RESTful\ResourceController::delete($id = null)
+in APPPATH/Controllers/Api/Account.php on line 28.
+ 1 [internal function]: CodeIgniter\Debug\Exceptions->shutdownHandler()
+CRITICAL - 2023-10-21 10:16:05 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 69.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:16:11 --> CodeIgniter\Database\BaseBuilder::get(): Argument #1 ($limit) must be of type ?int, string given, called in /Users/winson.heng/server-php/app/Controllers/Api/Account.php on line 30
+in SYSTEMPATH/Database/BaseBuilder.php on line 1608.
+ 1 APPPATH/Controllers/Api/Account.php(30): CodeIgniter\Database\BaseBuilder->get('image')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:16:53 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 69.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:17:05 --> CodeIgniter\Database\BaseBuilder::get(): Argument #1 ($limit) must be of type ?int, string given, called in /Users/winson.heng/server-php/app/Controllers/Api/Account.php on line 31
+in SYSTEMPATH/Database/BaseBuilder.php on line 1608.
+ 1 APPPATH/Controllers/Api/Account.php(31): CodeIgniter\Database\BaseBuilder->get('image')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:17:57 --> CodeIgniter\Database\BaseBuilder::get(): Argument #1 ($limit) must be of type ?int, string given, called in /Users/winson.heng/server-php/app/Controllers/Api/Account.php on line 31
+in SYSTEMPATH/Database/BaseBuilder.php on line 1608.
+ 1 APPPATH/Controllers/Api/Account.php(31): CodeIgniter\Database\BaseBuilder->get('image')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:18:32 --> CodeIgniter\Database\BaseBuilder::get(): Argument #1 ($limit) must be of type ?int, string given, called in /Users/winson.heng/server-php/app/Controllers/Api/Account.php on line 31
+in SYSTEMPATH/Database/BaseBuilder.php on line 1608.
+ 1 APPPATH/Controllers/Api/Account.php(31): CodeIgniter\Database\BaseBuilder->get('image')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:19:45 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 69.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:26:57 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(70): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1697884017_4676de56708eabce0dcb.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:27:44 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(70): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1697884064_3207cf189ecebcc57f40.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:43:59 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(70): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1697885039_eb430fa11ca7432211cc.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:44:07 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(70): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1697885047_8a9ecef8d69218e5698c.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:44:21 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(70): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1697885061_bd8d6213dc8679883563.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:47:49 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(70): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1697885269_f022c60fb96f80789692.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:50:02 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(70): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1697885402_b0fbb7800d44f138bd97.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 10:50:46 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(70): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1697885446_2101e280b1106cc811b6.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 11:06:49 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(70): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1697886409_22b11714f04ee235775d.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 11:07:10 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(70): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1697886430_3a679433c520eb2d186b.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 17:42:41 --> CodeIgniter\Database\BaseBuilder::get(): Argument #1 ($limit) must be of type ?int, string given, called in /Users/winson.heng/server-php/app/Controllers/Api/Account.php on line 31
+in SYSTEMPATH/Database/BaseBuilder.php on line 1608.
+ 1 APPPATH/Controllers/Api/Account.php(31): CodeIgniter\Database\BaseBuilder->get('image')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 17:43:22 --> CodeIgniter\Database\BaseBuilder::get(): Argument #1 ($limit) must be of type ?int, string given, called in /Users/winson.heng/server-php/app/Controllers/Api/Account.php on line 31
+in SYSTEMPATH/Database/BaseBuilder.php on line 1608.
+ 1 APPPATH/Controllers/Api/Account.php(31): CodeIgniter\Database\BaseBuilder->get('image')
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 17:49:19 --> Array to string conversion
+in APPPATH/Controllers/Api/Account.php on line 37.
+ 1 APPPATH/Controllers/Api/Account.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Users/winson.heng/server-php/app/Controllers/Api/Account.php', 37)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 17:49:34 --> Array to string conversion
+in APPPATH/Controllers/Api/Account.php on line 37.
+ 1 APPPATH/Controllers/Api/Account.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Users/winson.heng/server-php/app/Controllers/Api/Account.php', 37)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 17:49:51 --> Array to string conversion
+in APPPATH/Controllers/Api/Account.php on line 37.
+ 1 APPPATH/Controllers/Api/Account.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Users/winson.heng/server-php/app/Controllers/Api/Account.php', 37)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 17:50:39 --> Array to string conversion
+in APPPATH/Controllers/Api/Account.php on line 37.
+ 1 APPPATH/Controllers/Api/Account.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Users/winson.heng/server-php/app/Controllers/Api/Account.php', 37)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 17:51:00 --> Array to string conversion
+in APPPATH/Controllers/Api/Account.php on line 37.
+ 1 APPPATH/Controllers/Api/Account.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Users/winson.heng/server-php/app/Controllers/Api/Account.php', 37)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 17:51:14 --> Array to string conversion
+in APPPATH/Controllers/Api/Account.php on line 37.
+ 1 APPPATH/Controllers/Api/Account.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Users/winson.heng/server-php/app/Controllers/Api/Account.php', 37)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-21 17:52:42 --> Array to string conversion
+in APPPATH/Controllers/Api/Account.php on line 37.
+ 1 APPPATH/Controllers/Api/Account.php(37): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Array to string conversion', '/Users/winson.heng/server-php/app/Controllers/Api/Account.php', 37)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Account->permDelete()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Account))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

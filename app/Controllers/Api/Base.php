@@ -67,9 +67,9 @@ abstract class Base extends ResourceController
         $privateKeyPath = __DIR__ . '/AuthKey_B9GG868T6P.p8';
         $p8key = file_get_contents($privateKeyPath);
         
-        $url = "https://api.sandbox.push.apple.com:443";
+        // $url = "https://api.sandbox.push.apple.com:443";
         // Swap this out when deploying.
-        // $url = "https://api.push.apple.com:443";
+        $url = "https://api.push.apple.com:443";
         
         
         $payload = [

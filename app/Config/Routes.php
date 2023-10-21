@@ -48,6 +48,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
 
     $routes->group('account', function ($routes) {
         $routes->post('registerDeviceToken', 'Account::registerDevicePushToken', ['filter' => 'authFilter']);
+        $routes->post('permDelete', 'Account::permDelete', ['filter' => 'authFilter']);
     });
 
 //    $routes->resource('users', ['filter' => 'authJwt']);

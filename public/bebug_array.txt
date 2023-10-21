@@ -2,15 +2,15 @@ Array
 (
     [file] => CodeIgniter\HTTP\Files\UploadedFile Object
         (
-            [size:protected] => 5354278
-            [originalMimeType:protected] => image/jpg
-            [path:protected] => /tmp/phpIYVmiw
+            [size:protected] => 0
+            [originalMimeType:protected] => 
+            [path:protected] => 
             [originalName:protected] => image.jpg
             [name:protected] => image.jpg
-            [error:protected] => 0
+            [error:protected] => 1
             [hasMoved:protected] => 
-            [pathName:SplFileInfo:private] => /tmp/phpIYVmiw
-            [fileName:SplFileInfo:private] => phpIYVmiw
+            [pathName:SplFileInfo:private] => 
+            [fileName:SplFileInfo:private] => 
         )
 
 )

@@ -1,6 +1,7 @@
 <?php
 
 namespace Config;
+
 use App\Controllers\PrivacyPolicy;
 
 // Create a new instance of our RouteCollection class.
@@ -55,36 +56,37 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('reportContent', 'Privacy::reportContent', ['filter' => 'authFilter']);
     });
 
-//    $routes->resource('users', ['filter' => 'authJwt']);
+    //    $routes->resource('users', ['filter' => 'authJwt']);
     $routes->group('users', function ($routes) {
-		$routes->post('editDisplayName', 'Users::editDisplayName', ['filter' => 'authFilter']);
-		$routes->post('editProfile', 'Users::editProfile', ['filter' => 'authFilter']);
+        $routes->post('editDisplayName', 'Users::editDisplayName', ['filter' => 'authFilter']);
+        $routes->post('editProfile', 'Users::editProfile', ['filter' => 'authFilter']);
         $routes->post('editStyles', 'Users::editStyles', ['filter' => 'authFilter']);
-		$routes->post('editMeasurement', 'Users::editMeasurement', ['filter' => 'authFilter']);
-		$routes->post('uploadFile', 'Users::uploadFile', ['filter' => 'authFilter']);
-		$routes->post('follow', 'Users::follow', ['filter' => 'authFilter']);
-		$routes->get('profile/(:segment)', 'Users::profile/$1', ['filter' => 'authFilter']);
-		$routes->get('notifications', 'Users::notifications', ['filter' => 'authFilter']);
-		$routes->post('sendMessage', 'Users::sendMessage', ['filter' => 'authFilter']);
-		$routes->get('contacts', 'Users::contacts', ['filter' => 'authFilter']);
-		$routes->get('changePassword', 'Users::changePassword');
+        $routes->post('editMeasurement', 'Users::editMeasurement', ['filter' => 'authFilter']);
+        $routes->post('uploadFile', 'Users::uploadFile', ['filter' => 'authFilter']);
+        $routes->post('follow', 'Users::follow', ['filter' => 'authFilter']);
+        $routes->get('profile/(:segment)', 'Users::profile/$1', ['filter' => 'authFilter']);
+        $routes->get('notifications', 'Users::notifications', ['filter' => 'authFilter']);
+        $routes->post('sendMessage', 'Users::sendMessage', ['filter' => 'authFilter']);
+        $routes->get('contacts', 'Users::contacts', ['filter' => 'authFilter']);
+        $routes->post('blockUser', 'Users::blockUser', ['filter' => 'authFilter']);
+        $routes->get('changePassword', 'Users::changePassword');
 
 
 
         /*
-		$routes->get('', 'Users::index', ['filter' => 'authJwt']);
-		$routes->get('(:segment)', 'Users::show/$1', ['filter' => 'authJwt']);
-		$routes->get('(:segment)/edit', 'Users::edit/$1', ['filter' => 'authJwt']);
-		$routes->post('', 'Users::create', ['filter' => 'authJwt']);
-		$routes->put('(:segment)', 'Users::update/$1', ['filter' => 'authJwt']);
-		$routes->patch('(:segment)', 'Users::update/$1', ['filter' => 'authJwt']);
-		$routes->delete('(:segment)', 'Users::delete/$1', ['filter' => 'authJwt']);
+        $routes->get('', 'Users::index', ['filter' => 'authJwt']);
+        $routes->get('(:segment)', 'Users::show/$1', ['filter' => 'authJwt']);
+        $routes->get('(:segment)/edit', 'Users::edit/$1', ['filter' => 'authJwt']);
+        $routes->post('', 'Users::create', ['filter' => 'authJwt']);
+        $routes->put('(:segment)', 'Users::update/$1', ['filter' => 'authJwt']);
+        $routes->patch('(:segment)', 'Users::update/$1', ['filter' => 'authJwt']);
+        $routes->delete('(:segment)', 'Users::delete/$1', ['filter' => 'authJwt']);
         */
     });
 
     // $routes->resource('employee');
 
-//    $routes->resource('players', ['filter' => 'authJwt']);
+    //    $routes->resource('players', ['filter' => 'authJwt']);
     $routes->group('post', function ($routes) {
         $routes->get('', 'Post::index', ['filter' => 'authFilter']);
         $routes->post('addPost', 'Post::addPost', ['filter' => 'authFilter']);

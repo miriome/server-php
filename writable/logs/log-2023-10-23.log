@@ -377,3 +377,308 @@ Stack trace:
 #9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
 #10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
 #11 {main}
+ERROR - 2023-10-23 15:08:08 --> mysqli_sql_exception: Table 'miromie-local.blocked_user' doesn't exist in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(57): CodeIgniter\Database\BaseBuilder->get(50, 0)
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(212): App\Models\Api\PostModel->getPosts('0', '50', '11', 0)
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+CRITICAL - 2023-10-23 15:08:08 --> Table 'miromie-local.blocked_user' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = 0
+ORDER BY `likes` DESC
+ LIMIT 50', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = 0
+ORDER BY `likes` DESC
+ LIMIT 50')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = 0
+ORDER BY `likes` DESC
+ LIMIT 50')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = :deleted:
+ORDER BY `likes` DESC
+ LIMIT 50', [...], false)
+ 5 APPPATH/Models/Api/PostModel.php(57): CodeIgniter\Database\BaseBuilder->get(50, 0)
+ 6 APPPATH/Controllers/Api/Post.php(212): App\Models\Api\PostModel->getPosts('0', '50', '11', 0)
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-10-23 15:10:23 --> mysqli_sql_exception: Table 'miromie-local.blocked_user' doesn't exist in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(57): CodeIgniter\Database\BaseBuilder->get(50, 0)
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(212): App\Models\Api\PostModel->getPosts('0', '50', '11', 0)
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+CRITICAL - 2023-10-23 15:11:06 --> Table 'miromie-local.blocked_user' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = 0
+ORDER BY `likes` DESC
+ LIMIT 50', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = 0
+ORDER BY `likes` DESC
+ LIMIT 50')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = 0
+ORDER BY `likes` DESC
+ LIMIT 50')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = :deleted:
+ORDER BY `likes` DESC
+ LIMIT 50', [...], false)
+ 5 APPPATH/Models/Api/PostModel.php(57): CodeIgniter\Database\BaseBuilder->get(50, 0)
+ 6 APPPATH/Controllers/Api/Post.php(212): App\Models\Api\PostModel->getPosts('0', '50', '11', 0)
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-10-23 15:11:39 --> mysqli_sql_exception: Column 'id' in order clause is ambiguous in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(69): CodeIgniter\Database\BaseBuilder->get(50, 0)
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(212): App\Models\Api\PostModel->getPosts('0', '50', '11', 1)
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+CRITICAL - 2023-10-23 15:12:48 --> Column 'id' in order clause is ambiguous
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *
+FROM `posts`
+JOIN `blocked_users` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = 0
+ORDER BY `id` DESC
+ LIMIT 50', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `posts`
+JOIN `blocked_users` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = 0
+ORDER BY `id` DESC
+ LIMIT 50')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `posts`
+JOIN `blocked_users` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = 0
+ORDER BY `id` DESC
+ LIMIT 50')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `posts`
+JOIN `blocked_users` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND (`added_by` IN (SELECT `target_id` FROM follow WHERE `user_id` = 11) OR `added_by` = 11)
+AND `deleted` = :deleted:
+ORDER BY `id` DESC
+ LIMIT 50', [...], false)
+ 5 APPPATH/Models/Api/PostModel.php(69): CodeIgniter\Database\BaseBuilder->get(50, 0)
+ 6 APPPATH/Controllers/Api/Post.php(212): App\Models\Api\PostModel->getPosts('0', '50', '11', 1)
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-10-23 15:34:50 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE '%Korean%' or users' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT * FROM (...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM (...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM (...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(120): CodeIgniter\Database\BaseConnection->query('SELECT * FROM (...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(221): App\Models\Api\PostModel->getPostsByStyles('0', '50', Array, 1)
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2023-10-23 15:35:25 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE '%Korean%' or users' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY id DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 ORDER BY id DESC) b) c LIMIT 0, 50', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY id DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 ORDER BY id DESC) b) c LIMIT 0, 50')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY id DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 ORDER BY id DESC) b) c LIMIT 0, 50')
+ 4 APPPATH/Models/Api/PostModel.php(120): CodeIgniter\Database\BaseConnection->query('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY id DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 ORDER BY id DESC) b) c LIMIT 0, 50')
+ 5 APPPATH/Controllers/Api/Post.php(221): App\Models\Api\PostModel->getPostsByStyles('0', '50', [...], 1)
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-23 15:41:19 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Users.php on line 484.
+ 1 APPPATH/Controllers/Api/Users.php(484): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 484)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->blockUser()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-23 15:41:31 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Users.php on line 484.
+ 1 APPPATH/Controllers/Api/Users.php(484): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 484)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->blockUser()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-23 15:42:59 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Users.php on line 484.
+ 1 APPPATH/Controllers/Api/Users.php(484): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 484)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->blockUser()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-23 15:43:57 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Users.php on line 484.
+ 1 APPPATH/Controllers/Api/Users.php(484): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 484)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->blockUser()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-23 15:44:24 --> Undefined property: CodeIgniter\HTTP\IncomingRequest::$user
+in APPPATH/Controllers/Api/Users.php on line 484.
+ 1 APPPATH/Controllers/Api/Users.php(484): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined property: CodeIgniter\\HTTP\\IncomingRequest::$user', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 484)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->blockUser()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-10-23 15:55:55 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `bloc' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT * FROM (...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM (...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM (...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(120): CodeIgniter\Database\BaseConnection->query('SELECT * FROM (...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(221): App\Models\Api\PostModel->getPostsByStyles('0', '50', Array, 0)
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2023-10-23 15:56:49 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `bloc' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `blocked_users`.`user_id` IS NULL ORDER BY likes DESC) b) c LIMIT 0, 50', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `blocked_users`.`user_id` IS NULL ORDER BY likes DESC) b) c LIMIT 0, 50')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `blocked_users`.`user_id` IS NULL ORDER BY likes DESC) b) c LIMIT 0, 50')
+ 4 APPPATH/Models/Api/PostModel.php(120): CodeIgniter\Database\BaseConnection->query('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `blocked_users`.`user_id` IS NULL ORDER BY likes DESC) b) c LIMIT 0, 50')
+ 5 APPPATH/Controllers/Api/Post.php(221): App\Models\Api\PostModel->getPostsByStyles('0', '50', [...], 0)
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-10-23 15:57:09 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT * FROM (...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM (...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM (...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(120): CodeIgniter\Database\BaseConnection->query('SELECT * FROM (...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(221): App\Models\Api\PostModel->getPostsByStyles('0', '50', Array, 0)
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2023-10-23 15:57:38 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL ORDER BY likes DESC) b) c LIMIT 0, 50', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL ORDER BY likes DESC) b) c LIMIT 0, 50')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL ORDER BY likes DESC) b) c LIMIT 0, 50')
+ 4 APPPATH/Models/Api/PostModel.php(120): CodeIgniter\Database\BaseConnection->query('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL ORDER BY likes DESC) b) c LIMIT 0, 50')
+ 5 APPPATH/Controllers/Api/Post.php(221): App\Models\Api\PostModel->getPostsByStyles('0', '50', [...], 0)
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-10-23 15:57:58 --> mysqli_sql_exception: Duplicate column name 'id' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT * FROM (...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM (...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM (...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(120): CodeIgniter\Database\BaseConnection->query('SELECT * FROM (...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(221): App\Models\Api\PostModel->getPostsByStyles('0', '50', Array, 0)
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2023-10-23 15:58:02 --> Duplicate column name 'id'
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL AND deleted = 0 ORDER BY likes DESC) b) c LIMIT 0, 50', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL AND deleted = 0 ORDER BY likes DESC) b) c LIMIT 0, 50')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL AND deleted = 0 ORDER BY likes DESC) b) c LIMIT 0, 50')
+ 4 APPPATH/Models/Api/PostModel.php(120): CodeIgniter\Database\BaseConnection->query('SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (users.styles LIKE \'%Korean%\' or users.styles LIKE \'%Athleisure%\') ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL AND deleted = 0 ORDER BY likes DESC) b) c LIMIT 0, 50')
+ 5 APPPATH/Controllers/Api/Post.php(221): App\Models\Api\PostModel->getPostsByStyles('0', '50', [...], 0)
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

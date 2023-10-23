@@ -100,13 +100,13 @@ class PostModel extends Model
             // $postData = $this->builder->get($count, $pageIndex * $count)->getResultArray();
             // return $postData;
             if ($fcount == 0) {
-                $query = "SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (";
+                $query = "SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` LEFT JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (";
                 foreach ($styles as $key => $style) {
                     if ($key > 0)
                         $query .= " or ";
                     $query .= "users.styles LIKE '%" . $style . "%'";
                 }
-                $query .= ") ORDER BY likes DESC) a UNION SELECT * FROM (SELECT posts.* FROM posts JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL AND deleted = 0 ORDER BY likes DESC) b) c LIMIT " . ($pageIndex * $count) . ", " . $count;
+                $query .= ") ORDER BY likes DESC) a UNION SELECT * FROM (SELECT posts.* FROM posts LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL AND deleted = 0 ORDER BY likes DESC) b) c LIMIT " . ($pageIndex * $count) . ", " . $count;
 
             } else {
                 $query = "SELECT * FROM (SELECT * FROM (SELECT `posts`.*, `blocked_users.id` as blockedid FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (";

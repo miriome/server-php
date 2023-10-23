@@ -682,3 +682,105 @@ in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
  8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
  9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
 10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-10-23 16:11:45 --> mysqli_sql_exception: Table 'miromie-local.blocked_user' doesn't exist in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(266): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(520): App\Models\Api\PostModel->otherPosts('11')
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->search()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+CRITICAL - 2023-10-23 16:11:45 --> Table 'miromie-local.blocked_user' doesn't exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND `deleted` = 0
+AND `added_by` != \'11\'
+ORDER BY `chat_enabled` DESC, `id` DESC', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND `deleted` = 0
+AND `added_by` != \'11\'
+ORDER BY `chat_enabled` DESC, `id` DESC')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND `deleted` = 0
+AND `added_by` != \'11\'
+ORDER BY `chat_enabled` DESC, `id` DESC')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `posts`
+JOIN `blocked_user` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND `deleted` = :deleted:
+AND `added_by` != :added_by:
+ORDER BY `chat_enabled` DESC, `id` DESC', [...], false)
+ 5 APPPATH/Models/Api/PostModel.php(266): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/Api/Post.php(520): App\Models\Api\PostModel->otherPosts('11')
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->search()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-10-23 16:13:54 --> mysqli_sql_exception: Column 'id' in order clause is ambiguous in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(266): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(520): App\Models\Api\PostModel->otherPosts('11')
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->search()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+CRITICAL - 2023-10-23 16:13:54 --> Column 'id' in order clause is ambiguous
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *
+FROM `posts`
+LEFT JOIN `blocked_users` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND `deleted` = 0
+AND `added_by` != \'11\'
+ORDER BY `chat_enabled` DESC, `id` DESC', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *
+FROM `posts`
+LEFT JOIN `blocked_users` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND `deleted` = 0
+AND `added_by` != \'11\'
+ORDER BY `chat_enabled` DESC, `id` DESC')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *
+FROM `posts`
+LEFT JOIN `blocked_users` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND `deleted` = 0
+AND `added_by` != \'11\'
+ORDER BY `chat_enabled` DESC, `id` DESC')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *
+FROM `posts`
+LEFT JOIN `blocked_users` ON `posts`.`added_by` = `blocked_users`.`user_id`
+WHERE `blocked_users`.`user_id` IS NULL
+AND `deleted` = :deleted:
+AND `added_by` != :added_by:
+ORDER BY `chat_enabled` DESC, `id` DESC', [...], false)
+ 5 APPPATH/Models/Api/PostModel.php(266): CodeIgniter\Database\BaseBuilder->get()
+ 6 APPPATH/Controllers/Api/Post.php(520): App\Models\Api\PostModel->otherPosts('11')
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->search()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

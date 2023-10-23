@@ -55,8 +55,8 @@ class PostModel extends Model
         if ($fcount == 0) {
 
             $postData = $this->builder
-                ->select('posts.id as id, posts.id, posts.image, posts.caption, posts.chat_enabled, posts.hashtag, posts.hypertext, posts.hyperlink, posts.added_by, posts.likes, posts.deleted, posts.created_at, posts.updated_at, posts.deleted_at, blocked_users.user_id')
-                ->join('blocked_users', "posts.added_by = blocked_users.user_id")
+                ->select('posts.* ')
+                ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
                 ->where("blocked_users.user_id IS NULL")
                 ->where("(added_by IN (SELECT `target_id` FROM follow WHERE `user_id` = $userId) OR added_by = $userId)")
                 ->where('deleted', 0)
@@ -68,8 +68,8 @@ class PostModel extends Model
         } else {
 
             $postData = $this->builder
-                ->select('posts.id as id, posts.id, posts.image, posts.caption, posts.chat_enabled, posts.hashtag, posts.hypertext, posts.hyperlink, posts.added_by, posts.likes, posts.deleted, posts.created_at, posts.updated_at, posts.deleted_at, blocked_users.user_id')
-                ->join('blocked_users', "posts.added_by = blocked_users.user_id")
+                ->select('posts.* ')
+                ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
                 ->where("blocked_users.user_id IS NULL")
                 ->where("(added_by IN (SELECT `target_id` FROM follow WHERE `user_id` = $userId) OR added_by = $userId)")
                 ->where('deleted', 0)
@@ -111,10 +111,11 @@ class PostModel extends Model
             } else {
                 $query = "SELECT * FROM (SELECT * FROM (SELECT `posts`.*, `blocked_users.id` as blockedid FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (";
                 foreach ($styles as $key => $style) {
-                    if ($key > 0) $query .= " or ";
-                    $query .= "users.styles LIKE '%".$style."%'";
+                    if ($key > 0)
+                        $query .= " or ";
+                    $query .= "users.styles LIKE '%" . $style . "%'";
                 }
-                $query .= ") ORDER BY id DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 ORDER BY id DESC) b) c LIMIT ".($pageIndex * $count).", ".$count;
+                $query .= ") ORDER BY id DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 ORDER BY id DESC) b) c LIMIT " . ($pageIndex * $count) . ", " . $count;
             }
 
             $query = $this->db->query($query);
@@ -123,8 +124,8 @@ class PostModel extends Model
 
             if ($fcount == 0) {
                 $postData = $this->builder
-                    ->select('posts.id as id, posts.id, posts.image, posts.caption, posts.chat_enabled, posts.hashtag, posts.hypertext, posts.hyperlink, posts.added_by, posts.likes, posts.deleted, posts.created_at, posts.updated_at, posts.deleted_at')
-                    ->join('blocked_users', "posts.added_by = blocked_users.user_id")
+                    ->select('posts.* ')
+                    ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
                     ->where("blocked_users.user_id IS NULL")
                     ->where('deleted', 0)
                     ->orderBy('likes', 'DESC')
@@ -134,8 +135,8 @@ class PostModel extends Model
                 return $postData;
             } else {
                 $postData = $this->builder
-                    ->select('posts.id as id, posts.id, posts.image, posts.caption, posts.chat_enabled, posts.hashtag, posts.hypertext, posts.hyperlink, posts.added_by, posts.likes, posts.deleted, posts.created_at, posts.updated_at, posts.deleted_at')
-                    ->join('blocked_users', "posts.added_by = blocked_users.user_id")
+                    ->select('posts.* ')
+                    ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
                     ->where("blocked_users.user_id IS NULL")
                     ->where('deleted', 0)
                     ->orderBy('id', 'DESC')
@@ -256,9 +257,9 @@ class PostModel extends Model
     {
 
         $postData = $this->builder
-            ->join('blocked_user', "posts.added_by = blocked_users.user_id")
+            ->select('posts.* ')
+            ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
             ->where("blocked_users.user_id IS NULL")
-            ->select('*')
             ->where('deleted', 0)
             ->where('added_by !=', $userId)
             ->orderBy('chat_enabled', 'DESC')

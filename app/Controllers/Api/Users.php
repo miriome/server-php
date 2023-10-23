@@ -1,6 +1,8 @@
-<?php namespace App\Controllers\Api;
+<?php
+namespace App\Controllers\Api;
 
 use App\Controllers\Api\Base;
+use App\Models\Api\BlockedUsersModel;
 use App\Models\Api\UserModel;
 use App\Models\Api\PostModel;
 use App\Models\Api\DeviceModel;
@@ -8,65 +10,74 @@ use App\Models\Api\DeviceModel;
 
 class Users extends Base
 {
-	protected $_userModel;
-	protected $_postModel;
+    protected $_userModel;
+    protected $_postModel;
 
     protected $_deviceModel;
 
-    
+    protected $_blockedUsersModel;
+
+
     public function __construct()
     {
         $this->_userModel = new UserModel();
         $this->_postModel = new PostModel();
         $this->_deviceModel = new DeviceModel();
+        $this->_blockedUsersModel = new BlockedUsersModel();
 
     }
 
     // edit user information
-    function editDisplayName(){
+    function editDisplayName()
+    {
 
         $result = array();
         $userId = $this->request->user->userId;
 
-        $data = array('name' => $this->request->getPost('name'),
-                    'updated_at' =>  date('Y-m-d H:i:s')
-                    );
+        $data = array(
+            'name' => $this->request->getPost('name'),
+            'updated_at' => date('Y-m-d H:i:s')
+        );
 
         $this->_userModel->editUser($userId, $data);
         $result = ['status' => true, 'data' => ""];
         return $this->respond($result, 200);
     }
 
-    function editMeasurement(){
+    function editMeasurement()
+    {
 
         $result = array();
         $userId = $this->request->user->userId;
 
-        $data = array('height' =>  $this->request->getPost('height'),
-                    'weight' =>  $this->request->getPost('weight'),
-                    'bust' =>  $this->request->getPost('bust'),
-                    'waist' =>  $this->request->getPost('waist'),
-                    'hips' =>  $this->request->getPost('hips'),
-                    'updated_at' =>  date('Y-m-d H:i:s')
-                    );
+        $data = array(
+            'height' => $this->request->getPost('height'),
+            'weight' => $this->request->getPost('weight'),
+            'bust' => $this->request->getPost('bust'),
+            'waist' => $this->request->getPost('waist'),
+            'hips' => $this->request->getPost('hips'),
+            'updated_at' => date('Y-m-d H:i:s')
+        );
 
         $this->_userModel->editUser($userId, $data);
         $result = ['status' => true, 'data' => ""];
         return $this->respond($result, 200);
     }
 
-    function editStyles(){
+    function editStyles()
+    {
 
         $result = array();
         $userId = $this->request->user->userId;
-        $data = ['styles'  => $this->request->getPost('styles'),];
+        $data = ['styles' => $this->request->getPost('styles'),];
 
         $this->_userModel->editUser($userId, $data);
         $result = ['status' => true, 'data' => ""];
         return $this->respond($result, 200);
     }
 
-    function uploadFile() {
+    function uploadFile()
+    {
 
         $userId = $this->request->user->userId;
 
@@ -97,13 +108,13 @@ class Users extends Base
             // $imageFile->move(WRITEPATH . 'uploads', $newName);
             $data = ['photo_name' => $newName];
             // $data = [
-                // 'photo_name' => $imageFile->getClientName(),
-                // 'file'  => $imageFile->getClientMimeType()
+            // 'photo_name' => $imageFile->getClientName(),
+            // 'file'  => $imageFile->getClientMimeType()
             // ];
 
             // $this->_userModel->editUser($userId, $data);
 
-            $filepath = base_url()."uploads/".$newName;
+            $filepath = base_url() . "uploads/" . $newName;
             $response = [
                 'status' => true,
                 'data' => $filepath,
@@ -115,15 +126,17 @@ class Users extends Base
 
     }
 
-    function editProfile() {
+    function editProfile()
+    {
 
         $userId = $this->request->user->userId;
 
         $deletePhoto = $this->request->getPost('delete_photo');
 
-        $data = array('name' => $this->request->getPost('name'),
-                    'updated_at' =>  date('Y-m-d H:i:s')
-                    );
+        $data = array(
+            'name' => $this->request->getPost('name'),
+            'updated_at' => date('Y-m-d H:i:s')
+        );
 
         $filepath = '';
 
@@ -155,10 +168,10 @@ class Users extends Base
 
                 // $imageFile->move(WRITEPATH . 'uploads', $newName);
                 $data['photo_name'] = $newName;
-                $filepath = base_url()."uploads/".$newName;
+                $filepath = base_url() . "uploads/" . $newName;
                 // $data = [
-                    // 'photo_name' => $imageFile->getClientName(),
-                    // 'file'  => $imageFile->getClientMimeType()
+                // 'photo_name' => $imageFile->getClientName(),
+                // 'file'  => $imageFile->getClientMimeType()
                 // ];
             }
         }
@@ -179,7 +192,8 @@ class Users extends Base
 
     }
 
-    function follow() {
+    function follow()
+    {
 
         $userId = $this->request->user->userId;
 
@@ -197,14 +211,15 @@ class Users extends Base
             exit;
         }
 
-        $data = ['user_id' => $userId,
-                'target_id' => $targetId
-            ];
+        $data = [
+            'user_id' => $userId,
+            'target_id' => $targetId
+        ];
 
         $this->_userModel->follow($data, $isFollow);
 
         $msg = $isFollow == 0 ? 'unfollowed' : 'followed';
-        $message = 'You '. $msg . ' this user successfully';
+        $message = 'You ' . $msg . ' this user successfully';
 
         if ($isFollow == 1) {
             // Send Notification
@@ -235,7 +250,8 @@ class Users extends Base
         return $this->response->setJSON($response);
     }
 
-    function profile($userId) {
+    function profile($userId)
+    {
 
         $myId = $this->request->user->userId;
 
@@ -297,7 +313,8 @@ class Users extends Base
         return $this->response->setJSON($response);
     }
 
-    function notifications() {
+    function notifications()
+    {
 
         $result = array();
 
@@ -354,7 +371,8 @@ class Users extends Base
         return $this->response->setJSON($response);
     }
 
-    function sendMessage() {
+    function sendMessage()
+    {
 
         $userId = $this->request->user->userId;
         $targetId = $this->request->getPost('target_id');
@@ -382,13 +400,13 @@ class Users extends Base
             'message' => $message,
         ];
         $token = $this->_deviceModel->getPushId($targetId);
-        
-        
+
+
         $title = strlen($user['name']) > 0 ? $user['name'] : $user['username'];
         if ($token) {
             $this->sendNotification($token, $payload, $message, $title, "Has sent you a message");
         }
-        
+
 
         $response = [
             'status' => true,
@@ -399,7 +417,8 @@ class Users extends Base
         return $this->response->setJSON($response);
     }
 
-    function contacts() {
+    function contacts()
+    {
 
         $result = array();
 
@@ -445,7 +464,8 @@ class Users extends Base
         return $this->response->setJSON($response);
     }
 
-    function changePassword() {
+    function changePassword()
+    {
 
         $result = array();
         $userId = $this->request->getPost('user_id');
@@ -455,6 +475,19 @@ class Users extends Base
         $data = array('password' => $password_hash);
 
         $this->_userModel->editUser($userId, $data);
+        $result = ['status' => true, 'data' => ""];
+        return $this->respond($result, 200);
+    }
+
+    function blockUser()
+    {
+        $userId = $this->request->user->userId;
+        $targetId = $this->request->getPost('target_id');
+        $fields = [
+            "blocked_by" => $userId,
+            "user_id" => $targetId
+        ];
+        $this->_blockedUsersModel->add($fields);
         $result = ['status' => true, 'data' => ""];
         return $this->respond($result, 200);
     }

@@ -51,6 +51,10 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('permDelete', 'Account::permDelete', ['filter' => 'authFilter']);
     });
 
+    $routes->group('privacy', function ($routes) {
+        $routes->post('reportContent', 'Privacy::reportContent', ['filter' => 'authFilter']);
+    });
+
 //    $routes->resource('users', ['filter' => 'authJwt']);
     $routes->group('users', function ($routes) {
 		$routes->post('editDisplayName', 'Users::editDisplayName', ['filter' => 'authFilter']);

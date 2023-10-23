@@ -1,0 +1,40 @@
+CRITICAL - 2023-10-22 06:01:45 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 381.
+ 1 APPPATH/Controllers/Api/Post.php(381): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/Users/winson.heng/server-php/app/Controllers/Api/Post.php', 381)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->setLike()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-22 06:01:51 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 218.
+ 1 APPPATH/Controllers/Api/Post.php(218): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/Users/winson.heng/server-php/app/Controllers/Api/Post.php', 218)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-22 06:02:33 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 218.
+ 1 APPPATH/Controllers/Api/Post.php(218): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/Users/winson.heng/server-php/app/Controllers/Api/Post.php', 218)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-22 06:03:13 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Post.php on line 218.
+ 1 APPPATH/Controllers/Api/Post.php(218): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/Users/winson.heng/server-php/app/Controllers/Api/Post.php', 218)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-10-22 06:03:48 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Users.php on line 244.
+ 1 APPPATH/Controllers/Api/Users.php(244): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 244)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('11')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

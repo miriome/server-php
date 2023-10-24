@@ -7,26 +7,29 @@ use CodeIgniter\Model;
 class DeviceModel extends Model
 {
 
-    protected $table            = 'device';
-    protected $primaryKey       = 'id';
+    protected $table = 'device';
+    protected $primaryKey = 'id';
     public $builder;
     public $db;
 
-    public function __construct() {
+    public function __construct()
+    {
 
-        $this->db               = \Config\Database::connect();
-        $this->builder          = $this->db->table($this->table);
+        $this->db = \Config\Database::connect();
+        $this->builder = $this->db->table($this->table);
     }
 
-    public function add($data) {
+    public function add($data)
+    {
 
         $this->builder->insert($data);
         return $this->db->insertID();
 
     }
 
-    public function upsertDevicePushToken($uid, $token) {
-        $hasToken = $this->builder->where('uid', $uid)->countAll() > 0;
+    public function upsertDevicePushToken($uid, $token)
+    {
+        $hasToken = $this->builder->where('uid', $uid)->countAllResults() > 0;
         if ($hasToken) {
             $this->builder->where('uid', $uid)->set('device_push_token', $token)->update();
         } else {
@@ -35,16 +38,17 @@ class DeviceModel extends Model
                 'uid' => $uid
             ]);
         }
-        
+
     }
 
-    public function getPushId($uid) {
+    public function getPushId($uid)
+    {
         $tokenResult = $this->builder->where('uid', $uid)->get()->getRowArray();
         if ($tokenResult) {
             return $tokenResult['device_push_token'];
         }
         return null;
-        
+
     }
 
 

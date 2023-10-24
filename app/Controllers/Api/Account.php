@@ -21,7 +21,7 @@ class Account extends Base
     }
 
     // edit user information
-    function registerDevicePushToken()
+    function registerDeviceToken()
     {
         $userId = $this->request->user->userId;
         $token = $this->request->getPost('push_token');

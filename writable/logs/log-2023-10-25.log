@@ -1,0 +1,8 @@
+CRITICAL - 2023-10-25 23:52:19 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Users.php on line 260.
+ 1 APPPATH/Controllers/Api/Users.php(260): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 260)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('9')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

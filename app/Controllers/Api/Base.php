@@ -59,42 +59,42 @@ abstract class Base extends ResourceController
         // E.g.: $this->session = \Config\Services::session();
     }
 
-    public function sendNotification($token, $data = [], $message = '', $title = APP_NAME, $subtitle = '') {
+    public function sendNotification($token, $data = [], $message = '', $title = APP_NAME, $subtitle = '')
+    {
         if ($token == "" || $token == null) {
             return;
         }
-        
+
         $privateKeyPath = __DIR__ . '/AuthKey_B9GG868T6P.p8';
         $p8key = file_get_contents($privateKeyPath);
-        
+
         // $url = "https://api.sandbox.push.apple.com:443";
         // Swap this out when deploying.
         $url = "https://api.push.apple.com:443";
-        
-        
+
+
         $payload = [
             "iss" => "6N52UUJQBG",
             "iat" => time()
         ];
-        
-        
-        
+
+
+
         $headers = array(
             'kid' => "B9GG868T6P"
-         );
+        );
         $jwt = JWT::encode($payload, $p8key, 'ES256', null, $headers);
-        
-        error_log($subtitle);
-        $msg = array
-                (
-                    'body'      => $message,
-                    'title'     => $title,
-                    'subtitle'  => $subtitle,
-                    'badge'     => "1",
-                    'sound'     => 'default'/*Default sound*/
-                );
 
-        $fields = ["aps" => [ "alert" => $msg, "mutable-content" => "1"]];
+        $msg = array
+        (
+            'body' => $message,
+            'title' => $title,
+            'subtitle' => $subtitle,
+            'badge' => "1",
+            'sound' => 'default' /*Default sound*/
+        );
+
+        $fields = ["aps" => ["alert" => $msg, "mutable-content" => "1"]];
         $apnsUrl = $url . '/3/device/' . $token;
         $headers = array(
             "apns-push-type: alert",
@@ -115,9 +115,8 @@ abstract class Base extends ResourceController
         curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 1);
 
-        $lmao = curl_exec($ch);
-        error_log($lmao);
-        error_log($lmao == true);
+        curl_exec($ch);
+
         curl_close($ch);
     }
 }

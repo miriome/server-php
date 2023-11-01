@@ -235,22 +235,40 @@ class PostModel extends Model
 
     function searchPosts($keyword, $userId /*, $pageIndex, $count*/)
     {
+        $sql = "
+    SELECT
+        *
+    FROM
+        posts
+    WHERE
+        added_by != '" . $userId . "'
+        AND deleted = 0
+        AND (
+            UPPER(caption) LIKE UPPER('%" . $keyword . "%')
+            OR UPPER(hashtag) LIKE UPPER('%" . $keyword . "%')
+            OR EXISTS (
+                SELECT 1
+                FROM (
+                    SELECT UPPER(mapped_term) AS mapped_term_upper
+                    FROM search_terms
+                    WHERE UPPER(base_term) LIKE UPPER('%" . $keyword . "%')
+                ) AS uppercaseMappedTerms
+                WHERE 
+                    FIND_IN_SET(
+                        UPPER('" . $keyword . "'),
+                        REPLACE(mapped_term_upper, ' ', ',')
+                    )
+            )
+        )
+    ORDER BY
+        chat_enabled DESC,
+        id DESC;
+";
 
-        $postData = $this->builder
-            ->select('*')
-            ->where('deleted', 0)
-            ->where('added_by !=', $userId)
-            ->groupStart()
-            ->like('caption', $keyword)
-            ->orLike('hashtag', $keyword)
-            ->groupEnd()
-            // ->get($count, $pageIndex * $count)
-            ->orderBy('chat_enabled', 'DESC')
-            ->orderBy('id', 'DESC')
-            ->get()
-            ->getResultArray();
 
-        return $postData;
+        $query = $this->db->query($sql);
+        return $query->getResultArray();
+
     }
 
     function otherPosts($userId)

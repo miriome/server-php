@@ -2,11 +2,11 @@ import mysql.connector
 import csv
 
 mydb = mysql.connector.connect(
-  host="184.168.98.206",
-  user="miromie_root",
-  password="KIaR*~E,L3D.",
+  host="localhost",
+  user="root",
+  password="winson",
   port=3306,
-  database="miromie"
+  database="miromie-local"
 )
 
 

@@ -235,38 +235,37 @@ class PostModel extends Model
 
     function searchPosts($keyword, $userId /*, $pageIndex, $count*/)
     {
-        $sql = "
-    SELECT
-        *
-    FROM
-        posts
-    WHERE
-        added_by != '" . $userId . "'
+        $termQuery = "SELECT UPPER(mapped_term) AS mapped_term_upper FROM search_terms WHERE UPPER(base_term) LIKE UPPER('%" . $keyword . "%')";
+        $termResult = $this->db->query($termQuery);
+        $strings = array();
+        if ($termResult->getNumRows() > 0) {
+            foreach ($termResult->getResultArray() as $row) {
+                $strings[] = $row["mapped_term_upper"];
+            }
+        }
+        $orComp = array();
+        foreach ($strings as $string) {
+            $orComp[] = "OR UPPER(caption) LIKE UPPER('%" . $string . "%')";
+        }
+        $orQuery = implode(" ", $orComp);
+        $mainQuery = "
+    SELECT * FROM posts
+    WHERE id IN (
+        SELECT id
+        FROM posts
+        WHERE added_by != '" . $userId . "'
         AND deleted = 0
         AND (
             UPPER(caption) LIKE UPPER('%" . $keyword . "%')
             OR UPPER(hashtag) LIKE UPPER('%" . $keyword . "%')
-            OR EXISTS (
-                SELECT 1
-                FROM (
-                    SELECT UPPER(mapped_term) AS mapped_term_upper
-                    FROM search_terms
-                    WHERE UPPER(base_term) LIKE UPPER('%" . $keyword . "%')
-                ) AS uppercaseMappedTerms
-                WHERE 
-                    FIND_IN_SET(
-                        UPPER('" . $keyword . "'),
-                        REPLACE(mapped_term_upper, ' ', ',')
-                    )
-            )
+            $orQuery
         )
-    ORDER BY
-        chat_enabled DESC,
-        id DESC;
+        GROUP BY id
+    )
+    ORDER BY chat_enabled DESC, id DESC;
 ";
 
-
-        $query = $this->db->query($sql);
+        $query = $this->db->query($mainQuery);
         return $query->getResultArray();
 
     }

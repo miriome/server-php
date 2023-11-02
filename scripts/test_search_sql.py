@@ -2,52 +2,80 @@ import mysql.connector
 import csv
 
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="winson",
-  port="3306",
-  database="miromie-local"
+  host="184.168.98.206",
+  user="miromie_root",
+  password="KIaR*~E,L3D.",
+  port=3306,
+  database="miromie"
 )
+
 
 mycursor = mydb.cursor()
-keyword = "basic"
-userId = 9
-cte_query = """
-    WITH uppercaseMappedTerms AS (
-        SELECT
-            UPPER(mapped_term) AS mapped_term_upper
-        FROM
-            search_terms
-        WHERE
-            UPPER(base_term) LIKE UPPER(%s)
-    )
-    """
 
-    # Your main query
+
+sql = """
+SELECT *
+FROM (
+    SELECT UPPER(mapped_term) AS mapped_term_upper
+    FROM search_terms
+    WHERE UPPER(base_term) LIKE UPPER('%athleisure%')
+) AS uppercaseMappedTerms
+"""
+
+mycursor.execute(sql)
+results = mycursor.fetchall()
+strings = [row[0] for row in results]
+
+orComp = ["OR UPPER(caption) like UPPER('%{}%')".format(string) for string in strings]
+orQuery = " ".join(orComp)
+
 main_query = """
-SELECT posts.caption
+SELECT * FROM posts where id in
+(SELECT id
 FROM posts
-WHERE added_by != %s
+WHERE added_by != 0
 AND deleted = 0
 AND (
-    UPPER(caption) LIKE UPPER(%s)
-    OR UPPER(hashtag) LIKE UPPER(%s)
-    OR EXISTS (
-        SELECT 1
-        FROM uppercaseMappedTerms
-        WHERE FIND_IN_SET(
-            UPPER(%s),
-            REPLACE(mapped_term_upper, ' ', ',')
-        )
-    )
+    UPPER(caption) LIKE UPPER('%athleisure%')
+    OR UPPER(hashtag) LIKE UPPER('%athleisure%')
+    {}
 )
-ORDER BY chat_enabled DESC, id DESC;
-"""
-full_query = cte_query + main_query
+GROUP BY id
+) ORDER BY chat_enabled DESC, id DESC ;
+""".format(orQuery)
 
-mycursor.execute(full_query, (keyword, userId, keyword, keyword, keyword))
+
+
+mycursor = mydb.cursor()
+mycursor.execute(main_query)
 results = mycursor.fetchall()
+print(len(results))
+# for row in results:
+#     print(row)
 
 for row in results:
-        # Process the results here
-        print(row)
+    for string in strings:
+        if string in row[2].upper():
+            print('------------------')
+            print(row[0], row[2], string)
+            print('------------------')
+
+sql3 = '''
+(SELECT id
+FROM posts
+WHERE added_by != 0
+AND deleted = 0
+AND (
+    UPPER(caption) LIKE UPPER('%athleisure%')
+    OR UPPER(hashtag) LIKE UPPER('%athleisure%')
+    {}
+)
+GROUP BY id
+) '''
+
+mycursor = mydb.cursor()
+mycursor.execute(main_query)
+results = mycursor.fetchall()
+
+print([row[0] for row in results])
+print(len([row[0] for row in results]))

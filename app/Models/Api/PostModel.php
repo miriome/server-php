@@ -235,7 +235,7 @@ class PostModel extends Model
 
     function searchPosts($keyword, $userId /*, $pageIndex, $count*/)
     {
-        $termQuery = "SELECT UPPER(mapped_term) AS mapped_term_upper FROM search_terms WHERE UPPER(base_term) LIKE UPPER('%" . $keyword . "%')";
+        $termQuery = "SELECT UPPER(mapped_term) AS mapped_term_upper FROM search_terms WHERE UPPER(base_term) LIKE UPPER('%" . $this->db->escapeString($keyword, true) . "%')";
         $termResult = $this->db->query($termQuery);
         $strings = array();
         if ($termResult->getNumRows() > 0) {
@@ -245,7 +245,7 @@ class PostModel extends Model
         }
         $orComp = array();
         foreach ($strings as $string) {
-            $orComp[] = "OR UPPER(caption) LIKE UPPER('%" . $string . "%')";
+            $orComp[] = "OR UPPER(caption) LIKE UPPER('%" . $this->db->escapeString($string, true) . "%')";
         }
         $orQuery = implode(" ", $orComp);
         $mainQuery = "
@@ -256,8 +256,8 @@ class PostModel extends Model
         WHERE added_by != '" . $userId . "'
         AND deleted = 0
         AND (
-            UPPER(caption) LIKE UPPER('%" . $keyword . "%')
-            OR UPPER(hashtag) LIKE UPPER('%" . $keyword . "%')
+            UPPER(caption) LIKE UPPER('%" . $this->db->escapeString($keyword, true) . "%')
+            OR UPPER(hashtag) LIKE UPPER('%" . $this->db->escapeString($keyword, true) . "%')
             $orQuery
         )
         GROUP BY id

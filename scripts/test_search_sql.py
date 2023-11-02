@@ -1,26 +1,32 @@
 import mysql.connector
 import csv
 
+# 'hostname' => '184.168.98.206',
+#         'username' => 'miromie_root',
+#         'password' => 'KIaR*~E,L3D.',
+#         'database' => 'miromie',
+        
+
 mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="winson",
+  host="184.168.98.206",
+  user="miromie_root",
+  password="KIaR*~E,L3D.",
   port=3306,
-  database="miromie-local"
+  database="miromie"
 )
 
 
 mycursor = mydb.cursor()
-
+keyword = "Officewear"
 
 sql = """
 SELECT *
 FROM (
     SELECT UPPER(mapped_term) AS mapped_term_upper
     FROM search_terms
-    WHERE UPPER(base_term) LIKE UPPER('%athleisure%')
+    WHERE UPPER(base_term) LIKE UPPER('%{}%')
 ) AS uppercaseMappedTerms
-"""
+""".format(keyword)
 
 mycursor.execute(sql)
 results = mycursor.fetchall()
@@ -36,14 +42,14 @@ FROM posts
 WHERE added_by != 0
 AND deleted = 0
 AND (
-    UPPER(caption) LIKE UPPER('%athleisure%')
-    OR UPPER(hashtag) LIKE UPPER('%athleisure%')
+    UPPER(caption) LIKE UPPER('%{}%')
+    OR UPPER(hashtag) LIKE UPPER('%{}%')
     {}
 )
 GROUP BY id
 ) ORDER BY chat_enabled DESC, id DESC ;
-""".format(orQuery)
-
+""".format(keyword, keyword, orQuery)
+print(main_query)
 
 
 mycursor = mydb.cursor()
@@ -59,23 +65,3 @@ for row in results:
             print('------------------')
             print(row[0], row[2], string)
             print('------------------')
-
-sql3 = '''
-(SELECT id
-FROM posts
-WHERE added_by != 0
-AND deleted = 0
-AND (
-    UPPER(caption) LIKE UPPER('%athleisure%')
-    OR UPPER(hashtag) LIKE UPPER('%athleisure%')
-    {}
-)
-GROUP BY id
-) '''
-
-mycursor = mydb.cursor()
-mycursor.execute(main_query)
-results = mycursor.fetchall()
-
-print([row[0] for row in results])
-print(len([row[0] for row in results]))

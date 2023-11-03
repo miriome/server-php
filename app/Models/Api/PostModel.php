@@ -38,6 +38,9 @@ class PostModel extends Model
     {
 
         $postData = $this->builder
+            ->select('posts.* ')
+            ->join('users', "users.id = posts.added_by")
+            ->where('users.pronouns !=', "He")
             ->where('deleted', 0)
             ->orderBy('likes', 'DESC')
             // ->orderBy('id', 'DESC')
@@ -56,8 +59,10 @@ class PostModel extends Model
 
             $postData = $this->builder
                 ->select('posts.* ')
+                ->join('users', "users.id = posts.added_by")
                 ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
                 ->where("blocked_users.user_id IS NULL")
+                ->where('users.pronouns !=', "He")
                 ->where("(added_by IN (SELECT `target_id` FROM follow WHERE `user_id` = $userId) OR added_by = $userId)")
                 ->where('deleted', 0)
                 ->orderBy('likes', 'DESC')
@@ -69,7 +74,9 @@ class PostModel extends Model
 
             $postData = $this->builder
                 ->select('posts.* ')
+                ->join('users', "users.id = posts.added_by")
                 ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
+                ->where('users.pronouns !=', "He")
                 ->where("blocked_users.user_id IS NULL")
                 ->where("(added_by IN (SELECT `target_id` FROM follow WHERE `user_id` = $userId) OR added_by = $userId)")
                 ->where('deleted', 0)
@@ -99,17 +106,19 @@ class PostModel extends Model
             // $this->builder->orderBy('likes11', 'DESC');
             // $postData = $this->builder->get($count, $pageIndex * $count)->getResultArray();
             // return $postData;
+
             if ($fcount == 0) {
-                $query = "SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` LEFT JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (";
+                $query = "SELECT * FROM (SELECT * FROM (SELECT `posts`.* FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` LEFT JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND `users`.`pronouns` != 'He' AND (";
                 foreach ($styles as $key => $style) {
                     if ($key > 0)
                         $query .= " or ";
                     $query .= "users.styles LIKE '%" . $style . "%'";
                 }
-                $query .= ") ORDER BY likes DESC) a UNION SELECT * FROM (SELECT posts.* FROM posts LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL AND deleted = 0 ORDER BY likes DESC) b) c LIMIT " . ($pageIndex * $count) . ", " . $count;
+                $query .= ") ORDER BY likes DESC) a UNION SELECT * FROM (SELECT posts.* FROM posts JOIN users
+                on `users`.`id` = `posts`.`added_by` LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id WHERE blocked_users.user_id IS NULL AND deleted = 0 AND users.pronouns != 'He' ORDER BY likes DESC) b) c LIMIT " . ($pageIndex * $count) . ", " . $count;
 
             } else {
-                $query = "SELECT * FROM (SELECT * FROM (SELECT `posts`.*, `blocked_users.id` as blockedid FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND (";
+                $query = "SELECT * FROM (SELECT * FROM (SELECT `posts`.*, `blocked_users.id` as blockedid FROM `posts` JOIN `users` ON `users`.`id` = `posts`.`added_by` LEFT JOIN blocked_users ON `posts`.`added_by` = `blocked_users`.`user_id` WHERE `posts`.`deleted` = 0 AND `blocked_users`.`user_id` IS NULL AND `users`.`pronouns` != 'He' AND (";
                 foreach ($styles as $key => $style) {
                     if ($key > 0)
                         $query .= " or ";
@@ -125,7 +134,9 @@ class PostModel extends Model
             if ($fcount == 0) {
                 $postData = $this->builder
                     ->select('posts.* ')
+                    ->join('users', "users.id = posts.added_by")
                     ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
+                    ->where('users.pronouns !=', "He")
                     ->where("blocked_users.user_id IS NULL")
                     ->where('deleted', 0)
                     ->orderBy('likes', 'DESC')
@@ -136,7 +147,9 @@ class PostModel extends Model
             } else {
                 $postData = $this->builder
                     ->select('posts.* ')
+                    ->join('users', "users.id = posts.added_by")
                     ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
+                    ->where('users.pronouns !=', "He")
                     ->where("blocked_users.user_id IS NULL")
                     ->where('deleted', 0)
                     ->orderBy('id', 'DESC')
@@ -250,6 +263,8 @@ class PostModel extends Model
         $orQuery = implode(" ", $orComp);
         $mainQuery = "
     SELECT * FROM posts
+ JOIN users
+    on users.id = posts.added_by
     WHERE id IN (
         SELECT id
         FROM posts
@@ -261,7 +276,7 @@ class PostModel extends Model
             $orQuery
         )
         GROUP BY id
-    )
+    ) AND users.pronouns != 'He'
     ORDER BY chat_enabled DESC, id DESC;
 ";
 
@@ -275,7 +290,9 @@ class PostModel extends Model
 
         $postData = $this->builder
             ->select('posts.* ')
+            ->join('users', "users.id = posts.added_by")
             ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
+            ->where('users.pronouns !=', "He")
             ->where("blocked_users.user_id IS NULL")
             ->where('deleted', 0)
             ->where('added_by !=', $userId)

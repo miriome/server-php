@@ -265,7 +265,7 @@ class PostModel extends Model
     SELECT * FROM posts
  JOIN users
     on users.id = posts.added_by
-    WHERE id IN (
+    WHERE posts.id IN (
         SELECT id
         FROM posts
         WHERE added_by != '" . $userId . "'
@@ -275,9 +275,9 @@ class PostModel extends Model
             OR UPPER(hashtag) LIKE UPPER('%" . $this->db->escapeString($keyword, true) . "%')
             $orQuery
         )
-        GROUP BY id
+        GROUP BY posts.id
     ) AND users.pronouns != 'He'
-    ORDER BY chat_enabled DESC, id DESC;
+    ORDER BY chat_enabled DESC, posts.id DESC;
 ";
 
         $query = $this->db->query($mainQuery);

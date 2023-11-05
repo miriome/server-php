@@ -262,7 +262,7 @@ class PostModel extends Model
         }
         $orQuery = implode(" ", $orComp);
         $mainQuery = "
-    SELECT * FROM posts
+    SELECT posts.* FROM posts
  JOIN users
     on users.id = posts.added_by
     WHERE posts.id IN (

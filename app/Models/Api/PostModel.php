@@ -176,6 +176,7 @@ class PostModel extends Model
         $postData = $this->builder
             ->where('added_by', $userId)
             ->where('deleted', 0)
+            ->orderBy('id', 'DESC')
             ->get()
             ->getResultArray();
 

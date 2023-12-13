@@ -56,6 +56,7 @@ class Users extends Base
             'bust' => $this->request->getPost('bust'),
             'waist' => $this->request->getPost('waist'),
             'hips' => $this->request->getPost('hips'),
+            'measurement_privacy' => $this->request->getPost('measurement_privacy'),
             'updated_at' => date('Y-m-d H:i:s')
         );
 

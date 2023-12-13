@@ -2,6 +2,7 @@
 namespace App\Controllers\Api;
 
 use App\Controllers\Api\Base;
+use App\Database\Migrations\MeasurementsPrivacy;
 use App\Models\Api\BlockedUsersModel;
 use App\Models\Api\UserModel;
 use App\Models\Api\PostModel;
@@ -56,7 +57,7 @@ class Users extends Base
             'bust' => $this->request->getPost('bust'),
             'waist' => $this->request->getPost('waist'),
             'hips' => $this->request->getPost('hips'),
-            'measurement_privacy' => $this->request->getPost('measurement_privacy'),
+            'measurement_privacy' => $this->request->getPost('measurementPrivacy'),
             'updated_at' => date('Y-m-d H:i:s')
         );
 
@@ -269,6 +270,7 @@ class Users extends Base
         $res['hips'] = $user['hips'];
         $res['followers'] = $user['followers'];
         $res['device_type'] = $user['device_type'];
+        $res['measurementPrivacy'] = $user['measurement_privacy'];
         $res['photo_url'] = base_url() . 'uploads/' . $user['photo_name'];
         if ($myId == -1) {
             $myFollow = 0;

@@ -49,7 +49,7 @@ class Database extends Config
     //     'hostname' => 'localhost',
     //     'username' => 'root',
     //     'password' => 'winson',
-    //     'database' => 'miromie-local',
+    //     'database' => 'miromie',
     //     'DBDriver' => 'MySQLi',
     //     'DBPrefix' => '',
     //     'pConnect' => false,
@@ -64,26 +64,26 @@ class Database extends Config
     //     'port' => 3306,
     // ];
 
-    // Doesnt work lmao
-    public array $local = [
-        'DSN' => '',
-        'hostname' => 'localhost',
-        'username' => 'root',
-        'password' => 'winson',
-        'database' => 'miromie-local',
-        'DBDriver' => 'MySQLi',
-        'DBPrefix' => '',
-        'pConnect' => false,
-        'DBDebug' => true,
-        'charset' => 'utf8',
-        'DBCollat' => 'utf8_general_ci',
-        'swapPre' => '',
-        'encrypt' => false,
-        'compress' => false,
-        'strictOn' => false,
-        'failover' => [],
-        'port' => 3306,
-    ];
+    // // Doesnt work lmao
+    // public array $local = [
+    //     'DSN' => '',
+    //     'hostname' => 'localhost',
+    //     'username' => 'root',
+    //     'password' => 'winson',
+    //     'database' => 'miromie',
+    //     'DBDriver' => 'MySQLi',
+    //     'DBPrefix' => '',
+    //     'pConnect' => false,
+    //     'DBDebug' => true,
+    //     'charset' => 'utf8',
+    //     'DBCollat' => 'utf8_general_ci',
+    //     'swapPre' => '',
+    //     'encrypt' => false,
+    //     'compress' => false,
+    //     'strictOn' => false,
+    //     'failover' => [],
+    //     'port' => 3306,
+    // ];
 
     /**
      * This database connection is used when

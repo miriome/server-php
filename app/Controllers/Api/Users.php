@@ -50,16 +50,18 @@ class Users extends Base
 
         $result = array();
         $userId = $this->request->user->userId;
-
+        
         $data = array(
             'height' => $this->request->getPost('height'),
             'weight' => $this->request->getPost('weight'),
             'bust' => $this->request->getPost('bust'),
             'waist' => $this->request->getPost('waist'),
             'hips' => $this->request->getPost('hips'),
-            'measurement_privacy' => $this->request->getPost('measurementPrivacy'),
             'updated_at' => date('Y-m-d H:i:s')
         );
+        if ($this->request->getPost('measurementPrivacy') != null) {
+            $data['measurement_privacy'] = $this->request->getPost('measurementPrivacy');
+        }
 
         $this->_userModel->editUser($userId, $data);
         $result = ['status' => true, 'data' => ""];

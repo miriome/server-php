@@ -230,7 +230,10 @@ class PostModel extends Model
     }
 
     function addComment($data)
-    {
+    {      
+        // Updated below to be users that are mentioned.
+        $mentionedUsers = array();
+
         $this->db->transStart();
         $builder = $this->db->table('comments');
         $builder->insert($data);
@@ -260,6 +263,7 @@ class PostModel extends Model
         }
 
         $this->db->transComplete();
+        return $mentionedUsers;
 
     }
 

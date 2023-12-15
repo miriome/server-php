@@ -429,36 +429,45 @@ class Post extends Base
             'created_at' => date('Y-m-d H:i:s'),
             'created_timestamp' => time()];
 
-        $comment_id = $this->_postModel->addComment($data);
-
-
-
-
-
-
-
-
-        // // Send Notification
-        // $post = $this->_postModel->getById($postId);
-        // if ($userId != $post['added_by']) {
-        //     $user = $this->_userModel->getUserById($userId);
-
-        //     $msg = $user['username'] . ' commented your post';
-        //     $token = $this->_deviceModel->getPushId($post['added_by']);
-        //     $this->sendNotification($token, array(), $msg);
-        //     if ($post['added_by'] != $userId) {
-        //         // Add notification history
-        //         $notificationData = [
-        //             'user_id' => $post['added_by'],
-        //             'post_id' => $postId,
-        //             'sent_by' => $userId,
-        //             'notification_type' => 'comment',
-        //             'content' => $msg,
-        //             'created_at' => date('Y-m-d H:i:s')
-        //         ];
-        //         $this->_userModel->addNotification($notificationData);
-        //     }
-        // }
+        $mentionedUsers = $this->_postModel->addComment($data);
+        
+        $post = $this->_postModel->getById($postId);
+        $user = $this->_userModel->getUserById($userId);
+        // Send mention notification
+        foreach ($mentionedUsers as $mentionedUser) {
+            $msg = "You were mentioned in {$user['username']}'s comment";
+            $token = $this->_deviceModel->getPushId($mentionedUser['id']);
+            $this->sendNotification($token, array(), $msg);
+            
+                // Add notification history
+            $notificationData = [
+                'user_id' => $mentionedUser['id'],
+                'post_id' => $postId,
+                'sent_by' => $userId,
+                'notification_type' => 'mention',
+                'content' => $msg,
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $this->_userModel->addNotification($notificationData);
+            
+        }
+        // Send Comment Notification
+        if ($userId != $post['added_by']) {
+            $msg = $user['username'] . ' commented your post';
+            $token = $this->_deviceModel->getPushId($post['added_by']);
+            $this->sendNotification($token, array(), $msg);
+            // Add notification history
+            $notificationData = [
+                'user_id' => $post['added_by'],
+                'post_id' => $postId,
+                'sent_by' => $userId,
+                'notification_type' => 'comment',
+                'content' => $msg,
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $this->_userModel->addNotification($notificationData);
+            
+        }
 
         $response = [
             'status' => true,

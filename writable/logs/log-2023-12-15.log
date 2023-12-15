@@ -369,3 +369,12 @@ Stack trace:
 #10 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
 #11 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
 #12 {main}
+CRITICAL - 2023-12-15 14:48:34 --> array_push(): Argument #1 ($array) must be of type array, null given
+in APPPATH/Models/Api/PostModel.php on line 254.
+ 1 APPPATH/Models/Api/PostModel.php(254): array_push(null, [...])
+ 2 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

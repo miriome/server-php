@@ -2,7 +2,9 @@
 
 namespace App\Models\Api;
 
+use App\Helpers\Helpers;
 use CodeIgniter\Model;
+use Exception;
 
 class PostModel extends Model
 {
@@ -12,9 +14,11 @@ class PostModel extends Model
     public $builder;
     public $db;
 
+    protected $_userModel;
+
     public function __construct()
     {
-
+        $this->_userModel = new UserModel();
         $this->db = \Config\Database::connect();
         $this->builder = $this->db->table($this->table);
     }
@@ -227,8 +231,36 @@ class PostModel extends Model
 
     function addComment($data)
     {
+        $this->db->transStart();
         $builder = $this->db->table('comments');
         $builder->insert($data);
+        $commentId = $this->db->insertID();
+        $comment = $data['comment'];
+        // Update comment mentions
+        $mentionedUsernames = Helpers::getUsernamesFromMentions($comment);
+        try {
+            if (count($mentionedUsernames) > 0) {
+                $mentionedUsers = $this->_userModel->getUsersByUsername($mentionedUsernames);
+                $mentionedUsersMetadata = array();
+                foreach ($mentionedUsers as $mentionedUser) {
+                    $insertData = array(
+                        'user_id' => $mentionedUser['id'],
+                        'comment_id' => $commentId,
+                        'username' => $mentionedUser['username']
+                    );
+                    array_push($mentionedUsersMetadata, $insertData);
+                }
+                if (count($mentionedUsersMetadata) > 0) {
+                    $this->db->table('comments_mentions')->insertBatch($mentionedUsersMetadata);
+                }
+
+            }
+        } catch (Exception $e) {
+            $f = $e;
+        }
+
+        $this->db->transComplete();
+
     }
 
     function deleteComment($commentId)
@@ -241,10 +273,16 @@ class PostModel extends Model
     function comments($postId)
     {
         $builder = $this->db->table('comments');
-        return $builder->where('post_id', $postId)
+        $comments = $builder->where('post_id', $postId)
             ->where('is_deleted', FALSE)
             ->get()
             ->getResultArray();
+        for ($i = 0; $i < count($comments); $i++) {
+            $comment = $comments[$i];
+            $mentions = $this->db->table('comments_mentions')->where('comment_id', $comment['id'])->get()->getResultArray();
+            $comments[$i]['mentions'] = $mentions;
+        }
+        return $comments;
     }
 
     function searchPosts($keyword, $userId /*, $pageIndex, $count*/)

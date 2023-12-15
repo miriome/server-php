@@ -117,6 +117,14 @@ class UserModel extends Model {
                 ->getRowArray();
     }
 
+    function getUsersByUsername($usernames) {
+
+        return $this->builder
+                ->whereIn('username', $usernames)
+                ->get()
+                ->getResultArray();
+    }
+
     function deleteUserPermanently($id) {
 
         return $this->builder

@@ -72,14 +72,32 @@ class Post extends Base
             $newName = $imageFile->getRandomName();
             $imageFile->move('../public/uploads', $newName);
 
-            // $imageFile->move(WRITEPATH . 'uploads', $newName);
             $data['image'] = $newName;
-            // $data = [
-            // 'photo_name' => $imageFile->getClientName(),
-            // 'file'  => $imageFile->getClientMimeType()
-            // ];
 
-            $this->_postModel->add($data);
+
+            $result = $this->_postModel->add($data);
+            $postId = $result[0];
+            $mentionedUsers = $result[1];
+            $user = $this->_userModel->getUserById($userId);
+
+            // Send mention notification
+            foreach ($mentionedUsers as $mentionedUser) {
+                $msg = "You were mentioned in {$user['username']}'s comment";
+                $token = $this->_deviceModel->getPushId($mentionedUser['id']);
+                $this->sendNotification($token, array(), $msg);
+
+                // Add notification history
+                $notificationData = [
+                    'user_id' => $mentionedUser['id'],
+                    'post_id' => $postId,
+                    'sent_by' => $userId,
+                    'notification_type' => 'mention',
+                    'content' => $msg,
+                    'created_at' => date('Y-m-d H:i:s')
+                ];
+                $this->_userModel->addNotification($notificationData);
+
+            }
 
             $filepath = base_url() . "uploads/" . $newName;
             $response = [
@@ -307,7 +325,7 @@ class Post extends Base
             'bust' => $puser['bust'],
             'waist' => $puser['waist'],
             'hips' => $puser['hips'],
-            'photo_url' => base_url() . 'uploads/' . $puser['photo_name']
+            'photo_url' => base_url() . 'uploads/' . $puser['photo_name'],
         ];
         if ($userId == -1) {
             $myLike = 0;
@@ -348,6 +366,7 @@ class Post extends Base
             'hypertext' => $post['hypertext'],
             'hyperlink' => $post['hyperlink'],
             'added_by' => $post['added_by'],
+            'mentions' => $post['mentions'],
             'likes' => $post['likes'],
             'created_at' => $post['created_at'],
             'my_like' => $myLike,
@@ -430,7 +449,7 @@ class Post extends Base
             'created_timestamp' => time()];
 
         $mentionedUsers = $this->_postModel->addComment($data);
-        
+
         $post = $this->_postModel->getById($postId);
         $user = $this->_userModel->getUserById($userId);
         // Send mention notification
@@ -438,8 +457,8 @@ class Post extends Base
             $msg = "You were mentioned in {$user['username']}'s comment";
             $token = $this->_deviceModel->getPushId($mentionedUser['id']);
             $this->sendNotification($token, array(), $msg);
-            
-                // Add notification history
+
+            // Add notification history
             $notificationData = [
                 'user_id' => $mentionedUser['id'],
                 'post_id' => $postId,
@@ -449,7 +468,7 @@ class Post extends Base
                 'created_at' => date('Y-m-d H:i:s')
             ];
             $this->_userModel->addNotification($notificationData);
-            
+
         }
         // Send Comment Notification
         if ($userId != $post['added_by']) {
@@ -466,7 +485,7 @@ class Post extends Base
                 'created_at' => date('Y-m-d H:i:s')
             ];
             $this->_userModel->addNotification($notificationData);
-            
+
         }
 
         $response = [

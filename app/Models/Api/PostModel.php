@@ -26,9 +26,38 @@ class PostModel extends Model
     public function add($data)
     {
 
-        $this->builder->insert($data);
-        return $this->db->insertID();
+        // Updated below to be users that are mentioned.
+        $mentionedUsers = array();
 
+        $this->db->transStart();
+        $this->builder->insert($data);
+        $postId = $this->db->insertID();
+        $caption = $data['caption'];
+        // Update post mentions
+        $mentionedUsernames = Helpers::getUsernamesFromMentions($caption);
+        try {
+            if (count($mentionedUsernames) > 0) {
+                $mentionedUsers = $this->_userModel->getUsersByUsername($mentionedUsernames);
+                $mentionedUsersMetadata = array();
+                foreach ($mentionedUsers as $mentionedUser) {
+                    $insertData = array(
+                        'user_id' => $mentionedUser['id'],
+                        'post_id' => $postId,
+                        'username' => $mentionedUser['username']
+                    );
+                    array_push($mentionedUsersMetadata, $insertData);
+                }
+                if (count($mentionedUsersMetadata) > 0) {
+                    $this->db->table('posts_mentions')->insertBatch($mentionedUsersMetadata);
+                }
+
+            }
+        } catch (Exception $e) {
+            $f = $e;
+        }
+
+        $this->db->transComplete();
+        return [$postId, $mentionedUsers];
     }
 
     public function editPost($postId, $data)
@@ -36,6 +65,38 @@ class PostModel extends Model
         $this->builder->where('id', $postId)
             ->set($data)
             ->update();
+
+        // Updated below to be users that are mentioned.
+        $mentionedUsers = array();
+
+        $this->db->transStart();
+        $caption = $data['caption'];
+        // Update post mentions
+        $mentionedUsernames = Helpers::getUsernamesFromMentions($caption);
+        try {
+            if (count($mentionedUsernames) > 0) {
+                $mentionedUsers = $this->_userModel->getUsersByUsername($mentionedUsernames);
+                $mentionedUsersMetadata = array();
+                foreach ($mentionedUsers as $mentionedUser) {
+                    $insertData = array(
+                        'user_id' => $mentionedUser['id'],
+                        'post_id' => $postId,
+                        'username' => $mentionedUser['username']
+                    );
+                    array_push($mentionedUsersMetadata, $insertData);
+                }
+                if (count($mentionedUsersMetadata) > 0) {
+                    $this->db->table('posts_mentions')->upsertBatch($mentionedUsersMetadata);
+                }
+
+            }
+        } catch (Exception $e) {
+            $f = $e;
+        }
+
+        $this->db->transComplete();
+        return [$postId, $mentionedUsers];
+
     }
 
     public function getAllPosts($pageIndex, $count)
@@ -172,6 +233,8 @@ class PostModel extends Model
             ->where('deleted', 0)
             ->get()
             ->getRowArray();
+        $mentions = $this->db->table('posts_mentions')->where('post_id', $id)->get()->getResultArray();
+        $post['mentions'] = $mentions;
         return $post;
     }
 
@@ -230,7 +293,7 @@ class PostModel extends Model
     }
 
     function addComment($data)
-    {      
+    {
         // Updated below to be users that are mentioned.
         $mentionedUsers = array();
 

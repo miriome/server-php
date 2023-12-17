@@ -2,15 +2,15 @@ Array
 (
     [file] => CodeIgniter\HTTP\Files\UploadedFile Object
         (
-            [size:protected] => 0
-            [originalMimeType:protected] => 
-            [path:protected] => 
+            [size:protected] => 1315025
+            [originalMimeType:protected] => image/jpg
+            [path:protected] => /private/var/folders/0g/v6sty6m52yqfyz748hnchhjw0000gn/T/phpVJX9eZ
             [originalName:protected] => image.jpg
             [name:protected] => image.jpg
-            [error:protected] => 1
+            [error:protected] => 0
             [hasMoved:protected] => 
-            [pathName:SplFileInfo:private] => 
-            [fileName:SplFileInfo:private] => 
+            [pathName:SplFileInfo:private] => /private/var/folders/0g/v6sty6m52yqfyz748hnchhjw0000gn/T/phpVJX9eZ
+            [fileName:SplFileInfo:private] => phpVJX9eZ
         )
 
 )

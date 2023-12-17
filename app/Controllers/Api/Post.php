@@ -3,6 +3,7 @@
 namespace App\Controllers\Api;
 
 use App\Controllers\Api\Base;
+use App\Helpers\Helpers;
 use App\Models\Api\PostModel;
 use App\Models\Api\UserModel;
 use App\Models\Api\DeviceModel;
@@ -24,7 +25,8 @@ class Post extends Base
         //
     }
 
-    public function addPost() {
+    public function addPost()
+    {
 
         $userId = $this->request->user->userId;
         $data = array(
@@ -56,29 +58,48 @@ class Post extends Base
             'message' => "Image could not upload"
         ];
 
-        function debugArray(array $data, $filename = "Array") {
-            $f = fopen("bebug_".$filename.".txt", "w");
+        function debugArray(array $data, $filename = "Array")
+        {
+            $f = fopen("bebug_" . $filename . ".txt", "w");
             fwrite($f, print_r($data, true));
             fclose($f);
         }
 
         if ($validationRule) {
             $imageFile = $this->request->getFile('file');
-            debugArray(["file"=> $imageFile], "array");
+            debugArray(["file" => $imageFile], "array");
 
             $newName = $imageFile->getRandomName();
             $imageFile->move('../public/uploads', $newName);
 
-            // $imageFile->move(WRITEPATH . 'uploads', $newName);
             $data['image'] = $newName;
-            // $data = [
-                // 'photo_name' => $imageFile->getClientName(),
-                // 'file'  => $imageFile->getClientMimeType()
-            // ];
 
-            $this->_postModel->add($data);
 
-            $filepath = base_url()."uploads/".$newName;
+            $result = $this->_postModel->add($data);
+            $postId = $result[0];
+            $mentionedUsers = $result[1];
+            $user = $this->_userModel->getUserById($userId);
+
+            // Send mention notification
+            foreach ($mentionedUsers as $mentionedUser) {
+                $msg = "You were mentioned in {$user['username']}'s comment";
+                $token = $this->_deviceModel->getPushId($mentionedUser['id']);
+                $this->sendNotification($token, array(), $msg);
+
+                // Add notification history
+                $notificationData = [
+                    'user_id' => $mentionedUser['id'],
+                    'post_id' => $postId,
+                    'sent_by' => $userId,
+                    'notification_type' => 'mention',
+                    'content' => $msg,
+                    'created_at' => date('Y-m-d H:i:s')
+                ];
+                $this->_userModel->addNotification($notificationData);
+
+            }
+
+            $filepath = base_url() . "uploads/" . $newName;
             $response = [
                 'status' => true,
                 'data' => $filepath,
@@ -90,7 +111,8 @@ class Post extends Base
     }
 
 
-    function editPost($postId) {
+    function editPost($postId)
+    {
 
         $userId = $this->request->user->userId;
 
@@ -129,10 +151,10 @@ class Post extends Base
                 // $imageFile->move(WRITEPATH . 'uploads', $newName);
                 $data['image'] = $newName;
                 // $data = [
-                    // 'photo_name' => $imageFile->getClientName(),
-                    // 'file'  => $imageFile->getClientMimeType()
+                // 'photo_name' => $imageFile->getClientName(),
+                // 'file'  => $imageFile->getClientMimeType()
                 // ];
-                $filepath = base_url()."uploads/".$newName;
+                $filepath = base_url() . "uploads/" . $newName;
             } else {
                 $msg = "Image could not upload";
             }
@@ -152,7 +174,8 @@ class Post extends Base
         return $this->response->setJSON($response);
     }
 
-    function markSold($postId) {
+    function markSold($postId)
+    {
 
         $userId = $this->request->user->userId;
 
@@ -176,7 +199,8 @@ class Post extends Base
     }
 
 
-    function deletePost($postId) {
+    function deletePost($postId)
+    {
 
         $data = ['deleted' => 1, 'deleted_at' => date('Y-m-d H:i:s')];
         $this->_postModel->editPost($postId, $data);
@@ -191,7 +215,8 @@ class Post extends Base
     }
 
 
-    function getPost() {
+    function getPost()
+    {
 
         $result = array();
         $followers = array();
@@ -215,7 +240,7 @@ class Post extends Base
 
                 $user = $this->_userModel->getUserById($userId);
                 $userStyles = [];
-                if ($user['styles'] != ''){
+                if ($user['styles'] != '') {
                     $userStyles = explode(',', $user['styles']);
                 }
                 $posts = $this->_postModel->getPostsByStyles($pageIndex, $count, $userStyles, $fcount);
@@ -268,7 +293,8 @@ class Post extends Base
     }
 
 
-    function getDetail($postId) {
+    function getDetail($postId)
+    {
 
         $result = array();
 
@@ -299,7 +325,7 @@ class Post extends Base
             'bust' => $puser['bust'],
             'waist' => $puser['waist'],
             'hips' => $puser['hips'],
-            'photo_url' => base_url() . 'uploads/' . $puser['photo_name']
+            'photo_url' => base_url() . 'uploads/' . $puser['photo_name'],
         ];
         if ($userId == -1) {
             $myLike = 0;
@@ -340,6 +366,7 @@ class Post extends Base
             'hypertext' => $post['hypertext'],
             'hyperlink' => $post['hyperlink'],
             'added_by' => $post['added_by'],
+            'mentions' => $post['mentions'],
             'likes' => $post['likes'],
             'created_at' => $post['created_at'],
             'my_like' => $myLike,
@@ -357,28 +384,29 @@ class Post extends Base
     }
 
 
-    function setLike() {
+    function setLike()
+    {
 
         $userId = $this->request->user->userId;
         $postId = $this->request->getPost('post_id');
         $isLike = $this->request->getPost('is_like');
 
         $data = ['user_id' => $userId,
-                'post_id' => $postId
-            ];
+            'post_id' => $postId
+        ];
 
         $this->_postModel->setLike($data, $isLike);
 
         $likeMessage = $isLike == 0 ? 'disliked' : 'liked';
-        $message = 'You '. $likeMessage . ' this post successfully';
+        $message = 'You ' . $likeMessage . ' this post successfully';
 
         if ($isLike == 1) {
             // Send Notification
             $post = $this->_postModel->getById($postId);
             if ($userId != $post['added_by']) {
                 $user = $this->_userModel->getUserById($userId);
-                
-                $msg = $user['username'] . ' '. $likeMessage . ' your post';
+
+                $msg = $user['username'] . ' ' . $likeMessage . ' your post';
                 $token = $this->_deviceModel->getPushId($post['added_by']);
                 $this->sendNotification($token, array(), $msg);
 
@@ -407,40 +435,57 @@ class Post extends Base
     }
 
     // Add comment
-    function comment() {
-        
+    function comment()
+    {
+
         $userId = $this->request->user->userId;
 
         $postId = $this->request->getPost('post_id');
 
         $data = ['user_id' => $userId,
-                'post_id' => $postId,
-                'comment' => $this->request->getPost('comment'),
-                'created_at' => date('Y-m-d H:i:s'),
-                'created_timestamp' => time()];
+            'post_id' => $postId,
+            'comment' => $this->request->getPost('comment'),
+            'created_at' => date('Y-m-d H:i:s'),
+            'created_timestamp' => time()];
 
-        $this->_postModel->addComment($data);
+        $mentionedUsers = $this->_postModel->addComment($data);
 
-        // Send Notification
         $post = $this->_postModel->getById($postId);
-        if ($userId != $post['added_by']) {
-            $user = $this->_userModel->getUserById($userId);
+        $user = $this->_userModel->getUserById($userId);
+        // Send mention notification
+        foreach ($mentionedUsers as $mentionedUser) {
+            $msg = "You were mentioned in {$user['username']}'s comment";
+            $token = $this->_deviceModel->getPushId($mentionedUser['id']);
+            $this->sendNotification($token, array(), $msg);
 
+            // Add notification history
+            $notificationData = [
+                'user_id' => $mentionedUser['id'],
+                'post_id' => $postId,
+                'sent_by' => $userId,
+                'notification_type' => 'mention',
+                'content' => $msg,
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $this->_userModel->addNotification($notificationData);
+
+        }
+        // Send Comment Notification
+        if ($userId != $post['added_by']) {
             $msg = $user['username'] . ' commented your post';
             $token = $this->_deviceModel->getPushId($post['added_by']);
             $this->sendNotification($token, array(), $msg);
-            if ($post['added_by'] != $userId) {
-                // Add notification history
-                $notificationData = [
-                    'user_id' => $post['added_by'],
-                    'post_id' => $postId,
-                    'sent_by' => $userId,
-                    'notification_type' => 'comment',
-                    'content' => $msg,
-                    'created_at' => date('Y-m-d H:i:s')
-                ];
-                $this->_userModel->addNotification($notificationData);
-            }
+            // Add notification history
+            $notificationData = [
+                'user_id' => $post['added_by'],
+                'post_id' => $postId,
+                'sent_by' => $userId,
+                'notification_type' => 'comment',
+                'content' => $msg,
+                'created_at' => date('Y-m-d H:i:s')
+            ];
+            $this->_userModel->addNotification($notificationData);
+
         }
 
         $response = [
@@ -454,7 +499,8 @@ class Post extends Base
     }
 
     // Get comments
-    function comments($postId) {
+    function comments($postId)
+    {
 
         $result = array();
 
@@ -488,7 +534,8 @@ class Post extends Base
     }
 
     // delete comment
-    function deleteComment() {
+    function deleteComment()
+    {
 
         $commentId = $this->request->getPost('comment_id');
         $this->_postModel->deleteComment($commentId);
@@ -504,7 +551,8 @@ class Post extends Base
     }
 
 
-    function search() {
+    function search()
+    {
 
         $result = array();
         $postResult = array();
@@ -519,7 +567,7 @@ class Post extends Base
         if ($keyword == '') {
             $posts = $this->_postModel->otherPosts($userId);
         } else {
-            $posts = $this->_postModel->searchPosts($keyword, $userId/*, $pageIndex, $count*/);
+            $posts = $this->_postModel->searchPosts($keyword, $userId /*, $pageIndex, $count*/);
         }
         foreach ($posts as $row) {
             $user = $this->_userModel->getUserById($row['added_by']);
@@ -557,7 +605,7 @@ class Post extends Base
         }
 
         if ($keyword != '') {
-            $users = $this->_userModel->searchUsers($keyword, $userId/*, $pageIndex, $count*/);
+            $users = $this->_userModel->searchUsers($keyword, $userId /*, $pageIndex, $count*/);
 
             foreach ($users as $row) {
 
@@ -590,7 +638,8 @@ class Post extends Base
     }
 
     // Get liked post list
-    function liked() {
+    function liked()
+    {
 
         $result = array();
 

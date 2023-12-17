@@ -1,0 +1,380 @@
+CRITICAL - 2023-12-15 02:17:47 --> Undefined array key "measurement_privacy"
+in APPPATH/Controllers/Api/Users.php on line 275.
+ 1 APPPATH/Controllers/Api/Users.php(275): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "measurement_privacy"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 275)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 02:24:14 --> Undefined array key "measurement_privacy"
+in APPPATH/Controllers/Api/Users.php on line 275.
+ 1 APPPATH/Controllers/Api/Users.php(275): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "measurement_privacy"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 275)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 02:24:24 --> Undefined array key "measurement_privacy"
+in APPPATH/Controllers/Api/Users.php on line 275.
+ 1 APPPATH/Controllers/Api/Users.php(275): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "measurement_privacy"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 275)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 02:35:30 --> Undefined array key "measurement_privacy"
+in APPPATH/Controllers/Api/Users.php on line 275.
+ 1 APPPATH/Controllers/Api/Users.php(275): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "measurement_privacy"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 275)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 02:35:57 --> Undefined array key "measurement_privacy"
+in APPPATH/Controllers/Api/Users.php on line 275.
+ 1 APPPATH/Controllers/Api/Users.php(275): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "measurement_privacy"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 275)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-12-15 12:39:45 --> mysqli_sql_exception: Table 'miromie.mentions' doesn't exist in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE men...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE men...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE men...')
+#3 /Users/winson.heng/server-php/app/Database/Migrations/2023-12-15-123128_AddMentions.php(41): CodeIgniter\Database\BaseConnection->query('ALTER TABLE men...')
+#4 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\AddMentions->up()
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-12-15 12:40:17 --> mysqli_sql_exception: Table 'posts_mentions' already exists in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `p...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `p...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `p...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `p...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2023-12-15-123128_AddMentions.php(38): CodeIgniter\Database\Forge->createTable('posts_mentions')
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\AddMentions->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2023-12-15 12:40:53 --> mysqli_sql_exception: Failed to add the foreign key constraint. Missing column 'user_id' for constraint 'posts_mentions_ibfk_1' in the referenced table 'users' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE pos...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pos...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pos...')
+#3 /Users/winson.heng/server-php/app/Database/Migrations/2023-12-15-123128_AddMentions.php(41): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pos...')
+#4 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\AddMentions->up()
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-12-15 12:41:36 --> mysqli_sql_exception: Referencing column 'user_id' and referenced column 'id' in foreign key constraint 'posts_mentions_ibfk_1' are incompatible. in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE pos...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pos...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pos...')
+#3 /Users/winson.heng/server-php/app/Database/Migrations/2023-12-15-123128_AddMentions.php(41): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pos...')
+#4 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\AddMentions->up()
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-12-15 12:44:17 --> mysqli_sql_exception: Referencing column 'user_id' and referenced column 'id' in foreign key constraint 'posts_mentions_ibfk_1' are incompatible. in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE pos...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE pos...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE pos...')
+#3 /Users/winson.heng/server-php/app/Database/Migrations/2023-12-15-123128_AddMentions.php(37): CodeIgniter\Database\BaseConnection->query('ALTER TABLE pos...')
+#4 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\AddMentions->up()
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2023-12-15 13:18:01 --> mysqli_sql_exception: The user specified as a definer ('miromie_root'@'219.74.6.119') does not exist in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `comment...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `comment...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `comment...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `comment...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(259): CodeIgniter\Database\BaseBuilder->update()
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(513): App\Models\Api\PostModel->deleteComment('67')
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->deleteComment()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+CRITICAL - 2023-12-15 13:18:29 --> The user specified as a definer ('miromie_root'@'219.74.6.119') does not exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'67\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'67\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'67\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = :id:', [...], false)
+ 5 APPPATH/Models/Api/PostModel.php(259): CodeIgniter\Database\BaseBuilder->update()
+ 6 APPPATH/Controllers/Api/Post.php(513): App\Models\Api\PostModel->deleteComment('67')
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->deleteComment()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-12-15 13:23:25 --> mysqli_sql_exception: The user specified as a definer ('miromie_root'@'219.74.6.119') does not exist in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `comment...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `comment...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `comment...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `comment...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(259): CodeIgniter\Database\BaseBuilder->update()
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(513): App\Models\Api\PostModel->deleteComment('68')
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->deleteComment()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+CRITICAL - 2023-12-15 13:23:31 --> The user specified as a definer ('miromie_root'@'219.74.6.119') does not exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = :id:', [...], false)
+ 5 APPPATH/Models/Api/PostModel.php(259): CodeIgniter\Database\BaseBuilder->update()
+ 6 APPPATH/Controllers/Api/Post.php(513): App\Models\Api\PostModel->deleteComment('68')
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->deleteComment()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-12-15 13:24:11 --> mysqli_sql_exception: The user specified as a definer ('miromie_root'@'219.74.6.119') does not exist in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `comment...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `comment...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `comment...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `comment...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(259): CodeIgniter\Database\BaseBuilder->update()
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(513): App\Models\Api\PostModel->deleteComment('68')
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->deleteComment()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+CRITICAL - 2023-12-15 13:24:59 --> The user specified as a definer ('miromie_root'@'219.74.6.119') does not exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = :id:', [...], false)
+ 5 APPPATH/Models/Api/PostModel.php(259): CodeIgniter\Database\BaseBuilder->update()
+ 6 APPPATH/Controllers/Api/Post.php(513): App\Models\Api\PostModel->deleteComment('68')
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->deleteComment()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-12-15 13:25:18 --> mysqli_sql_exception: The user specified as a definer ('miromie_root'@'219.74.6.119') does not exist in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `comment...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `comment...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `comment...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `comment...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(259): CodeIgniter\Database\BaseBuilder->update()
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(513): App\Models\Api\PostModel->deleteComment('68')
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->deleteComment()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+CRITICAL - 2023-12-15 13:25:33 --> The user specified as a definer ('miromie_root'@'219.74.6.119') does not exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = :id:', [...], false)
+ 5 APPPATH/Models/Api/PostModel.php(259): CodeIgniter\Database\BaseBuilder->update()
+ 6 APPPATH/Controllers/Api/Post.php(513): App\Models\Api\PostModel->deleteComment('68')
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->deleteComment()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-12-15 13:30:08 --> mysqli_sql_exception: The user specified as a definer ('miromie_root'@'219.74.6.119') does not exist in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `comment...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `comment...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `comment...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `comment...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(259): CodeIgniter\Database\BaseBuilder->update()
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(513): App\Models\Api\PostModel->deleteComment('68')
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->deleteComment()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+CRITICAL - 2023-12-15 13:31:00 --> The user specified as a definer ('miromie_root'@'219.74.6.119') does not exist
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = \'68\'')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(2476): CodeIgniter\Database\BaseConnection->query('UPDATE `comments` SET `is_deleted` = 1
+WHERE `id` = :id:', [...], false)
+ 5 APPPATH/Models/Api/PostModel.php(259): CodeIgniter\Database\BaseBuilder->update()
+ 6 APPPATH/Controllers/Api/Post.php(513): App\Models\Api\PostModel->deleteComment('68')
+ 7 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->deleteComment()
+ 8 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 9 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+10 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+11 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 13:43:21 --> insertBatch() has no data.
+in SYSTEMPATH/Database/BaseBuilder.php on line 1772.
+ 1 SYSTEMPATH/Database/BaseBuilder.php(2192): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+ 2 APPPATH/Models/Api/PostModel.php(249): CodeIgniter\Database\BaseBuilder->insertBatch([])
+ 3 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 13:51:53 --> Undefined variable $megan
+in APPPATH/Helpers/Helpers.php on line 22.
+ 1 APPPATH/Helpers/Helpers.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $megan', '/Users/winson.heng/server-php/app/Helpers/Helpers.php', 22)
+ 2 APPPATH/Models/Api/PostModel.php(244): App\Helpers\Helpers::getMentionMetadata('@megan ', [...])
+ 3 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 13:52:02 --> Undefined variable $megan
+in APPPATH/Helpers/Helpers.php on line 22.
+ 1 APPPATH/Helpers/Helpers.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $megan', '/Users/winson.heng/server-php/app/Helpers/Helpers.php', 22)
+ 2 APPPATH/Models/Api/PostModel.php(244): App\Helpers\Helpers::getMentionMetadata('@megan ', [...])
+ 3 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 13:52:37 --> Undefined variable $megan
+in APPPATH/Helpers/Helpers.php on line 22.
+ 1 APPPATH/Helpers/Helpers.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $megan', '/Users/winson.heng/server-php/app/Helpers/Helpers.php', 22)
+ 2 APPPATH/Models/Api/PostModel.php(244): App\Helpers\Helpers::getMentionMetadata('@megan ', [...])
+ 3 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 13:53:20 --> Undefined variable $megan
+in APPPATH/Helpers/Helpers.php on line 22.
+ 1 APPPATH/Helpers/Helpers.php(22): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $megan', '/Users/winson.heng/server-php/app/Helpers/Helpers.php', 22)
+ 2 APPPATH/Models/Api/PostModel.php(244): App\Helpers\Helpers::getMentionMetadata('@megan ', [...])
+ 3 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 13:55:37 --> Undefined array key "comment"
+in APPPATH/Models/Api/PostModel.php on line 244.
+ 1 APPPATH/Models/Api/PostModel.php(244): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "comment"', '/Users/winson.heng/server-php/app/Models/Api/PostModel.php', 244)
+ 2 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 13:56:01 --> Undefined array key "comment"
+in APPPATH/Models/Api/PostModel.php on line 244.
+ 1 APPPATH/Models/Api/PostModel.php(244): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "comment"', '/Users/winson.heng/server-php/app/Models/Api/PostModel.php', 244)
+ 2 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 13:56:27 --> Undefined array key "comment"
+in APPPATH/Models/Api/PostModel.php on line 244.
+ 1 APPPATH/Models/Api/PostModel.php(244): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "comment"', '/Users/winson.heng/server-php/app/Models/Api/PostModel.php', 244)
+ 2 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 13:57:03 --> Undefined array key "comment"
+in APPPATH/Models/Api/PostModel.php on line 244.
+ 1 APPPATH/Models/Api/PostModel.php(244): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "comment"', '/Users/winson.heng/server-php/app/Models/Api/PostModel.php', 244)
+ 2 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-15 13:58:06 --> Undefined array key "comment"
+in APPPATH/Models/Api/PostModel.php on line 244.
+ 1 APPPATH/Models/Api/PostModel.php(244): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "comment"', '/Users/winson.heng/server-php/app/Models/Api/PostModel.php', 244)
+ 2 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2023-12-15 14:23:09 --> mysqli_sql_exception: Unknown column 'username_offset' in 'field list' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `co...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `co...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `co...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1801): CodeIgniter\Database\BaseConnection->query('INSERT INTO `co...', NULL, false)
+#4 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2192): CodeIgniter\Database\BaseBuilder->batchExecute('_insertBatch', 100)
+#5 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(254): CodeIgniter\Database\BaseBuilder->insertBatch(Array)
+#6 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment(Array)
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#9 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#12 {main}
+CRITICAL - 2023-12-15 14:48:34 --> array_push(): Argument #1 ($array) must be of type array, null given
+in APPPATH/Models/Api/PostModel.php on line 254.
+ 1 APPPATH/Models/Api/PostModel.php(254): array_push(null, [...])
+ 2 APPPATH/Controllers/Api/Post.php(432): App\Models\Api\PostModel->addComment([...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

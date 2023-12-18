@@ -313,6 +313,9 @@ class Post extends Base
         }
 
         $puser = $this->_userModel->getUserById($post['added_by']);
+        $myFollow = $this->_userModel->checkMyFollow($userId, $post['added_by']);
+        
+
 
         $poster = [
             'id' => $puser['id'],
@@ -325,6 +328,7 @@ class Post extends Base
             'bust' => $puser['bust'],
             'waist' => $puser['waist'],
             'hips' => $puser['hips'],
+            'my_follow' => $myFollow,
             'measurementPrivacy' => $puser['measurement_privacy'],
             'photo_url' => base_url() . 'uploads/' . $puser['photo_name'],
         ];

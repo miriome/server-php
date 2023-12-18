@@ -1,0 +1,64 @@
+CRITICAL - 2023-12-18 01:19:31 --> Undefined array key "id"
+in APPPATH/Controllers/Api/Users.php on line 339.
+ 1 APPPATH/Controllers/Api/Users.php(339): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 339)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-18 01:20:06 --> Undefined array key "id"
+in APPPATH/Controllers/Api/Users.php on line 339.
+ 1 APPPATH/Controllers/Api/Users.php(339): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 339)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-18 01:20:43 --> Undefined array key "id"
+in APPPATH/Controllers/Api/Users.php on line 339.
+ 1 APPPATH/Controllers/Api/Users.php(339): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 339)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-18 01:22:21 --> Undefined array key "id"
+in APPPATH/Controllers/Api/Users.php on line 339.
+ 1 APPPATH/Controllers/Api/Users.php(339): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 339)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-18 01:22:33 --> Undefined array key "id"
+in APPPATH/Controllers/Api/Users.php on line 339.
+ 1 APPPATH/Controllers/Api/Users.php(339): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 339)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-18 01:22:48 --> Undefined array key "id"
+in APPPATH/Controllers/Api/Users.php on line 339.
+ 1 APPPATH/Controllers/Api/Users.php(339): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 339)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-18 01:23:27 --> Undefined array key "id"
+in APPPATH/Controllers/Api/Users.php on line 339.
+ 1 APPPATH/Controllers/Api/Users.php(339): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 339)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-18 01:25:32 --> Undefined array key "image"
+in APPPATH/Controllers/Api/Users.php on line 340.
+ 1 APPPATH/Controllers/Api/Users.php(340): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "image"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 340)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

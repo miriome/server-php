@@ -77,18 +77,18 @@ class Exceptions
     {
         $this->ob_level = ob_get_level();
         $this->viewPath = rtrim($config->errorViewPath, '\\/ ') . DIRECTORY_SEPARATOR;
-        $this->config   = $config;
-        $this->request  = $request;
+        $this->config = $config;
+        $this->request = $request;
         $this->response = $response;
 
         // workaround for upgraded users
         // This causes "Deprecated: Creation of dynamic property" in PHP 8.2.
         // @TODO remove this after dropping PHP 8.1 support.
-        if (! isset($this->config->sensitiveDataInTrace)) {
+        if (!isset($this->config->sensitiveDataInTrace)) {
             $this->config->sensitiveDataInTrace = [];
         }
-        if (! isset($this->config->logDeprecations, $this->config->deprecationLogLevel)) {
-            $this->config->logDeprecations     = false;
+        if (!isset($this->config->logDeprecations, $this->config->deprecationLogLevel)) {
+            $this->config->logDeprecations = false;
             $this->config->deprecationLogLevel = LogLevel::WARNING;
         }
     }
@@ -124,16 +124,16 @@ class Exceptions
             $exception = $prevException;
         }
 
-        if ($this->config->log === true && ! in_array($statusCode, $this->config->ignoreCodes, true)) {
+        if ($this->config->log === true && !in_array($statusCode, $this->config->ignoreCodes, true)) {
             log_message('critical', "{message}\nin {exFile} on line {exLine}.\n{trace}", [
                 'message' => $exception->getMessage(),
-                'exFile'  => clean_path($exception->getFile()), // {file} refers to THIS file
-                'exLine'  => $exception->getLine(), // {line} refers to THIS line
-                'trace'   => self::renderBacktrace($exception->getTrace()),
+                'exFile' => clean_path($exception->getFile()), // {file} refers to THIS file
+                'exLine' => $exception->getLine(), // {line} refers to THIS line
+                'trace' => self::renderBacktrace($exception->getTrace()),
             ]);
         }
 
-        if (! is_cli()) {
+        if (!is_cli()) {
             try {
                 $this->response->setStatusCode($statusCode);
             } catch (HTTPException $e) {
@@ -142,7 +142,7 @@ class Exceptions
                 $this->response->setStatusCode($statusCode);
             }
 
-            if (! headers_sent()) {
+            if (!headers_sent()) {
                 header(sprintf('HTTP/%s %s %s', $this->request->getProtocolVersion(), $this->response->getStatusCode(), $this->response->getReasonPhrase()), true, $statusCode);
             }
 
@@ -170,7 +170,7 @@ class Exceptions
     public function errorHandler(int $severity, string $message, ?string $file = null, ?int $line = null)
     {
         if ($this->isDeprecationError($severity)) {
-            if (! $this->config->logDeprecations || (bool) env('CODEIGNITER_SCREAM_DEPRECATIONS')) {
+            if (!$this->config->logDeprecations || (bool) env('CODEIGNITER_SCREAM_DEPRECATIONS')) {
                 throw new ErrorException($message, 0, $severity, $file, $line);
             }
 
@@ -221,7 +221,7 @@ class Exceptions
     protected function determineView(Throwable $exception, string $templatePath): string
     {
         // Production environments should have a custom exception file.
-        $view         = 'production.php';
+        $view = 'production.php';
         $templatePath = rtrim($templatePath, '\\/ ') . DIRECTORY_SEPARATOR;
 
         if (str_ireplace(['off', 'none', 'no', 'false', 'null'], '', ini_get('display_errors'))) {
@@ -247,14 +247,14 @@ class Exceptions
     protected function render(Throwable $exception, int $statusCode)
     {
         // Determine possible directories of error views
-        $path    = $this->viewPath;
+        $path = $this->viewPath;
         $altPath = rtrim((new Paths())->viewDirectory, '\\/ ') . DIRECTORY_SEPARATOR . 'errors' . DIRECTORY_SEPARATOR;
 
-        $path    .= (is_cli() ? 'cli' : 'html') . DIRECTORY_SEPARATOR;
+        $path .= (is_cli() ? 'cli' : 'html') . DIRECTORY_SEPARATOR;
         $altPath .= (is_cli() ? 'cli' : 'html') . DIRECTORY_SEPARATOR;
 
         // Determine the views
-        $view    = $this->determineView($exception, $path);
+        $view = $this->determineView($exception, $path);
         $altView = $this->determineView($exception, $altPath);
 
         // Check if the view exists
@@ -264,7 +264,7 @@ class Exceptions
             $viewFile = $altPath . $altView;
         }
 
-        if (! isset($viewFile)) {
+        if (!isset($viewFile)) {
             echo 'The error view files were not found. Cannot render exception trace.';
 
             exit(1);
@@ -274,7 +274,7 @@ class Exceptions
             ob_end_clean();
         }
 
-        echo(function () use ($exception, $statusCode, $viewFile): string {
+        echo (function () use ($exception, $statusCode, $viewFile): string{
             $vars = $this->collectVars($exception, $statusCode);
             extract($vars, EXTR_SKIP);
 
@@ -297,13 +297,13 @@ class Exceptions
         }
 
         return [
-            'title'   => get_class($exception),
-            'type'    => get_class($exception),
-            'code'    => $statusCode,
+            'title' => get_class($exception),
+            'type' => get_class($exception),
+            'code' => $statusCode,
             'message' => $exception->getMessage(),
-            'file'    => $exception->getFile(),
-            'line'    => $exception->getLine(),
-            'trace'   => $trace,
+            'file' => $exception->getFile(),
+            'line' => $exception->getLine(),
+            'trace' => $trace,
         ];
     }
 
@@ -332,7 +332,7 @@ class Exceptions
     {
         foreach ($keysToMask as $keyToMask) {
             $explode = explode('/', $keyToMask);
-            $index   = end($explode);
+            $index = end($explode);
 
             if (strpos(strrev($path . '/' . $index), strrev($keyToMask)) === 0) {
                 if (is_array($args) && array_key_exists($index, $args)) {
@@ -400,7 +400,7 @@ class Exceptions
                 'message' => $message,
                 'errFile' => clean_path($file ?? ''),
                 'errLine' => $line ?? 0,
-                'trace'   => self::renderBacktrace($trace),
+                'trace' => self::renderBacktrace($trace),
             ]
         );
 
@@ -463,7 +463,7 @@ class Exceptions
      */
     public static function highlightFile(string $file, int $lineNumber, int $lines = 15)
     {
-        if (empty($file) || ! is_readable($file)) {
+        if (empty($file) || !is_readable($file)) {
             return false;
         }
 

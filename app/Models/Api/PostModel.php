@@ -233,8 +233,11 @@ class PostModel extends Model
             ->where('deleted', 0)
             ->get()
             ->getRowArray();
-        $mentions = $this->db->table('posts_mentions')->where('post_id', $id)->get()->getResultArray();
+        if (!empty($post)) {
+            $mentions = $this->db->table('posts_mentions')->where('post_id', $id)->get()->getResultArray();
         $post['mentions'] = $mentions;
+        }
+        
         return $post;
     }
 

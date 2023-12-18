@@ -325,6 +325,7 @@ class Post extends Base
             'bust' => $puser['bust'],
             'waist' => $puser['waist'],
             'hips' => $puser['hips'],
+            'measurementPrivacy' => $puser['measurement_privacy'],
             'photo_url' => base_url() . 'uploads/' . $puser['photo_name'],
         ];
         if ($userId == -1) {

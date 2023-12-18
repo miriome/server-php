@@ -331,7 +331,7 @@ class Users extends Base
             $type = $row['notification_type'];
             // $post = new \stdClass();
             $post = null;
-            if (($type == 'like' || $type == 'comment') && $row['post_id'] != 0) {
+            if ($row['post_id'] != 0) {
                 $postData = $this->_postModel->getById($row['post_id']);
                 if (!empty($postData)) {
                     $myLike = $this->_postModel->checkMyLike($userId, $row['post_id']);

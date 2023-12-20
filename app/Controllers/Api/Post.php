@@ -177,22 +177,12 @@ class Post extends Base
     function markSold($postId)
     {
 
-        $userId = $this->request->user->userId;
-
-        $data = array(
-            'chat_enabled' => $this->request->getPost('chat_enabled'),
-            'updated_at' => time()
-        );
-
-        $msg = "Post is marked as sold successfully";
-        $filepath = '';
-
-        $this->_postModel->editPost($postId, $data);
+        $this->_postModel->markSold($postId);
 
         $response = [
             'status' => true,
             'data' => '',
-            'message' => $msg
+            'message' => "Post is marked as sold successfully"
         ];
 
         return $this->response->setJSON($response);

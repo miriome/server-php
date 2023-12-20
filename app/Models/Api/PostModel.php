@@ -70,6 +70,20 @@ class PostModel extends Model
 
     }
 
+    function markSold($postId)
+    {
+        
+        $data = array(
+            'chat_enabled' => 0,
+            'updated_at' => time()
+        );
+
+        $this->builder->where('id', $postId)
+            ->set($data)
+            ->update();
+
+    }
+
     public function editPost($postId, $data)
     {
         $this->builder->where('id', $postId)

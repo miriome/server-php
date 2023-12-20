@@ -32,9 +32,9 @@ class Post extends Base
         $data = array(
             'caption' => $this->request->getPost('caption'),
             'chat_enabled' => $this->request->getPost('chat_enabled'),
-            'hashtag' => $this->request->getPost('hashtag'),
-            'hypertext' => $this->request->getPost('hypertext'),
-            'hyperlink' => $this->request->getPost('hyperlink'),
+            'hashtag' => "", // deprecated
+            'hypertext' => "", // deprecated
+            'hyperlink' => "", // deprecated
             'created_at' => time(),
             'added_by' => $userId,
         );
@@ -314,7 +314,7 @@ class Post extends Base
 
         $puser = $this->_userModel->getUserById($post['added_by']);
         $myFollow = $this->_userModel->checkMyFollow($userId, $post['added_by']);
-        
+
 
 
         $poster = [

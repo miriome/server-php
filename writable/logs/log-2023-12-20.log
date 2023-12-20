@@ -1,0 +1,42 @@
+ERROR - 2023-12-20 06:16:13 --> mysqli_sql_exception: Column 'hashtag' cannot be null in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(33): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(78): App\Models\Api\PostModel->add(Array)
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+ERROR - 2023-12-20 06:18:18 --> mysqli_sql_exception: Column 'hashtag' cannot be null in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(33): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(78): App\Models\Api\PostModel->add(Array)
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+ERROR - 2023-12-20 06:19:24 --> mysqli_sql_exception: Column 'hypertext' cannot be null in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(33): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(78): App\Models\Api\PostModel->add(Array)
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}

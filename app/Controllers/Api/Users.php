@@ -50,7 +50,7 @@ class Users extends Base
 
         $result = array();
         $userId = $this->request->user->userId;
-        
+
         $data = array(
             'height' => $this->request->getPost('height'),
             'weight' => $this->request->getPost('weight'),
@@ -438,26 +438,29 @@ class Users extends Base
                 $targetId = $row['user_id'];
             }
             $user = $this->_userModel->getUserById($targetId);
+            if ($user != null) {
+                $user = [
+                    'id' => $user['id'],
+                    'username' => $user['username'],
+                    'name' => $user['name'],
+                    'email' => $user['email'],
+                    'followers' => $user['followers'],
+                    'photo_url' => base_url() . 'uploads/' . $user['photo_name']
+                ];
 
-            $user = [
-                'id' => $user['id'],
-                'username' => $user['username'],
-                'name' => $user['name'],
-                'email' => $user['email'],
-                'followers' => $user['followers'],
-                'photo_url' => base_url() . 'uploads/' . $user['photo_name']
-            ];
+                $contact = [
+                    'id' => $row['id'],
+                    'target_id' => $targetId,
+                    'last_message' => $row['last_message'],
+                    'last_timestamp' => $row['last_timestamp'],
+                    'last_date' => $row['last_date'],
+                    'contactUser' => $user
+                ];
+                array_push($result, $contact);
+            }
 
-            $contact = [
-                'id' => $row['id'],
-                'target_id' => $targetId,
-                'last_message' => $row['last_message'],
-                'last_timestamp' => $row['last_timestamp'],
-                'last_date' => $row['last_date'],
-                'contactUser' => $user
-            ];
 
-            array_push($result, $contact);
+
         }
 
         $response = [

@@ -201,10 +201,8 @@ class Post extends Base
 
     function deletePost($postId)
     {
-
-        $data = ['deleted' => 1, 'deleted_at' => date('Y-m-d H:i:s')];
-        $this->_postModel->editPost($postId, $data);
-
+        $this->_postModel->deletePost($postId);
+        
         $response = [
             'status' => true,
             'data' => '',

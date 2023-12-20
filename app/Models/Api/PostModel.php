@@ -60,6 +60,16 @@ class PostModel extends Model
         return [$postId, $mentionedUsers];
     }
 
+    function deletePost($postId)
+    {
+
+        $data = ['deleted' => 1, 'deleted_at' => date('Y-m-d H:i:s')];
+        $this->builder->where('id', $postId)
+            ->set($data)
+            ->update();
+
+    }
+
     public function editPost($postId, $data)
     {
         $this->builder->where('id', $postId)
@@ -294,6 +304,7 @@ class PostModel extends Model
             }
         }
     }
+    
 
     function addComment($data)
     {

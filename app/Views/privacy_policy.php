@@ -217,7 +217,7 @@ The retention periods will be different depending on the type of information and
 
 
 <h2 style="padding-top: 20px"><u>7. Information relating to minors</u></h2>
-<p>Miromie is not directed at children under the age of 13. If you believe that we have collected personal information from a minor under the minimum age, please contact us at <a href="mailto:hello@miromie.com"; style=color:#6ec6ca>hello@miromie.com</a>.
+<p>miromie is not directed at children under the age of 13. If you believe that we have collected personal information from a minor under the minimum age, please contact us at <a href="mailto:hello@miromie.com"; style=color:#6ec6ca>hello@miromie.com</a>.
 </p>
 
 <h2 style="padding-top: 20px"><u>8. Privacy policy updates</u></h2>

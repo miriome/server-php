@@ -1,0 +1,117 @@
+CRITICAL - 2023-12-21 16:03:10 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 85.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:03:34 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 85.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:04:59 --> Undefined variable $output
+in SYSTEMPATH/CodeIgniter.php on line 936.
+ 1 SYSTEMPATH/CodeIgniter.php(936): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined variable $output', '/Users/winson.heng/server-php/system/CodeIgniter.php', 936)
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:05:43 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 86.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:12:14 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 86.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:13:28 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 86.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:13:42 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 86.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:14:20 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 86.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:16:16 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 86.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:16:41 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 86.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:16:47 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 86.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:21:37 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 87.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:22:23 --> foreach() argument must be of type array|object, null given
+in APPPATH/Controllers/Api/Post.php on line 74.
+ 1 APPPATH/Controllers/Api/Post.php(74): CodeIgniter\Debug\Exceptions->errorHandler(2, 'foreach() argument must be of type array|object, null given', '/Users/winson.heng/server-php/app/Controllers/Api/Post.php', 74)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:33:27 --> Could not move file "phpPy1yPU" to "../public/uploads/". Reason: 
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 149.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(149): CodeIgniter\HTTP\Exceptions\HTTPException::forMoveFailed('phpPy1yPU', '../public/uploads/', '')
+ 2 APPPATH/Controllers/Api/Post.php(77): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1703176344_edde94840f85f5f0aee6.bin')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:35:28 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(77): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1703176509_cd753dede8b7689a5c4d.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-21 16:54:35 --> Call to a member function getRandomName() on null
+in APPPATH/Controllers/Api/Post.php on line 90.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

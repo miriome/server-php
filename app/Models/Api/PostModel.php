@@ -12,6 +12,8 @@ class PostModel extends Model
     protected $table = 'posts';
     protected $primaryKey = 'id';
     public $builder;
+
+    private $postImagesBuilder;
     public $db;
 
     protected $_userModel;
@@ -21,6 +23,7 @@ class PostModel extends Model
         $this->_userModel = new UserModel();
         $this->db = \Config\Database::connect();
         $this->builder = $this->db->table($this->table);
+        $this->postImagesBuilder = $this->db->table("post_images");
     }
 
     public function add($data)
@@ -120,6 +123,24 @@ class PostModel extends Model
 
         $this->db->transComplete();
         return [$postId, $mentionedUsers];
+
+    }
+
+    // Returns file name of the image that is at index 0
+    public function upsertImageForPost($postId, $indexedImageArray) {
+        
+        $data = array();
+        foreach ($indexedImageArray as $indexedImage ) {
+            $index = $indexedImage['index'];
+            $imageFileName = $indexedImage['image'];
+            array_push($data, [
+                'index' => $index,
+                'image' => $imageFileName,
+                'post_id' => $postId
+            ]);
+
+        }
+        $this->postImagesBuilder->insertBatch($data);
 
     }
 

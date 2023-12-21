@@ -66,17 +66,40 @@ class Post extends Base
         }
 
         if ($validationRule) {
-            $imageFile = $this->request->getFile('file');
-            debugArray(["file" => $imageFile], "array");
+            $images = array();
+            // New Api.
+            $photos = $this->request->getFiles();
 
-            $newName = $imageFile->getRandomName();
-            $imageFile->move('../public/uploads', $newName);
+            if (count($photos) > 0) {
+                foreach ($photos as $index => $image) {
 
-            $data['image'] = $newName;
+                    $newName = $image->getRandomName();
+                    $image->move('../public/uploads', $newName);
+                    array_push($images, [
+                        'index' => $index,
+                        'image' => $newName
+                    ]);
+                }
+                $data['image'] = $newName;
 
+            } else {
+                // Deprecated at 1.6.0
+                $imageFile = $this->request->getFile('file');
+                debugArray(["file" => $imageFile], "array");
+
+                $newName = $imageFile->getRandomName();
+                $imageFile->move('../public/uploads', $newName);
+
+                $data['image'] = $newName;
+            }
 
             $result = $this->_postModel->add($data);
             $postId = $result[0];
+            if (count($images) != 0) { // Will be removed after 1.6.0
+                $this->_postModel->upsertImageForPost($postId, $images);
+            }
+
+
             $mentionedUsers = $result[1];
             $user = $this->_userModel->getUserById($userId);
 
@@ -192,7 +215,7 @@ class Post extends Base
     function deletePost($postId)
     {
         $this->_postModel->deletePost($postId);
-        
+
         $response = [
             'status' => true,
             'data' => '',

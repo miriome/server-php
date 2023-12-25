@@ -1,0 +1,27 @@
+CRITICAL - 2023-12-25 15:03:54 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(77): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1703516634_29278a1b5ddfe59dddb8.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-25 15:04:11 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(77): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1703516651_54afd4105266ab9cc68a.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2023-12-25 15:05:06 --> The original file is not a valid file.
+in SYSTEMPATH/HTTP/Files/UploadedFile.php on line 137.
+ 1 SYSTEMPATH/HTTP/Files/UploadedFile.php(137): CodeIgniter\HTTP\Exceptions\HTTPException::forInvalidFile()
+ 2 APPPATH/Controllers/Api/Post.php(77): CodeIgniter\HTTP\Files\UploadedFile->move('../public/uploads/', '1703516686_f94205143cc03ccffb1e.jpg')
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

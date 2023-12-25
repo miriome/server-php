@@ -79,8 +79,11 @@ class Post extends Base
                         'index' => $index,
                         'image' => $newName
                     ]);
+                    if ($index == 0) {
+                        $data['image'] = $newName;
+                    }
                 }
-                $data['image'] = $newName;
+
 
             } else {
                 // Deprecated at 1.6.0
@@ -375,7 +378,7 @@ class Post extends Base
 
         $post = [
             'id' => $post['id'],
-            'image' => base_url() . 'uploads/' . $post['image'],
+            'image' => base_url() . 'uploads/' . $post['image'], // TODO: Deprecate
             'caption' => $post['caption'],
             'chat_enabled' => $post['chat_enabled'],
             'hashtag' => $post['hashtag'],
@@ -387,7 +390,8 @@ class Post extends Base
             'created_at' => $post['created_at'],
             'my_like' => $myLike,
             'posted_by' => $poster,
-            'comments' => $comments
+            'comments' => $comments,
+            'images' => $post['images']
         ];
 
         $response = [

@@ -75,7 +75,7 @@ class PostModel extends Model
 
     function markSold($postId)
     {
-        
+
         $data = array(
             'chat_enabled' => 0,
             'updated_at' => time()
@@ -127,10 +127,11 @@ class PostModel extends Model
     }
 
     // Returns file name of the image that is at index 0
-    public function upsertImageForPost($postId, $indexedImageArray) {
-        
+    public function upsertImageForPost($postId, $indexedImageArray)
+    {
+
         $data = array();
-        foreach ($indexedImageArray as $indexedImage ) {
+        foreach ($indexedImageArray as $indexedImage) {
             $index = $indexedImage['index'];
             $imageFileName = $indexedImage['image'];
             array_push($data, [
@@ -280,9 +281,14 @@ class PostModel extends Model
             ->getRowArray();
         if (!empty($post)) {
             $mentions = $this->db->table('posts_mentions')->where('post_id', $id)->get()->getResultArray();
-        $post['mentions'] = $mentions;
+            $images = $this->postImagesBuilder->where('post_id', $id)->orderBy('index', 'ASC')
+                ->get()->getResultArray();
+            $post['mentions'] = $mentions;
+            $post['images'] = count($images) > 0 ? $images : [];
         }
-        
+
+
+
         return $post;
     }
 
@@ -339,7 +345,7 @@ class PostModel extends Model
             }
         }
     }
-    
+
 
     function addComment($data)
     {

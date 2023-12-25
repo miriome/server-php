@@ -141,7 +141,7 @@ class PostModel extends Model
             ]);
 
         }
-        $this->postImagesBuilder->insertBatch($data);
+        $this->postImagesBuilder->upsertBatch($data);
 
     }
 

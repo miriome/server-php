@@ -10,13 +10,6 @@ class MultiplePostImages extends Migration
     {
         // Create post images
         $fields = array(
-            'id' => array(
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => TRUE,
-                'auto_increment' => TRUE
-            ),
-
             'post_id' => array(
                 'type' => 'INT',
                 'constraint' => 11,
@@ -32,7 +25,7 @@ class MultiplePostImages extends Migration
             // Add other fields as needed
         );
         $this->forge->addField($fields);
-        $this->forge->addPrimaryKey('id');
+        $this->forge->addPrimaryKey(['post_id', 'index']);
         $this->forge->createTable('post_images');
 
         // Add foreign key constraints

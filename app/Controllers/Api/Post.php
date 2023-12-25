@@ -170,17 +170,43 @@ class Post extends Base
             ];
 
             if ($validationRule) {
-                $imageFile = $this->request->getFile('file');
-                $newName = $imageFile->getRandomName();
-                $imageFile->move('../public/uploads', $newName);
+                $images = array();
+                // New Api.
+                $photos = $this->request->getFiles();
 
-                // $imageFile->move(WRITEPATH . 'uploads', $newName);
-                $data['image'] = $newName;
+                if (count($photos) > 0) {
+                    foreach ($photos as $index => $image) {
+
+                        $newName = $image->getRandomName();
+                        $image->move('../public/uploads', $newName);
+                        array_push($images, [
+                            'index' => $index,
+                            'image' => $newName
+                        ]);
+                        if ($index == 0) {
+                            $data['image'] = $newName;
+                        }
+                    }
+
+                    if (count($images) != 0) { // Will be removed after 1.6.0
+                        $this->_postModel->upsertImageForPost($postId, $images);
+                    }
+                } else {
+                    // Deprecated at 1.6.0
+                    $imageFile = $this->request->getFile('file');
+                    debugArray(["file" => $imageFile], "array");
+
+                    $newName = $imageFile->getRandomName();
+                    $imageFile->move('../public/uploads', $newName);
+
+                    $data['image'] = $newName;
+                }
+
                 // $data = [
                 // 'photo_name' => $imageFile->getClientName(),
                 // 'file'  => $imageFile->getClientMimeType()
                 // ];
-                $filepath = base_url() . "uploads/" . $newName;
+                $filepath = base_url() . "uploads/" . $data['image'];
             } else {
                 $msg = "Image could not upload";
             }

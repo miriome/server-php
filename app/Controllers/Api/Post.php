@@ -66,17 +66,43 @@ class Post extends Base
         }
 
         if ($validationRule) {
-            $imageFile = $this->request->getFile('file');
-            debugArray(["file" => $imageFile], "array");
+            $images = array();
+            // New Api.
+            $photos = $this->request->getFiles();
 
-            $newName = $imageFile->getRandomName();
-            $imageFile->move('../public/uploads', $newName);
+            if (count($photos) > 0) {
+                foreach ($photos as $index => $image) {
 
-            $data['image'] = $newName;
+                    $newName = $image->getRandomName();
+                    $image->move('../public/uploads', $newName);
+                    array_push($images, [
+                        'index' => $index,
+                        'image' => $newName
+                    ]);
+                    if ($index == 0) {
+                        $data['image'] = $newName;
+                    }
+                }
 
+
+            } else {
+                // Deprecated at 1.6.0
+                $imageFile = $this->request->getFile('file');
+                debugArray(["file" => $imageFile], "array");
+
+                $newName = $imageFile->getRandomName();
+                $imageFile->move('../public/uploads', $newName);
+
+                $data['image'] = $newName;
+            }
 
             $result = $this->_postModel->add($data);
             $postId = $result[0];
+            if (count($images) != 0) { // Will be removed after 1.6.0
+                $this->_postModel->upsertImageForPost($postId, $images);
+            }
+
+
             $mentionedUsers = $result[1];
             $user = $this->_userModel->getUserById($userId);
 
@@ -127,39 +153,61 @@ class Post extends Base
 
         $msg = "Post is updated successfully";
         $filepath = '';
-
-        if ($this->request->getFile('file')) {
-
-            $validationRule = [
-                'file' => [
-                    'label' => 'Image File',
-                    'rules' => [
-                        'uploaded[file]',
-                        'is_image[file]',
-                        'mime_in[file,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
-                        'max_size[file,4096]',
-                        'max_dims[file,1024,1024]',
-                    ],
+        $validationRule = [
+            'file' => [
+                'label' => 'Image File',
+                'rules' => [
+                    'uploaded[file]',
+                    'is_image[file]',
+                    'mime_in[file,image/jpg,image/jpeg,image/gif,image/png,image/webp]',
+                    'max_size[file,4096]',
+                    'max_dims[file,1024,1024]',
                 ],
-            ];
+            ],
+        ];
 
-            if ($validationRule) {
-                $imageFile = $this->request->getFile('file');
-                $newName = $imageFile->getRandomName();
-                $imageFile->move('../public/uploads', $newName);
 
-                // $imageFile->move(WRITEPATH . 'uploads', $newName);
-                $data['image'] = $newName;
-                // $data = [
-                // 'photo_name' => $imageFile->getClientName(),
-                // 'file'  => $imageFile->getClientMimeType()
-                // ];
-                $filepath = base_url() . "uploads/" . $newName;
+        if ($validationRule) {
+            $images = array();
+            // New Api.
+            $photos = $this->request->getFiles();
+
+            if (count($photos) > 0) {
+                foreach ($photos as $index => $image) {
+
+                    $newName = $image->getRandomName();
+                    $image->move('../public/uploads', $newName);
+                    array_push($images, [
+                        'index' => $index,
+                        'image' => $newName
+                    ]);
+                    if ($index == 0) {
+                        $data['image'] = $newName;
+                    }
+                }
+
+                if (count($images) != 0) { // Will be removed after 1.6.0
+                    $this->_postModel->upsertImageForPost($postId, $images);
+                }
             } else {
-                $msg = "Image could not upload";
+                // Deprecated at 1.6.0
+                $imageFile = $this->request->getFile('file');
+                if ($imageFile) {
+                    debugArray(["file" => $imageFile], "array");
+
+                    $newName = $imageFile->getRandomName();
+                    $imageFile->move('../public/uploads', $newName);
+
+                    $data['image'] = $newName;
+                }
+
             }
 
+        } else {
+            $msg = "Image could not upload";
         }
+
+
 
         $this->_postModel->editPost($postId, $data);
 
@@ -177,22 +225,12 @@ class Post extends Base
     function markSold($postId)
     {
 
-        $userId = $this->request->user->userId;
-
-        $data = array(
-            'chat_enabled' => $this->request->getPost('chat_enabled'),
-            'updated_at' => time()
-        );
-
-        $msg = "Post is marked as sold successfully";
-        $filepath = '';
-
-        $this->_postModel->editPost($postId, $data);
+        $this->_postModel->markSold($postId);
 
         $response = [
             'status' => true,
             'data' => '',
-            'message' => $msg
+            'message' => "Post is marked as sold successfully"
         ];
 
         return $this->response->setJSON($response);
@@ -202,7 +240,7 @@ class Post extends Base
     function deletePost($postId)
     {
         $this->_postModel->deletePost($postId);
-        
+
         $response = [
             'status' => true,
             'data' => '',
@@ -362,7 +400,7 @@ class Post extends Base
 
         $post = [
             'id' => $post['id'],
-            'image' => base_url() . 'uploads/' . $post['image'],
+            'image' => base_url() . 'uploads/' . $post['image'], // TODO: Deprecate
             'caption' => $post['caption'],
             'chat_enabled' => $post['chat_enabled'],
             'hashtag' => $post['hashtag'],
@@ -374,7 +412,8 @@ class Post extends Base
             'created_at' => $post['created_at'],
             'my_like' => $myLike,
             'posted_by' => $poster,
-            'comments' => $comments
+            'comments' => $comments,
+            'images' => $post['images']
         ];
 
         $response = [

@@ -171,7 +171,7 @@ class CodeIgniter
     public function __construct(App $config)
     {
         $this->startTime = microtime(true);
-        $this->config    = $config;
+        $this->config = $config;
     }
 
     /**
@@ -187,7 +187,7 @@ class CodeIgniter
         Services::exceptions()->initialize();
 
         // Run this check for manual installations
-        if (! is_file(COMPOSER_PATH)) {
+        if (!is_file(COMPOSER_PATH)) {
             $this->resolvePlatformExtensions(); // @codeCoverageIgnore
         }
 
@@ -218,7 +218,7 @@ class CodeIgniter
         $missingExtensions = [];
 
         foreach ($requiredExtensions as $extension) {
-            if (! extension_loaded($extension)) {
+            if (!extension_loaded($extension)) {
                 $missingExtensions[] = $extension;
             }
         }
@@ -248,7 +248,7 @@ class CodeIgniter
     private function autoloadKint(): void
     {
         // If we have KINT_DIR it means it's already loaded via composer
-        if (! defined('KINT_DIR')) {
+        if (!defined('KINT_DIR')) {
             spl_autoload_register(function ($class) {
                 $class = explode('\\', $class);
 
@@ -271,33 +271,33 @@ class CodeIgniter
     {
         $config = config(KintConfig::class);
 
-        Kint::$depth_limit         = $config->maxDepth;
+        Kint::$depth_limit = $config->maxDepth;
         Kint::$display_called_from = $config->displayCalledFrom;
-        Kint::$expanded            = $config->expanded;
+        Kint::$expanded = $config->expanded;
 
-        if (! empty($config->plugins) && is_array($config->plugins)) {
+        if (!empty($config->plugins) && is_array($config->plugins)) {
             Kint::$plugins = $config->plugins;
         }
 
         $csp = Services::csp();
         if ($csp->enabled()) {
-            RichRenderer::$js_nonce  = $csp->getScriptNonce();
+            RichRenderer::$js_nonce = $csp->getScriptNonce();
             RichRenderer::$css_nonce = $csp->getStyleNonce();
         }
 
-        RichRenderer::$theme  = $config->richTheme;
+        RichRenderer::$theme = $config->richTheme;
         RichRenderer::$folder = $config->richFolder;
-        RichRenderer::$sort   = $config->richSort;
-        if (! empty($config->richObjectPlugins) && is_array($config->richObjectPlugins)) {
+        RichRenderer::$sort = $config->richSort;
+        if (!empty($config->richObjectPlugins) && is_array($config->richObjectPlugins)) {
             RichRenderer::$value_plugins = $config->richObjectPlugins;
         }
-        if (! empty($config->richTabPlugins) && is_array($config->richTabPlugins)) {
+        if (!empty($config->richTabPlugins) && is_array($config->richTabPlugins)) {
             RichRenderer::$tab_plugins = $config->richTabPlugins;
         }
 
-        CliRenderer::$cli_colors         = $config->cliColors;
-        CliRenderer::$force_utf8         = $config->cliForceUTF8;
-        CliRenderer::$detect_width       = $config->cliDetectWidth;
+        CliRenderer::$cli_colors = $config->cliColors;
+        CliRenderer::$force_utf8 = $config->cliForceUTF8;
+        CliRenderer::$detect_width = $config->cliDetectWidth;
         CliRenderer::$min_terminal_width = $config->cliMinWidth;
     }
 
@@ -350,7 +350,7 @@ class CodeIgniter
         // Check for a cached page. Execution will stop
         // if the page has been cached.
         $cacheConfig = new Cache();
-        $response    = $this->displayCache($cacheConfig);
+        $response = $this->displayCache($cacheConfig);
         if ($response instanceof ResponseInterface) {
             if ($returnResponse) {
                 return $response;
@@ -484,10 +484,10 @@ class CodeIgniter
         $returned = $this->startController();
 
         // Closure controller has run in startController().
-        if (! is_callable($this->controller)) {
+        if (!is_callable($this->controller)) {
             $controller = $this->createController();
 
-            if (! method_exists($controller, '_remap') && ! is_callable([$controller, $this->method], false)) {
+            if (!method_exists($controller, '_remap') && !is_callable([$controller, $this->method], false)) {
                 throw PageNotFoundException::forMethodNotFound($this->method);
             }
 
@@ -524,8 +524,8 @@ class CodeIgniter
 
         // Skip unnecessary processing for special Responses.
         if (
-            ! $this->response instanceof DownloadResponse
-            && ! $this->response instanceof RedirectResponse
+            !$this->response instanceof DownloadResponse
+            && !$this->response instanceof RedirectResponse
         ) {
             // Cache it without the performance metrics replaced
             // so that we can have live speed updates along the way.
@@ -548,7 +548,7 @@ class CodeIgniter
 
         unset($uri);
 
-        if (! $this->returnResponse) {
+        if (!$this->returnResponse) {
             $this->sendResponse();
         }
 
@@ -574,7 +574,7 @@ class CodeIgniter
     protected function detectEnvironment()
     {
         // Make sure ENVIRONMENT isn't already set by other means.
-        if (! defined('ENVIRONMENT')) {
+        if (!defined('ENVIRONMENT')) {
             define('ENVIRONMENT', env('CI_ENVIRONMENT', 'production'));
         }
     }
@@ -693,12 +693,12 @@ class CodeIgniter
     {
         if ($cachedResponse = cache()->get($this->generateCacheName($config))) {
             $cachedResponse = unserialize($cachedResponse);
-            if (! is_array($cachedResponse) || ! isset($cachedResponse['output']) || ! isset($cachedResponse['headers'])) {
+            if (!is_array($cachedResponse) || !isset($cachedResponse['output']) || !isset($cachedResponse['headers'])) {
                 throw new Exception('Error unserializing page cache');
             }
 
             $headers = $cachedResponse['headers'];
-            $output  = $cachedResponse['output'];
+            $output = $cachedResponse['output'];
 
             // Clear all default headers
             foreach (array_keys($this->response->headers()) as $key) {
@@ -711,7 +711,7 @@ class CodeIgniter
             }
 
             $this->totalTime = $this->benchmark->getElapsedTime('total_execution');
-            $output          = $this->displayPerformanceMetrics($output);
+            $output = $this->displayPerformanceMetrics($output);
             $this->response->setBody($output);
 
             return $this->response;
@@ -811,7 +811,7 @@ class CodeIgniter
         ob_start();
 
         $this->controller = $this->router->handle($path);
-        $this->method     = $this->router->methodName();
+        $this->method = $this->router->methodName();
 
         // If a {locale} segment was matched in the final route,
         // then we need to set the correct locale on our Request.
@@ -823,7 +823,7 @@ class CodeIgniter
 
         // for backward compatibility
         $multipleFiltersEnabled = config(Feature::class)->multipleFilters ?? false;
-        if (! $multipleFiltersEnabled) {
+        if (!$multipleFiltersEnabled) {
             return $this->router->getFilter();
         }
 
@@ -838,7 +838,7 @@ class CodeIgniter
      */
     protected function determinePath()
     {
-        if (! empty($this->path)) {
+        if (!empty($this->path)) {
             return $this->path;
         }
 
@@ -887,7 +887,7 @@ class CodeIgniter
         }
 
         // Try to autoload the class
-        if (! class_exists($this->controller, true) || $this->method[0] === '_') {
+        if (!class_exists($this->controller, true) || $this->method[0] === '_') {
             throw PageNotFoundException::forControllerNotFound($this->controller, $this->method);
         }
     }
@@ -955,10 +955,10 @@ class CodeIgniter
                 $this->benchmark->start('controller_constructor');
 
                 $this->controller = $override[0];
-                $this->method     = $override[1];
+                $this->method = $override[1];
 
                 $controller = $this->createController();
-                $returned   = $this->runController($controller);
+                $returned = $this->runController($controller);
             }
 
             unset($override);
@@ -989,7 +989,7 @@ class CodeIgniter
 
         // Throws new PageNotFoundException and remove exception message on production.
         throw PageNotFoundException::forPageNotFound(
-            (ENVIRONMENT !== 'production' || ! $this->isWeb()) ? $e->getMessage() : null
+            (ENVIRONMENT !== 'production' || !$this->isWeb()) ? $e->getMessage() : null
         );
     }
 
@@ -1031,7 +1031,7 @@ class CodeIgniter
         // so that any status code changes, etc, take place.
         if ($returned instanceof ResponseInterface) {
             $this->response = $returned;
-            $returned       = $returned->getBody();
+            $returned = $returned->getBody();
         }
 
         if (is_string($returned)) {
@@ -1053,7 +1053,7 @@ class CodeIgniter
     public function storePreviousURL($uri)
     {
         // Ignore CLI requests
-        if (! $this->isWeb()) {
+        if (!$this->isWeb()) {
             return;
         }
         // Ignore AJAX requests

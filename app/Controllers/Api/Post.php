@@ -491,7 +491,7 @@ class Post extends Base
             'created_timestamp' => time()];
 
         $mentionedUsers = $this->_postModel->addComment($data);
-
+        
         $post = $this->_postModel->getById($postId);
         $user = $this->_userModel->getUserById($userId);
         // Send mention notification

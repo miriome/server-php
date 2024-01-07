@@ -34,9 +34,13 @@ class Users extends Base
 
         $result = array();
         $userId = $this->request->user->userId;
-
+        $name = $this->request->getPost('name');
+        if (strpos($name,'miromie') !== false) {
+            $result = ['status' => False, 'message' => "Invalid name, please use another."];
+            return $this->respond($result, 400);
+        }
         $data = array(
-            'name' => $this->request->getPost('name'),
+            'name' => $name,
             'updated_at' => date('Y-m-d H:i:s')
         );
 
@@ -136,11 +140,15 @@ class Users extends Base
         $userId = $this->request->user->userId;
 
         $deletePhoto = $this->request->getPost('delete_photo');
-
+        $name = $this->request->getPost('name');
         $data = array(
-            'name' => $this->request->getPost('name'),
+            'name' => $name,
             'updated_at' => date('Y-m-d H:i:s')
         );
+        if (strpos($name,'miromie') !== false) {
+            $result = ['status' => False, 'message' => "Invalid name, please use another."];
+            return $this->respond($result, 400);
+        }
 
         $filepath = '';
 

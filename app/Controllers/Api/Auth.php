@@ -125,7 +125,12 @@ class Auth extends ResourceController
         $fieldValue = $this->request->getPost('field_value');
 
         if ($fieldName == 'username') {
-            $result = $this->_userModel->checkUserNameExist($fieldValue);
+            if (strpos($fieldValue,'miromie') !== false) {
+                $result = true;
+            } else {
+                $result = $this->_userModel->checkUserNameExist($fieldValue);
+            }
+            
         } else if ($fieldName == 'email') {
             $result = $this->_userModel->checkExist($fieldValue);
         }

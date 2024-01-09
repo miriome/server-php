@@ -35,7 +35,7 @@ class Users extends Base
         $result = array();
         $userId = $this->request->user->userId;
         $name = $this->request->getPost('name');
-        if (strpos($name,'miromie') !== false) {
+        if (strpos($name, 'miromie') !== false) {
             $result = ['status' => False, 'message' => "Invalid name, please use another."];
             return $this->respond($result, 400);
         }
@@ -145,7 +145,7 @@ class Users extends Base
             'name' => $name,
             'updated_at' => date('Y-m-d H:i:s')
         );
-        if (strpos($name,'miromie') !== false) {
+        if (strpos($name, 'miromie') !== false) {
             $result = ['status' => False, 'message' => "Invalid name, please use another."];
             return $this->respond($result, 400);
         }
@@ -315,7 +315,7 @@ class Users extends Base
                 'hyperlink' => $row['hyperlink'],
                 'added_by' => $row['added_by'],
                 'created_at' => $row['created_at'],
-                'views' => $row['views'],
+                'views' => ceil($row['views'] * $row['views_multiplier']),
                 'likes' => $row['likes'],
                 'my_like' => $myLike
             ];

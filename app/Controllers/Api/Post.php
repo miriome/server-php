@@ -37,6 +37,7 @@ class Post extends Base
             'hyperlink' => "", // deprecated
             'created_at' => time(),
             'added_by' => $userId,
+            'views_multiplier' => 1 + 2 * mt_rand(1, 100) / 100
         );
 
         $validationRule = [
@@ -282,6 +283,11 @@ class Post extends Base
                 $posts = $this->_postModel->getPostsByStyles($pageIndex, $count, $userStyles, $fcount);
             }
         }
+        $postIds = array_map(function ($row) {
+            return $row['id'];
+        }, $posts);
+
+        $this->_postModel->increaseViewCount($postIds);
 
         foreach ($posts as $row) {
             $user = $this->_userModel->getUserById($row['added_by']);
@@ -337,6 +343,10 @@ class Post extends Base
         $userId = $this->request->user->userId;
 
         $post = $this->_postModel->getById($postId);
+
+        // Going into post details considers another view
+
+        $this->_postModel->increaseViewCount([$postId]);
 
         if (!isset($post)) {
 
@@ -491,7 +501,7 @@ class Post extends Base
             'created_timestamp' => time()];
 
         $mentionedUsers = $this->_postModel->addComment($data);
-        
+
         $post = $this->_postModel->getById($postId);
         $user = $this->_userModel->getUserById($userId);
         // Send mention notification
@@ -611,6 +621,11 @@ class Post extends Base
         } else {
             $posts = $this->_postModel->searchPosts($keyword, $userId /*, $pageIndex, $count*/);
         }
+        $postIds = array_map(function ($row) {
+            return $row['id'];
+        }, $posts);
+
+        $this->_postModel->increaseViewCount($postIds);
         foreach ($posts as $row) {
             $user = $this->_userModel->getUserById($row['added_by']);
             $user = [
@@ -691,7 +706,11 @@ class Post extends Base
         $count = $this->request->getPost('count');
 
         $posts = $this->_postModel->likedPosts($userId, $pageIndex, $count);
+        $postIds = array_map(function ($row) {
+            return $row['id'];
+        }, $posts);
 
+        $this->_postModel->increaseViewCount($postIds);
         foreach ($posts as $row) {
             $user = $this->_userModel->getUserById($row['added_by']);
             $user = [

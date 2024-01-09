@@ -1,0 +1,232 @@
+ERROR - 2024-01-09 12:51:22 --> mysqli_sql_exception: Incorrect table name 'posts  ' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `po...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(745): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `po...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-01-09-124654_FakeViews.php(21): CodeIgniter\Database\Forge->addColumn('posts  ', Array)
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\FakeViews->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2024-01-09 12:51:44 --> mysqli_sql_exception: Duplicate column name 'views' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `po...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(745): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `po...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-01-09-124654_FakeViews.php(12): CodeIgniter\Database\Forge->addColumn('posts', Array)
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\FakeViews->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2024-01-09 12:51:55 --> mysqli_sql_exception: Duplicate column name 'views' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `po...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(745): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `po...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-01-09-124654_FakeViews.php(12): CodeIgniter\Database\Forge->addColumn('posts', Array)
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\FakeViews->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+CRITICAL - 2024-01-09 13:16:41 --> Array callback must have exactly two elements
+in APPPATH/Controllers/Api/Users.php on line 318.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:18:43 --> Array callback must have exactly two elements
+in APPPATH/Controllers/Api/Users.php on line 318.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:19:55 --> Array callback must have exactly two elements
+in APPPATH/Controllers/Api/Users.php on line 318.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:20:09 --> Cannot access offset of type string on string
+in APPPATH/Controllers/Api/Post.php on line 349.
+ 1 [internal function]: App\Controllers\Api\Post->App\Controllers\Api\{closure}('78')
+ 2 APPPATH/Controllers/Api/Post.php(348): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getDetail('78')
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:20:15 --> Cannot access offset of type string on string
+in APPPATH/Controllers/Api/Post.php on line 349.
+ 1 [internal function]: App\Controllers\Api\Post->App\Controllers\Api\{closure}('3')
+ 2 APPPATH/Controllers/Api/Post.php(348): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getDetail('3')
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:20:38 --> Array callback must have exactly two elements
+in APPPATH/Controllers/Api/Users.php on line 318.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:20:50 --> Cannot access offset of type string on string
+in APPPATH/Controllers/Api/Post.php on line 349.
+ 1 [internal function]: App\Controllers\Api\Post->App\Controllers\Api\{closure}('121')
+ 2 APPPATH/Controllers/Api/Post.php(348): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getDetail('121')
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:22:06 --> Cannot access offset of type string on string
+in APPPATH/Controllers/Api/Post.php on line 349.
+ 1 [internal function]: App\Controllers\Api\Post->App\Controllers\Api\{closure}('78')
+ 2 APPPATH/Controllers/Api/Post.php(348): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getDetail('78')
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-01-09 13:35:40 --> mysqli_sql_exception: Unknown column 'views_multipler' in 'field list' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(36): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(100): App\Models\Api\PostModel->add(Array)
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+ERROR - 2024-01-09 13:35:40 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`miromie`.`post_images`, CONSTRAINT `post_images_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1801): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', NULL, false)
+#4 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1963): CodeIgniter\Database\BaseBuilder->batchExecute('_upsertBatch', 100)
+#5 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(144): CodeIgniter\Database\BaseBuilder->upsertBatch(Array)
+#6 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(103): App\Models\Api\PostModel->upsertImageForPost(0, Array)
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#9 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#12 {main}
+CRITICAL - 2024-01-09 13:35:40 --> Cannot add or update a child row: a foreign key constraint fails (`miromie`.`post_images`, CONSTRAINT `post_images_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `post_images` (`image`, `index`, `post_id`)
+VALUES (\'1704807340_e6d8798cafe6c1b7e558.jpg\',0,0)
+ON DUPLICATE KEY UPDATE
+`post_images`.`image` = VALUES(`image`),
+`post_images`.`index` = VALUES(`index`),
+`post_images`.`post_id` = VALUES(`post_id`)', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `post_images` (`image`, `index`, `post_id`)
+VALUES (\'1704807340_e6d8798cafe6c1b7e558.jpg\',0,0)
+ON DUPLICATE KEY UPDATE
+`post_images`.`image` = VALUES(`image`),
+`post_images`.`index` = VALUES(`index`),
+`post_images`.`post_id` = VALUES(`post_id`)')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `post_images` (`image`, `index`, `post_id`)
+VALUES (\'1704807340_e6d8798cafe6c1b7e558.jpg\',0,0)
+ON DUPLICATE KEY UPDATE
+`post_images`.`image` = VALUES(`image`),
+`post_images`.`index` = VALUES(`index`),
+`post_images`.`post_id` = VALUES(`post_id`)')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1801): CodeIgniter\Database\BaseConnection->query('INSERT INTO `post_images` (`image`, `index`, `post_id`)
+VALUES (\'1704807340_e6d8798cafe6c1b7e558.jpg\',0,0)
+ON DUPLICATE KEY UPDATE
+`post_images`.`image` = VALUES(`image`),
+`post_images`.`index` = VALUES(`index`),
+`post_images`.`post_id` = VALUES(`post_id`)', null, false)
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1963): CodeIgniter\Database\BaseBuilder->batchExecute('_upsertBatch', 100)
+ 6 APPPATH/Models/Api/PostModel.php(144): CodeIgniter\Database\BaseBuilder->upsertBatch([...])
+ 7 APPPATH/Controllers/Api/Post.php(103): App\Models\Api\PostModel->upsertImageForPost(0, [...])
+ 8 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 9 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+10 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-01-09 13:36:04 --> mysqli_sql_exception: Unknown column 'views_multipler' in 'field list' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(2309): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(36): CodeIgniter\Database\BaseBuilder->insert(Array)
+#5 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(100): App\Models\Api\PostModel->add(Array)
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#9 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#10 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#11 {main}
+ERROR - 2024-01-09 13:36:07 --> mysqli_sql_exception: Cannot add or update a child row: a foreign key constraint fails (`miromie`.`post_images`, CONSTRAINT `post_images_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE) in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `po...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1801): CodeIgniter\Database\BaseConnection->query('INSERT INTO `po...', NULL, false)
+#4 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1963): CodeIgniter\Database\BaseBuilder->batchExecute('_upsertBatch', 100)
+#5 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(144): CodeIgniter\Database\BaseBuilder->upsertBatch(Array)
+#6 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(103): App\Models\Api\PostModel->upsertImageForPost(0, Array)
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#9 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#12 {main}
+CRITICAL - 2024-01-09 13:36:07 --> Cannot add or update a child row: a foreign key constraint fails (`miromie`.`post_images`, CONSTRAINT `post_images_ibfk_1` FOREIGN KEY (`post_id`) REFERENCES `posts` (`id`) ON DELETE CASCADE ON UPDATE CASCADE)
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('INSERT INTO `post_images` (`image`, `index`, `post_id`)
+VALUES (\'1704807357_b24d1d75e02df60e7430.jpg\',0,0)
+ON DUPLICATE KEY UPDATE
+`post_images`.`image` = VALUES(`image`),
+`post_images`.`index` = VALUES(`index`),
+`post_images`.`post_id` = VALUES(`post_id`)', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('INSERT INTO `post_images` (`image`, `index`, `post_id`)
+VALUES (\'1704807357_b24d1d75e02df60e7430.jpg\',0,0)
+ON DUPLICATE KEY UPDATE
+`post_images`.`image` = VALUES(`image`),
+`post_images`.`index` = VALUES(`index`),
+`post_images`.`post_id` = VALUES(`post_id`)')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('INSERT INTO `post_images` (`image`, `index`, `post_id`)
+VALUES (\'1704807357_b24d1d75e02df60e7430.jpg\',0,0)
+ON DUPLICATE KEY UPDATE
+`post_images`.`image` = VALUES(`image`),
+`post_images`.`index` = VALUES(`index`),
+`post_images`.`post_id` = VALUES(`post_id`)')
+ 4 SYSTEMPATH/Database/BaseBuilder.php(1801): CodeIgniter\Database\BaseConnection->query('INSERT INTO `post_images` (`image`, `index`, `post_id`)
+VALUES (\'1704807357_b24d1d75e02df60e7430.jpg\',0,0)
+ON DUPLICATE KEY UPDATE
+`post_images`.`image` = VALUES(`image`),
+`post_images`.`index` = VALUES(`index`),
+`post_images`.`post_id` = VALUES(`post_id`)', null, false)
+ 5 SYSTEMPATH/Database/BaseBuilder.php(1963): CodeIgniter\Database\BaseBuilder->batchExecute('_upsertBatch', 100)
+ 6 APPPATH/Models/Api/PostModel.php(144): CodeIgniter\Database\BaseBuilder->upsertBatch([...])
+ 7 APPPATH/Controllers/Api/Post.php(103): App\Models\Api\PostModel->upsertImageForPost(0, [...])
+ 8 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->addPost()
+ 9 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+10 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+11 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+12 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

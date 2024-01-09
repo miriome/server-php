@@ -37,7 +37,7 @@ class Post extends Base
             'hyperlink' => "", // deprecated
             'created_at' => time(),
             'added_by' => $userId,
-            'views_multipler' => 1 + 2 * mt_rand(1, 100) / 100
+            'views_multiplier' => 1 + 2 * mt_rand(1, 100) / 100
         );
 
         $validationRule = [

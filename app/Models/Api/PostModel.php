@@ -179,7 +179,6 @@ class PostModel extends Model
                 ->orderBy('likes', 'DESC')
                 ->get($count, $pageIndex * $count)
                 ->getResultArray();
-
             return $postData;
         } else {
 
@@ -310,6 +309,22 @@ class PostModel extends Model
         $builder = $this->db->table('likes');
         $builder->where(['user_id' => $userId, 'post_id' => $postid]);
         return $builder->get()->getNumRows();
+    }
+
+    function increaseViewCount($postIds)
+    {
+        $this->db->transStart();
+        foreach ($postIds as $id) {
+            $idInt = intval($id);
+            if ($idInt == 0) {
+                continue;
+            }
+            $this->builder->where('id', $idInt);
+            $this->builder->set("views", "views + 1", FALSE);
+            $this->builder->update();
+        }
+
+        $this->db->transComplete();
     }
 
     function setLike($data, $isLike)

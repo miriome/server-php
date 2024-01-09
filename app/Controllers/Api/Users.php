@@ -292,6 +292,12 @@ class Users extends Base
 
         $userPosts = $this->_postModel->getByUser($res['id']);
 
+        $postIds = array_map(function ($row) {
+            return $row['id'];
+        }, $userPosts);
+
+        $this->_postModel->increaseViewCount($postIds);
+
         $posts = array();
 
         foreach ($userPosts as $row) {
@@ -309,6 +315,7 @@ class Users extends Base
                 'hyperlink' => $row['hyperlink'],
                 'added_by' => $row['added_by'],
                 'created_at' => $row['created_at'],
+                'views' => $row['views'],
                 'likes' => $row['likes'],
                 'my_like' => $myLike
             ];

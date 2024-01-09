@@ -1,0 +1,106 @@
+ERROR - 2024-01-09 12:51:22 --> mysqli_sql_exception: Incorrect table name 'posts  ' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `po...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(745): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `po...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-01-09-124654_FakeViews.php(21): CodeIgniter\Database\Forge->addColumn('posts  ', Array)
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\FakeViews->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2024-01-09 12:51:44 --> mysqli_sql_exception: Duplicate column name 'views' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `po...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(745): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `po...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-01-09-124654_FakeViews.php(12): CodeIgniter\Database\Forge->addColumn('posts', Array)
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\FakeViews->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2024-01-09 12:51:55 --> mysqli_sql_exception: Duplicate column name 'views' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE `po...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE `po...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE `po...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(745): CodeIgniter\Database\BaseConnection->query('ALTER TABLE `po...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-01-09-124654_FakeViews.php(12): CodeIgniter\Database\Forge->addColumn('posts', Array)
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\FakeViews->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+CRITICAL - 2024-01-09 13:16:41 --> Array callback must have exactly two elements
+in APPPATH/Controllers/Api/Users.php on line 318.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:18:43 --> Array callback must have exactly two elements
+in APPPATH/Controllers/Api/Users.php on line 318.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:19:55 --> Array callback must have exactly two elements
+in APPPATH/Controllers/Api/Users.php on line 318.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:20:09 --> Cannot access offset of type string on string
+in APPPATH/Controllers/Api/Post.php on line 349.
+ 1 [internal function]: App\Controllers\Api\Post->App\Controllers\Api\{closure}('78')
+ 2 APPPATH/Controllers/Api/Post.php(348): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getDetail('78')
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:20:15 --> Cannot access offset of type string on string
+in APPPATH/Controllers/Api/Post.php on line 349.
+ 1 [internal function]: App\Controllers\Api\Post->App\Controllers\Api\{closure}('3')
+ 2 APPPATH/Controllers/Api/Post.php(348): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getDetail('3')
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:20:38 --> Array callback must have exactly two elements
+in APPPATH/Controllers/Api/Users.php on line 318.
+ 1 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->profile('6')
+ 2 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 3 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 4 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 5 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:20:50 --> Cannot access offset of type string on string
+in APPPATH/Controllers/Api/Post.php on line 349.
+ 1 [internal function]: App\Controllers\Api\Post->App\Controllers\Api\{closure}('121')
+ 2 APPPATH/Controllers/Api/Post.php(348): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getDetail('121')
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-01-09 13:22:06 --> Cannot access offset of type string on string
+in APPPATH/Controllers/Api/Post.php on line 349.
+ 1 [internal function]: App\Controllers\Api\Post->App\Controllers\Api\{closure}('78')
+ 2 APPPATH/Controllers/Api/Post.php(348): array_map(Object(Closure), [...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getDetail('78')
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

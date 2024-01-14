@@ -42,7 +42,7 @@ class Database extends Config
         'strictOn' => false,
         'failover' => [],
         'port' => 3306,
-    ];
+32    ];
 
     // public array $default = [
     //     'DSN' => '',

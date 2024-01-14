@@ -453,7 +453,7 @@ class PostModel extends Model
         )
         GROUP BY posts.id
     ) AND users.pronouns != 'He'
-    ORDER BY chat_enabled DESC, posts.id DESC;
+    ORDER BY posts.id DESC;
 ";
 
         $query = $this->db->query($mainQuery);
@@ -472,7 +472,6 @@ class PostModel extends Model
             ->where("blocked_users.user_id IS NULL")
             ->where('deleted', 0)
             ->where('added_by !=', $userId)
-            ->orderBy('chat_enabled', 'DESC')
             ->orderBy('id', 'DESC')
             ->get()
             ->getResultArray();

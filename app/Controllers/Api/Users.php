@@ -141,10 +141,6 @@ class Users extends Base
             'name' => $name,
             'updated_at' => date('Y-m-d H:i:s')
         );
-        if (strpos($name, 'miromie') !== false) {
-            $result = ['status' => False, 'message' => "Invalid name, please use another."];
-            return $this->respond($result, 400);
-        }
 
         $filepath = '';
 

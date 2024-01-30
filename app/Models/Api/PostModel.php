@@ -190,7 +190,7 @@ class PostModel extends Model
                 ->where("blocked_users.user_id IS NULL")
                 ->where("(added_by IN (SELECT `target_id` FROM follow WHERE `user_id` = $userId) OR added_by = $userId)")
                 ->where('deleted', 0)
-                ->orderBy('id', 'DESC')
+                ->orderBy('likes', 'DESC')
                 ->get($count, $pageIndex * $count)
                 ->getResultArray();
 
@@ -234,7 +234,7 @@ class PostModel extends Model
                         $query .= " or ";
                     $query .= "users.styles LIKE '%" . $style . "%'";
                 }
-                $query .= ") ORDER BY id DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 ORDER BY id DESC) b) c LIMIT " . ($pageIndex * $count) . ", " . $count;
+                $query .= ") ORDER BY likes DESC) a UNION SELECT * FROM (SELECT * FROM posts WHERE deleted = 0 ORDER BY id DESC) b) c LIMIT " . ($pageIndex * $count) . ", " . $count;
             }
 
             $query = $this->db->query($query);
@@ -262,7 +262,7 @@ class PostModel extends Model
                     ->where('users.pronouns !=', "He")
                     ->where("blocked_users.user_id IS NULL")
                     ->where('deleted', 0)
-                    ->orderBy('id', 'DESC')
+                    ->orderBy('likes', 'DESC')
                     ->get($count, $pageIndex * $count)
                     ->getResultArray();
 

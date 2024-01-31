@@ -173,7 +173,7 @@ class PostModel extends Model
         AND blocked_users.user_id IS NULL
         AND deleted = 0
         AND likes > 0
-        ORDER BY rank, RAND()";
+        ORDER BY rank, likes DESC, RAND()";
         $res = $this->db->query($sql)->getResultArray();
         return $res;
     }

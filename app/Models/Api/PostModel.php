@@ -164,7 +164,7 @@ class PostModel extends Model
 
     public function getPostsForNewUsers($pageIndex, $count, $userId)
     {
-        // Return posts ordered by rank of likes for each user (except 0 like posts)
+        // Return posts ordered by rank of likes for each user
         $sql = "SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
         FROM posts
         INNER JOIN users ON users.id = posts.added_by

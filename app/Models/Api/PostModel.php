@@ -164,7 +164,7 @@ class PostModel extends Model
 
     public function getPostsForNewUsers($pageIndex, $count, $userId)
     {
-        // Return posts ordered by rank of likes for each user
+        // Return posts ordered by rank of likes for each user (except 0 like posts)
         $sql = "SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
         FROM posts
         INNER JOIN users ON users.id = posts.added_by
@@ -172,7 +172,8 @@ class PostModel extends Model
         WHERE users.pronouns != 'HE'
         AND blocked_users.user_id IS NULL
         AND deleted = 0
-        ORDER BY rank, posts.added_by";
+        AND likes > 0
+        ORDER BY rank, RAND()";
         $res = $this->db->query($sql)->getResultArray();
         return $res;
     }

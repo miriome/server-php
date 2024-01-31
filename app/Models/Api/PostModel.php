@@ -162,41 +162,38 @@ class PostModel extends Model
 
     }
 
+    public function getPostsForNewUsers($pageIndex, $count, $userId)
+    {
+        // Return posts ordered by rank of likes for each user
+        $sql = "SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != 'HE'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        ORDER BY rank, posts.added_by";
+        $res = $this->db->query($sql)->getResultArray();
+        return $res;
+    }
 
-    public function getPosts($pageIndex, $count, $userId, $fcount)
+
+    public function getPostsForFollowedUsers($pageIndex, $count, $userId)
     {
 
-        if ($fcount == 0) {
+        $postData = $this->builder
+            ->select('posts.* ')
+            ->join('users', "users.id = posts.added_by")
+            ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
+            ->where('users.pronouns !=', "He")
+            ->where("blocked_users.user_id IS NULL")
+            ->where("(added_by IN (SELECT `target_id` FROM follow WHERE `user_id` = $userId) OR added_by = $userId)")
+            ->where('deleted', 0)
+            ->orderBy('likes', 'DESC')
+            ->get($count, $pageIndex * $count)
+            ->getResultArray();
 
-            $postData = $this->builder
-                ->select('posts.* ')
-                ->join('users', "users.id = posts.added_by")
-                ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
-                ->where("blocked_users.user_id IS NULL")
-                ->where('users.pronouns !=', "He")
-                ->where("(added_by IN (SELECT `target_id` FROM follow WHERE `user_id` = $userId) OR added_by = $userId)")
-                ->where('deleted', 0)
-                ->orderBy('likes', 'DESC')
-                ->get($count, $pageIndex * $count)
-                ->getResultArray();
-            return $postData;
-        } else {
-
-            $postData = $this->builder
-                ->select('posts.* ')
-                ->join('users', "users.id = posts.added_by")
-                ->join('blocked_users', "posts.added_by = blocked_users.user_id", 'left')
-                ->where('users.pronouns !=', "He")
-                ->where("blocked_users.user_id IS NULL")
-                ->where("(added_by IN (SELECT `target_id` FROM follow WHERE `user_id` = $userId) OR added_by = $userId)")
-                ->where('deleted', 0)
-                ->orderBy('likes', 'DESC')
-                ->get($count, $pageIndex * $count)
-                ->getResultArray();
-
-            return $postData;
-
-        }
+        return $postData;
     }
 
     public function getPostsByStyles($pageIndex, $count, $styles, $fcount)

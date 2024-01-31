@@ -264,24 +264,21 @@ class Post extends Base
         $count = $this->request->getPost('count');
 
 
-        if ($userId == -1) {
-            $posts = $this->_postModel->getAllPosts($pageIndex, $count);
-
+        $followers = $this->_userModel->getFollowers($userId);
+        $followerCount = count($followers);
+        if ( $followerCount == 0) {
+            $posts = $this->_postModel->getPostsForNewUsers($pageIndex, $count, $userId);
         } else {
+            $posts = $this->_postModel->getPostsForFollowedUsers($pageIndex, $count, $userId);
+        }
+        if (count($posts) == 0) {
 
-            $followers = $this->_userModel->getFollowers($userId);
-            $fcount = count($followers);
-            $posts = $this->_postModel->getPosts($pageIndex, $count, $userId, $fcount);
-
-            if (count($posts) == 0) {
-
-                $user = $this->_userModel->getUserById($userId);
-                $userStyles = [];
-                if ($user['styles'] != '') {
-                    $userStyles = explode(',', $user['styles']);
-                }
-                $posts = $this->_postModel->getPostsByStyles($pageIndex, $count, $userStyles, $fcount);
+            $user = $this->_userModel->getUserById($userId);
+            $userStyles = [];
+            if ($user['styles'] != '') {
+                $userStyles = explode(',', $user['styles']);
             }
+            $posts = $this->_postModel->getPostsByStyles($pageIndex, $count, $userStyles, $followerCount);
         }
         $postIds = array_map(function ($row) {
             return $row['id'];

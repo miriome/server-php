@@ -1,0 +1,102 @@
+ERROR - 2024-01-31 13:23:53 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM posts
+          INNER JOIN users ON users.id = posts.added_by
+          ...' at line 2 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(176): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(270): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-01-31 13:23:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'FROM posts
+          INNER JOIN users ON users.id = posts.added_by
+          ...' at line 2
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,
+          FROM posts
+          INNER JOIN users ON users.id = posts.added_by
+          CROSS JOIN (
+            SELECT user_id, RANK() OVER (PARTITION BY user_id ORDER BY likes DESC) AS rank
+            FROM posts
+          ) AS ranked_likes
+          ON posts.user_id = ranked_likes.user_id
+          ORDER BY p.user_id, ranked_likes.rank', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,
+          FROM posts
+          INNER JOIN users ON users.id = posts.added_by
+          CROSS JOIN (
+            SELECT user_id, RANK() OVER (PARTITION BY user_id ORDER BY likes DESC) AS rank
+            FROM posts
+          ) AS ranked_likes
+          ON posts.user_id = ranked_likes.user_id
+          ORDER BY p.user_id, ranked_likes.rank')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,
+          FROM posts
+          INNER JOIN users ON users.id = posts.added_by
+          CROSS JOIN (
+            SELECT user_id, RANK() OVER (PARTITION BY user_id ORDER BY likes DESC) AS rank
+            FROM posts
+          ) AS ranked_likes
+          ON posts.user_id = ranked_likes.user_id
+          ORDER BY p.user_id, ranked_likes.rank')
+ 4 APPPATH/Models/Api/PostModel.php(176): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,
+          FROM posts
+          INNER JOIN users ON users.id = posts.added_by
+          CROSS JOIN (
+            SELECT user_id, RANK() OVER (PARTITION BY user_id ORDER BY likes DESC) AS rank
+            FROM posts
+          ) AS ranked_likes
+          ON posts.user_id = ranked_likes.user_id
+          ORDER BY p.user_id, ranked_likes.rank')
+ 5 APPPATH/Controllers/Api/Post.php(270): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-01-31 13:32:16 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY added_by ASC' at line 5 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(172): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(270): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-01-31 13:32:16 --> You have an error in your SQL syntax; check the manual that corresponds to your MariaDB server version for the right syntax to use near 'ORDER BY added_by ASC' at line 5
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        ORDER BY rank
+        ORDER BY added_by ASC', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        ORDER BY rank
+        ORDER BY added_by ASC')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        ORDER BY rank
+        ORDER BY added_by ASC')
+ 4 APPPATH/Models/Api/PostModel.php(172): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        ORDER BY rank
+        ORDER BY added_by ASC')
+ 5 APPPATH/Controllers/Api/Post.php(270): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

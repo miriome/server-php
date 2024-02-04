@@ -1,0 +1,24 @@
+CRITICAL - 2024-02-04 14:34:24 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Users.php on line 363.
+ 1 APPPATH/Controllers/Api/Users.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 363)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-02-04 14:36:33 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Users.php on line 363.
+ 1 APPPATH/Controllers/Api/Users.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 363)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-02-04 14:37:42 --> Trying to access array offset on value of type null
+in APPPATH/Controllers/Api/Users.php on line 363.
+ 1 APPPATH/Controllers/Api/Users.php(363): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Trying to access array offset on value of type null', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 363)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->notifications()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

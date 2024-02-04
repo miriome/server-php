@@ -359,6 +359,9 @@ class Users extends Base
                 }
             }
             $user = $this->_userModel->getUserById($row['sent_by']);
+            if ($user == null) {
+                continue;
+            }
             $user = [
                 'id' => $user['id'],
                 'username' => $user['username'],

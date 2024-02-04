@@ -190,7 +190,7 @@ class PostModel extends Model
             ->where("blocked_users.user_id IS NULL")
             ->where("(added_by IN (SELECT `target_id` FROM follow WHERE `user_id` = $userId) OR added_by = $userId)")
             ->where('deleted', 0)
-            ->orderBy('likes', 'DESC')
+            ->orderBy('id', 'DESC')
             ->get($count, $pageIndex * $count)
             ->getResultArray();
 

@@ -1,0 +1,40 @@
+CRITICAL - 2024-02-07 14:22:20 --> error_log(): Argument #1 ($message) must be of type string, array given
+in APPPATH/Controllers/Api/Users.php on line 396.
+ 1 APPPATH/Controllers/Api/Users.php(396): error_log([...])
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendPush()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-02-07 14:22:54 --> Undefined array key "ids"
+in APPPATH/Controllers/Api/Users.php on line 396.
+ 1 APPPATH/Controllers/Api/Users.php(396): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "ids"', '/Users/winson.heng/server-php/app/Controllers/Api/Users.php', 396)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendPush()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-02-07 14:26:30 --> error_log(): Argument #1 ($message) must be of type string, array given
+in APPPATH/Controllers/Api/Users.php on line 397.
+ 1 APPPATH/Controllers/Api/Users.php(397): error_log([...])
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendPush()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-02-07 14:27:05 --> error_log(): Argument #1 ($message) must be of type string, array given
+in APPPATH/Controllers/Api/Users.php on line 396.
+ 1 APPPATH/Controllers/Api/Users.php(396): error_log([...])
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendPush()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-02-07 14:27:20 --> error_log(): Argument #1 ($message) must be of type string, array given
+in APPPATH/Controllers/Api/Users.php on line 396.
+ 1 APPPATH/Controllers/Api/Users.php(396): error_log([...])
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendPush()
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

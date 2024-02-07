@@ -110,8 +110,8 @@ class Post extends Base
             // Send mention notification
             foreach ($mentionedUsers as $mentionedUser) {
                 $msg = "You were mentioned in {$user['username']}'s comment";
-                $token = $this->_deviceModel->getPushId($mentionedUser['id']);
-                $this->sendNotification($token, array(), $msg);
+                // $token = $this->_deviceModel->getPushId($mentionedUser['id']);
+                $this->sendNotification($mentionedUser['id'], $msg);
 
                 // Add notification history
                 $notificationData = [
@@ -266,7 +266,7 @@ class Post extends Base
 
         $followers = $this->_userModel->getFollowers($userId);
         $followerCount = count($followers);
-        if ( $followerCount == 0) {
+        if ($followerCount == 0) {
             $posts = $this->_postModel->getPostsForNewUsers($pageIndex, $count, $userId);
         } else {
             $posts = $this->_postModel->getPostsForFollowedUsers($pageIndex, $count, $userId);
@@ -440,7 +440,8 @@ class Post extends Base
         $postId = $this->request->getPost('post_id');
         $isLike = $this->request->getPost('is_like');
 
-        $data = ['user_id' => $userId,
+        $data = [
+            'user_id' => $userId,
             'post_id' => $postId
         ];
 
@@ -456,8 +457,8 @@ class Post extends Base
                 $user = $this->_userModel->getUserById($userId);
 
                 $msg = $user['username'] . ' ' . $likeMessage . ' your post';
-                $token = $this->_deviceModel->getPushId($post['added_by']);
-                $this->sendNotification($token, array(), $msg);
+                // $token = $this->_deviceModel->getPushId($post['added_by']);
+                $this->sendNotification($post['added_by'], $msg);
 
                 if ($post['added_by'] != $userId) {
                     // Add notification history
@@ -491,11 +492,13 @@ class Post extends Base
 
         $postId = $this->request->getPost('post_id');
 
-        $data = ['user_id' => $userId,
+        $data = [
+            'user_id' => $userId,
             'post_id' => $postId,
             'comment' => $this->request->getPost('comment'),
             'created_at' => date('Y-m-d H:i:s'),
-            'created_timestamp' => time()];
+            'created_timestamp' => time()
+        ];
 
         $mentionedUsers = $this->_postModel->addComment($data);
 
@@ -504,8 +507,8 @@ class Post extends Base
         // Send mention notification
         foreach ($mentionedUsers as $mentionedUser) {
             $msg = "You were mentioned in {$user['username']}'s comment";
-            $token = $this->_deviceModel->getPushId($mentionedUser['id']);
-            $this->sendNotification($token, array(), $msg);
+            // $token = $this->_deviceModel->getPushId($mentionedUser['id']);
+            $this->sendNotification($mentionedUser['id'], $msg);
 
             // Add notification history
             $notificationData = [
@@ -522,8 +525,7 @@ class Post extends Base
         // Send Comment Notification
         if ($userId != $post['added_by']) {
             $msg = $user['username'] . ' commented your post';
-            $token = $this->_deviceModel->getPushId($post['added_by']);
-            $this->sendNotification($token, array(), $msg);
+            $this->sendNotification($post['added_by'], $msg);
             // Add notification history
             $notificationData = [
                 'user_id' => $post['added_by'],

@@ -230,8 +230,8 @@ class Users extends Base
             $user = $this->_userModel->getUserById($userId);
             $targetUser = $this->_userModel->getUserById($targetId);
             $msg = $user['username'] . ' started following you';
-            $token = $this->_deviceModel->getPushId($targetId);
-            $this->sendNotification($token, array(), $msg);
+            // $token = $this->_deviceModel->getPushId($targetId);
+            $this->sendNotification($targetId, $msg);
 
             // Add notification history
             $notificationData = [
@@ -386,6 +386,40 @@ class Users extends Base
         return $this->response->setJSON($response);
     }
 
+    function sendPush()
+    {
+        $userId = $this->request->user->userId;
+        if ($userId != 1) {
+            $response = [
+                'status' => false,
+                'message' => "Invalid account"
+            ];
+            return $this->response->setJSON($response);
+        }
+        $ids = $this->request->getPost('ids');
+        $ids_arr = explode(",", $ids);
+        $message = $this->request->getPost('message');
+        $title = $this->request->getPost('title');
+        $subtitle = $this->request->getPost('subtitle');
+
+        if (is_array($ids_arr)) {
+            foreach ($ids_arr as $targetId) {
+                $this->sendNotification($targetId, $message, $title, $subtitle);
+            }
+        } else {
+            $response = [
+                'status' => false,
+                'message' => "Missing the key `ids`"
+            ];
+            return $this->response->setJSON($response);
+        }
+        $response = [
+            'status' => true,
+            'message' => "You sent message successfully"
+        ];
+        return $this->response->setJSON($response);
+    }
+
     function sendMessage()
     {
 
@@ -414,13 +448,12 @@ class Users extends Base
             'message_type' => $message_type,
             'message' => $message,
         ];
-        $token = $this->_deviceModel->getPushId($targetId);
+        // $token = $this->_deviceModel->getPushId($targetId);
 
 
         $title = strlen($user['name']) > 0 ? $user['name'] : $user['username'];
-        if ($token) {
-            $this->sendNotification($token, $payload, $message, $title, "Has sent you a message");
-        }
+        $this->sendNotification($targetId, $message, $title, "Has sent you a message");
+
 
 
         $response = [

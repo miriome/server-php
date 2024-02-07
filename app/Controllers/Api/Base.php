@@ -2,6 +2,7 @@
 
 namespace App\Controllers\Api;
 
+use App\Models\Api\DeviceModel;
 use CodeIgniter\Controller;
 use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
@@ -59,12 +60,8 @@ abstract class Base extends ResourceController
         // E.g.: $this->session = \Config\Services::session();
     }
 
-    public function sendNotification($token, $data = [], $message = '', $title = APP_NAME, $subtitle = '')
+    protected function sendIosPush($token, $message = '', $title = APP_NAME, $subtitle = '')
     {
-        if ($token == "" || $token == null) {
-            return;
-        }
-
         $privateKeyPath = __DIR__ . '/AuthKey_B9GG868T6P.p8';
         $p8key = file_get_contents($privateKeyPath);
 
@@ -118,5 +115,18 @@ abstract class Base extends ResourceController
         curl_exec($ch);
 
         curl_close($ch);
+    }
+
+    public function sendNotification($targetId, $message = '', $title = APP_NAME, $subtitle = '')
+    {
+        $deviceModel = new DeviceModel();
+        $token = $deviceModel->getPushId($targetId);
+        error_log("lol");
+        if ($token == "" || $token == null) {
+            return;
+        }
+        error_log($token);
+        $this->sendIosPush($token, $message, $title, $subtitle);
+
     }
 }

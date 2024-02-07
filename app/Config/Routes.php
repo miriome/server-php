@@ -69,7 +69,9 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('sendMessage', 'Users::sendMessage', ['filter' => 'authFilter']);
         $routes->get('contacts', 'Users::contacts', ['filter' => 'authFilter']);
         $routes->post('blockUser', 'Users::blockUser', ['filter' => 'authFilter']);
+        $routes->post('sendPush', 'Users::sendPush', ['filter' => 'authFilter']);
         $routes->get('changePassword', 'Users::changePassword');
+        
 
 
 

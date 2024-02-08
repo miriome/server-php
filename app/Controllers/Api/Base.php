@@ -126,22 +126,21 @@ abstract class Base extends ResourceController
             ["https://www.googleapis.com/auth/firebase.messaging"],
             $privateKeyPath
         );
-        $token = $credentials->fetchAuthToken();
-        $jwt = $token['access_token'];
+        $credentials->useJwtAccessWithScope();
+        $jwt = $credentials->fetchAuthToken()['access_token'];
 
         $headers = array(
-            "Authorization: bearer $jwt",
+            "Authorization: Bearer $jwt",
             'Content-Type: application/json',
         );
-        $url = "https://fcm.googleapis.com/v1/projects/myproject-b5ae1/messages:send";
+        $url = "https://fcm.googleapis.com/v1/projects/miromie-93d21/messages:send";
 
         $msg = array
         (
             'body' => $message,
             'title' => $title,
-            'subtitle' => $message,
         );
-
+        
         $fields = ["message" => ["notification" => $msg, "token" => $token]];
 
         $ch = curl_init();
@@ -156,7 +155,8 @@ abstract class Base extends ResourceController
         curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
         curl_setopt($ch, CURLOPT_TIMEOUT, 1);
 
-        curl_exec($ch);
+        $res = curl_exec($ch);
+        error_log($res);
 
         curl_close($ch);
     }

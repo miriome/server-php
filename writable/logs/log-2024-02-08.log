@@ -1,0 +1,10 @@
+CRITICAL - 2024-02-08 03:20:09 --> error_log(): Argument #1 ($message) must be of type string, array given
+in APPPATH/Controllers/Api/Base.php on line 144.
+ 1 APPPATH/Controllers/Api/Base.php(144): error_log([...])
+ 2 APPPATH/Controllers/Api/Base.php(180): App\Controllers\Api\Base->sendAndroidPush([...], 'hello again', 'From')
+ 3 APPPATH/Controllers/Api/Users.php(406): App\Controllers\Api\Base->sendNotification('6', 'hello again', 'From', 'winson')
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Users->sendPush()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Users))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

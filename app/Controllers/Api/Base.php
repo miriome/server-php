@@ -8,6 +8,8 @@ use CodeIgniter\HTTP\CLIRequest;
 use CodeIgniter\HTTP\IncomingRequest;
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
+use Google\Auth\Credentials\ServiceAccountCredentials;
+use Google\Auth\OAuth2;
 use Psr\Log\LoggerInterface;
 use Firebase\JWT\JWT;
 use CodeIgniter\RESTful\ResourceController;
@@ -117,16 +119,67 @@ abstract class Base extends ResourceController
         curl_close($ch);
     }
 
+    protected function sendAndroidPush($token, $message = '', $title = APP_NAME)
+    {
+        $privateKeyPath = __DIR__ . '/miromie-firebase-service-account.json';
+        $credentials = new ServiceAccountCredentials(
+            ["https://www.googleapis.com/auth/firebase.messaging"],
+            $privateKeyPath
+        );
+        $token = $credentials->fetchAuthToken();
+        $jwt = $token['access_token'];
+
+        $headers = array(
+            "Authorization: bearer $jwt",
+            'Content-Type: application/json',
+        );
+        $url = "https://fcm.googleapis.com/v1/projects/myproject-b5ae1/messages:send";
+
+        $msg = array
+        (
+            'body' => $message,
+            'title' => $title,
+            'subtitle' => $message,
+        );
+
+        $fields = ["message" => ["notification" => $msg, "token" => $token]];
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 1);
+
+        curl_exec($ch);
+
+        curl_close($ch);
+    }
+
     public function sendNotification($targetId, $message = '', $title = APP_NAME, $subtitle = '')
     {
         $deviceModel = new DeviceModel();
-        $token = $deviceModel->getPushId($targetId);
-        error_log("lol");
-        if ($token == "" || $token == null) {
+        $pushInfo = $deviceModel->getPushInfo($targetId);
+
+        if ($pushInfo == "" || $pushInfo == null || !is_array($pushInfo)) {
             return;
         }
-        error_log($token);
-        $this->sendIosPush($token, $message, $title, $subtitle);
+
+        $platform = $pushInfo['platform'];
+        $token = $pushInfo['device_push_token'];
+        if ($platform == "ios") {
+            $this->sendIosPush($token, $message, $title, $subtitle);
+        }
+        if ($platform == "android") {
+            $this->sendAndroidPush($token, $message, $title, );
+        }
+
+
 
     }
 }

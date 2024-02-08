@@ -27,27 +27,25 @@ class DeviceModel extends Model
 
     }
 
-    public function upsertDevicePushToken($uid, $token)
+    public function upsertDevicePushToken($uid, $token, $platform)
     {
         $hasToken = $this->builder->where('uid', $uid)->countAllResults() > 0;
         if ($hasToken) {
-            $this->builder->where('uid', $uid)->set('device_push_token', $token)->update();
+            $this->builder->where('uid', $uid)->set('device_push_token', $token)->set("platform",$platform ?? "ios")->update();
         } else {
             $this->add([
                 'device_push_token' => $token,
-                'uid' => $uid
+                'uid' => $uid,
+                "platform" => $platform ?? "ios"
             ]);
         }
 
     }
 
-    public function getPushId($uid)
+    public function getPushInfo($uid)
     {
         $tokenResult = $this->builder->where('uid', $uid)->get()->getRowArray();
-        if ($tokenResult) {
-            return $tokenResult['device_push_token'];
-        }
-        return null;
+        return $tokenResult;
 
     }
 

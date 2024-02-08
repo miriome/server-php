@@ -25,7 +25,8 @@ class Account extends Base
     {
         $userId = $this->request->user->userId;
         $token = $this->request->getPost('push_token');
-        $this->_deviceModel->upsertDevicePushToken($userId, $token);
+        $platform = $this->request->getPost('platform');
+        $this->_deviceModel->upsertDevicePushToken($userId, $token, $platform);
         $result = ['status' => true, 'data' => ""];
         return $this->respond($result, 200);
     }

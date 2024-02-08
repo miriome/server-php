@@ -230,7 +230,6 @@ class Users extends Base
             $user = $this->_userModel->getUserById($userId);
             $targetUser = $this->_userModel->getUserById($targetId);
             $msg = $user['username'] . ' started following you';
-            // $token = $this->_deviceModel->getPushId($targetId);
             $this->sendNotification($targetId, $msg);
 
             // Add notification history
@@ -389,13 +388,13 @@ class Users extends Base
     function sendPush()
     {
         $userId = $this->request->user->userId;
-        if ($userId != 1) {
-            $response = [
-                'status' => false,
-                'message' => "Invalid account"
-            ];
-            return $this->response->setJSON($response);
-        }
+        // if ($userId != 1) {
+        //     $response = [
+        //         'status' => false,
+        //         'message' => "Invalid account"
+        //     ];
+        //     return $this->response->setJSON($response);
+        // }
         $ids = $this->request->getPost('ids');
         $ids_arr = explode(",", $ids);
         $message = $this->request->getPost('message');
@@ -448,7 +447,6 @@ class Users extends Base
             'message_type' => $message_type,
             'message' => $message,
         ];
-        // $token = $this->_deviceModel->getPushId($targetId);
 
 
         $title = strlen($user['name']) > 0 ? $user['name'] : $user['username'];

@@ -18,3 +18,4 @@ application/logs/*
 /vendor/
 
 *.p8
+*service-account.json

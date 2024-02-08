@@ -10,6 +10,8 @@
         "ext-json": "*",
         "ext-mbstring": "*",
         "firebase/php-jwt": "^6.8",
+        "google/apiclient": "^2.0",
+        "google/auth": "^1.35",
         "laminas/laminas-escaper": "^2.9",
         "psr/log": "^1.1"
     },

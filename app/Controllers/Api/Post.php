@@ -110,7 +110,6 @@ class Post extends Base
             // Send mention notification
             foreach ($mentionedUsers as $mentionedUser) {
                 $msg = "You were mentioned in {$user['username']}'s comment";
-                // $token = $this->_deviceModel->getPushId($mentionedUser['id']);
                 $this->sendNotification($mentionedUser['id'], $msg);
 
                 // Add notification history
@@ -457,7 +456,6 @@ class Post extends Base
                 $user = $this->_userModel->getUserById($userId);
 
                 $msg = $user['username'] . ' ' . $likeMessage . ' your post';
-                // $token = $this->_deviceModel->getPushId($post['added_by']);
                 $this->sendNotification($post['added_by'], $msg);
 
                 if ($post['added_by'] != $userId) {
@@ -507,7 +505,6 @@ class Post extends Base
         // Send mention notification
         foreach ($mentionedUsers as $mentionedUser) {
             $msg = "You were mentioned in {$user['username']}'s comment";
-            // $token = $this->_deviceModel->getPushId($mentionedUser['id']);
             $this->sendNotification($mentionedUser['id'], $msg);
 
             // Add notification history

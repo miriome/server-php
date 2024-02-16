@@ -15,8 +15,12 @@ class Config extends Base
     // Get upgrade info
     function updateInfo()
     {
-        $row = $this->db->table('update_info')->select()->get()->getRow();
-        $result = ['status' => true, 'data' => $row];
+        $dismissable = $this->db->table('update_info')->where('force', 0)->select()->get()->getRow();
+        $forced = $this->db->table('update_info')->where('force', 1)->select()->get()->getRow();
+        $result = ['status' => true, 'data' => [
+            'dismissable' => $dismissable,
+            'forced' => $forced
+        ]];
         return $this->respond($result, 200);
     }
 

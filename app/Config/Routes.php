@@ -47,6 +47,11 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('checkDuplicate', 'Auth::checkDuplicate');
     });
 
+    $routes->group('config', function ($routes) {
+        $routes->get('updateInfo', 'Config::updateInfo');
+    });
+    
+
     $routes->group('account', function ($routes) {
         $routes->post('registerDeviceToken', 'Account::registerDeviceToken', ['filter' => 'authFilter']);
         $routes->post('permDelete', 'Account::permDelete', ['filter' => 'authFilter']);
@@ -72,18 +77,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('sendPush', 'Users::sendPush', ['filter' => 'authFilter']);
         $routes->get('changePassword', 'Users::changePassword');
         
-
-
-
-        /*
-        $routes->get('', 'Users::index', ['filter' => 'authJwt']);
-        $routes->get('(:segment)', 'Users::show/$1', ['filter' => 'authJwt']);
-        $routes->get('(:segment)/edit', 'Users::edit/$1', ['filter' => 'authJwt']);
-        $routes->post('', 'Users::create', ['filter' => 'authJwt']);
-        $routes->put('(:segment)', 'Users::update/$1', ['filter' => 'authJwt']);
-        $routes->patch('(:segment)', 'Users::update/$1', ['filter' => 'authJwt']);
-        $routes->delete('(:segment)', 'Users::delete/$1', ['filter' => 'authJwt']);
-        */
     });
 
     // $routes->resource('employee');

@@ -50,7 +50,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
     $routes->group('config', function ($routes) {
         $routes->get('updateInfo', 'Config::updateInfo');
     });
-    
+
 
     $routes->group('account', function ($routes) {
         $routes->post('registerDeviceToken', 'Account::registerDeviceToken', ['filter' => 'authFilter']);
@@ -62,7 +62,7 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
     });
 
     //    $routes->resource('users', ['filter' => 'authJwt']);
-    $routes->group('users', function ($routes) {
+    $routes->group('users', ['namespace' => 'App\Controllers\Api\users'], function ($routes) {
         $routes->post('editDisplayName', 'Users::editDisplayName', ['filter' => 'authFilter']);
         $routes->post('editProfile', 'Users::editProfile', ['filter' => 'authFilter']);
         $routes->post('editStyles', 'Users::editStyles', ['filter' => 'authFilter']);
@@ -76,7 +76,8 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('blockUser', 'Users::blockUser', ['filter' => 'authFilter']);
         $routes->post('sendPush', 'Users::sendPush', ['filter' => 'authFilter']);
         $routes->get('changePassword', 'Users::changePassword');
-        
+        $routes->get('brandSizings', 'Measurements::getBrandSizings', ['filter' => 'authFilter']);
+
     });
 
     // $routes->resource('employee');

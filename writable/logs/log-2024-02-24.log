@@ -1,0 +1,14 @@
+ERROR - 2024-02-24 15:59:14 --> mysqli_sql_exception: Incorrect table definition; there can be only one auto column and it must be defined as a key in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `b...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `b...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `b...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `b...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-02-24-155511_BrandSizing.php(36): CodeIgniter\Database\Forge->createTable('brand_sizing')
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\BrandSizing->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}

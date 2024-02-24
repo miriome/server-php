@@ -1,8 +1,7 @@
 <?php
-namespace App\Controllers\Api;
+namespace App\Controllers\Api\users;
 
 use App\Controllers\Api\Base;
-use App\Database\Migrations\MeasurementsPrivacy;
 use App\Models\Api\BlockedUsersModel;
 use App\Models\Api\UserModel;
 use App\Models\Api\PostModel;

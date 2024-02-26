@@ -15,10 +15,6 @@ class BrandSizing extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
-            'brand' => array(
-                'type' => 'VARCHAR',
-                'constraint' => 255,
-            ),
             'brand_name' => array(
                 'type' => 'VARCHAR',
                 'constraint' => 255,

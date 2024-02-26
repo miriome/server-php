@@ -1,0 +1,9 @@
+CRITICAL - 2024-02-26 13:47:14 --> Undefined array key "brand_name"
+in APPPATH/Models/Api/UserBrandSizingModel.php on line 35.
+ 1 APPPATH/Models/Api/UserBrandSizingModel.php(35): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "brand_name"', '/Users/winson.heng/server-php/app/Models/Api/UserBrandSizingModel.php', 35)
+ 2 APPPATH/Controllers/Api/users/Users.php(70): App\Models\Api\UserBrandSizingModel->setUserBrandSizing('6', [...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\users\Users->editMeasurement()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\users\Users))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

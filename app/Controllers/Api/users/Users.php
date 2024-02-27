@@ -1,9 +1,9 @@
 <?php
-namespace App\Controllers\Api;
+namespace App\Controllers\Api\users;
 
 use App\Controllers\Api\Base;
-use App\Database\Migrations\MeasurementsPrivacy;
 use App\Models\Api\BlockedUsersModel;
+use App\Models\Api\UserBrandSizingModel;
 use App\Models\Api\UserModel;
 use App\Models\Api\PostModel;
 use App\Models\Api\DeviceModel;
@@ -18,6 +18,8 @@ class Users extends Base
 
     protected $_blockedUsersModel;
 
+    protected $_userBrandSizingModel;
+
 
     public function __construct()
     {
@@ -25,6 +27,7 @@ class Users extends Base
         $this->_postModel = new PostModel();
         $this->_deviceModel = new DeviceModel();
         $this->_blockedUsersModel = new BlockedUsersModel();
+        $this->_userBrandSizingModel = new UserBrandSizingModel();
 
     }
 
@@ -62,8 +65,9 @@ class Users extends Base
         if ($this->request->getPost('measurementPrivacy') != null) {
             $data['measurement_privacy'] = $this->request->getPost('measurementPrivacy');
         }
-
+        $sizings = $this->request->getPost('brandSizings');
         $this->_userModel->editUser($userId, $data);
+        $this->_userBrandSizingModel->setUserBrandSizing($userId, $sizings);
         $result = ['status' => true, 'data' => ""];
         return $this->respond($result, 200);
     }
@@ -259,6 +263,7 @@ class Users extends Base
         $myId = $this->request->user->userId;
 
         $user = $this->_userModel->getUserById($userId);
+        $userBrandSizing = $this->_userBrandSizingModel->getUserBrandSizing($userId);
 
         $res['id'] = $user['id'];
         $res['username'] = $user['username'];
@@ -272,6 +277,8 @@ class Users extends Base
         $res['followers'] = $user['followers'];
         $res['device_type'] = $user['device_type'];
         $res['measurementPrivacy'] = $user['measurement_privacy'];
+        $res['brandSizings'] = $userBrandSizing;
+        
         $res['photo_url'] = base_url() . 'uploads/' . $user['photo_name'];
         if ($myId == -1) {
             $myFollow = 0;

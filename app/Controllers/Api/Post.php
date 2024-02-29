@@ -71,30 +71,17 @@ class Post extends Base
             // New Api.
             $photos = $this->request->getFiles();
 
-            if (count($photos) > 0) {
-                foreach ($photos as $index => $image) {
+            foreach ($photos as $index => $image) {
 
-                    $newName = $image->getRandomName();
-                    $image->move('../public/uploads', $newName);
-                    array_push($images, [
-                        'index' => $index,
-                        'image' => $newName
-                    ]);
-                    if ($index == 0) {
-                        $data['image'] = $newName;
-                    }
+                $newName = $image->getRandomName();
+                $image->move('../public/uploads', $newName);
+                array_push($images, [
+                    'index' => $index,
+                    'image' => $newName
+                ]);
+                if ($index == 0) {
+                    $data['image'] = $newName;
                 }
-
-
-            } else {
-                // Deprecated at 1.6.0
-                $imageFile = $this->request->getFile('file');
-                debugArray(["file" => $imageFile], "array");
-
-                $newName = $imageFile->getRandomName();
-                $imageFile->move('../public/uploads', $newName);
-
-                $data['image'] = $newName;
             }
 
             $result = $this->_postModel->add($data);

@@ -24,6 +24,11 @@ class BrandSizingModel extends Model
     }
 
     function getAllBrandSizings(): array {
-        return $this->builder->get()->getResultArray();
+        $brandSizings = $this->builder->get()->getResultArray();
+        usort($brandSizings, function ($a, $b) {
+            $ordering = ["Tops" => 1, "Bottoms" => 2, "Dresses / Jumpsuits" => 3, "Jeans" => 4];
+            return $ordering[$a["clothing_type"]] - $ordering[$b["clothing_type"]];
+        });
+        return $brandSizings;
     }
 }

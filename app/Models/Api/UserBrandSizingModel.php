@@ -24,7 +24,12 @@ class UserBrandSizingModel extends Model
 
     function getUserBrandSizing($userId): array
     {
-        return $this->builder->where('user_id', $userId)->get()->getResultArray();
+        $brandSizings = $this->builder->where('user_id', $userId)->get()->getResultArray();
+        usort($brandSizings, function ($a, $b) {
+            $ordering = ["Tops" => 1, "Bottoms" => 2, "Dresses / Jumpsuits" => 3, "Jeans" => 4];
+            return $ordering[$a["clothing_type"]] - $ordering[$b["clothing_type"]];
+        });
+        return $brandSizings;
     }
 
     function setUserBrandSizing($userId, $brandSizings)

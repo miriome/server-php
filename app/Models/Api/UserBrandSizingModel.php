@@ -35,7 +35,7 @@ class UserBrandSizingModel extends Model
     function setUserBrandSizing($userId, $brandSizings)
     {
         $dbEntries = array();
-        $this->builder->where('id', $userId)->delete();
+        $this->builder->where('user_id', $userId)->delete();
         foreach ($brandSizings as $sizings) {
             $data = [
                 'brand_name' => $sizings['brand_name'],

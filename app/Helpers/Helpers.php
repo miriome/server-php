@@ -7,12 +7,14 @@ class Helpers
     public static function getUsernamesFromMentions(string $text)
     {
         $exp = "/(?!\\n)(?:^|\\s)([@]([·・ー_a-zA-Zａ-ｚＡ-Ｚ0-9０-９]+))/";
-        preg_match($exp, $text, $matches);
+        preg_match_all($exp, $text, $matches);
 
         $usernames = array();
-        foreach ($matches as $string) {
-            if (substr($string, 0, strlen("@")) == "@") {
-                array_push($usernames, substr($string, 1));
+        foreach ($matches as $matchArr) {
+            foreach($matchArr as $string) {
+                if (substr($string, 0, strlen("@")) == "@") {
+                    array_push($usernames, substr($string, 1));
+                }
             }
         }
         return $usernames;

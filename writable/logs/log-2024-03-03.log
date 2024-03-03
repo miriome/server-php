@@ -1,0 +1,34 @@
+ERROR - 2024-03-03 07:57:44 --> mysqli_sql_exception: MySQL server has gone away in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT *\nFROM `...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT *\nFROM `...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT *\nFROM `...')
+#3 /Users/winson.heng/server-php/system/Database/BaseBuilder.php(1616): CodeIgniter\Database\BaseConnection->query('SELECT *\nFROM `...', Array, false)
+#4 /Users/winson.heng/server-php/app/Models/Api/UserModel.php(124): CodeIgniter\Database\BaseBuilder->get()
+#5 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(377): App\Models\Api\UserModel->getUsersByUsername(Array)
+#6 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(488): App\Models\Api\PostModel->addComment(Array)
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+#8 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#9 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#10 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#11 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#12 {main}
+CRITICAL - 2024-03-03 07:57:44 --> Call to a member function getResultArray() on bool
+in APPPATH/Models/Api/UserModel.php on line 125.
+ 1 APPPATH/Models/Api/PostModel.php(377): App\Models\Api\UserModel->getUsersByUsername([...])
+ 2 APPPATH/Controllers/Api/Post.php(488): App\Models\Api\PostModel->addComment([...])
+ 3 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 4 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 5 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 6 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 7 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-03-03 07:59:58 --> substr(): Argument #1 ($string) must be of type string, array given
+in APPPATH/Helpers/Helpers.php on line 14.
+ 1 APPPATH/Helpers/Helpers.php(14): substr([...], 0, 1)
+ 2 APPPATH/Models/Api/PostModel.php(374): App\Helpers\Helpers::getUsernamesFromMentions('@megan @eugene')
+ 3 APPPATH/Controllers/Api/Post.php(488): App\Models\Api\PostModel->addComment([...])
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->comment()
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

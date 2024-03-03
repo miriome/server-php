@@ -37,7 +37,10 @@ class PostModel extends Model
         $postId = $this->db->insertID();
         $caption = $data['caption'];
         // Update post mentions
-        $mentionedUsernames = Helpers::getUsernamesFromMentions($caption);
+        if (!is_null($caption)) {
+            $mentionedUsernames = Helpers::getUsernamesFromMentions($caption);
+        }
+
         try {
             if (count($mentionedUsernames) > 0) {
                 $mentionedUsers = $this->_userModel->getUsersByUsername($mentionedUsernames);

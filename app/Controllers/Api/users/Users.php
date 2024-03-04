@@ -67,7 +67,9 @@ class Users extends Base
         }
         $sizings = $this->request->getPost('brandSizings');
         $this->_userModel->editUser($userId, $data);
-        $this->_userBrandSizingModel->setUserBrandSizing($userId, $sizings);
+        if ($sizings != null) {
+            $this->_userBrandSizingModel->setUserBrandSizing($userId, $sizings);
+        }
         $result = ['status' => true, 'data' => ""];
         return $this->respond($result, 200);
     }

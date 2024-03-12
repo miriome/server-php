@@ -62,64 +62,8 @@ abstract class Base extends ResourceController
         // E.g.: $this->session = \Config\Services::session();
     }
 
-    protected function sendIosPush($token, $message = '', $title = APP_NAME, $subtitle = '')
-    {
-        $privateKeyPath = __DIR__ . '/AuthKey_B9GG868T6P.p8';
-        $p8key = file_get_contents($privateKeyPath);
 
-        // $url = "https://api.sandbox.push.apple.com:443";
-        // Swap this out when deploying.
-        $url = "https://api.push.apple.com:443";
-
-
-        $payload = [
-            "iss" => "6N52UUJQBG",
-            "iat" => time()
-        ];
-
-
-
-        $headers = array(
-            'kid' => "B9GG868T6P"
-        );
-        $jwt = JWT::encode($payload, $p8key, 'ES256', null, $headers);
-
-        $msg = array
-        (
-            'body' => $message,
-            'title' => $title,
-            'subtitle' => $subtitle,
-            'badge' => "1",
-            'sound' => 'default' /*Default sound*/
-        );
-
-        $fields = ["aps" => ["alert" => $msg, "mutable-content" => "1"]];
-        $apnsUrl = $url . '/3/device/' . $token;
-        $headers = array(
-            "apns-push-type: alert",
-            "Authorization: bearer $jwt",
-            'Content-Type: application/json',
-            "apns-topic: com.miromie.ios.miromie"
-        );
-
-        $ch = curl_init();
-
-        curl_setopt($ch, CURLOPT_URL, $apnsUrl);
-        curl_setopt($ch, CURLOPT_POST, true);
-        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
-        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0);
-        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
-        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
-        curl_setopt($ch, CURLOPT_TIMEOUT, 1);
-
-        curl_exec($ch);
-
-        curl_close($ch);
-    }
-
-    protected function sendAndroidPush($token, $message = '', $title = APP_NAME)
+    protected function sendIosPush($token, $message = '', $title = APP_NAME, $subtitle = '', $deeplink = "")
     {
         $privateKeyPath = __DIR__ . '/miromie-firebase-service-account.json';
         $credentials = new ServiceAccountCredentials(
@@ -140,8 +84,25 @@ abstract class Base extends ResourceController
             'body' => $message,
             'title' => $title,
         );
-        
-        $fields = ["message" => ["notification" => $msg, "token" => $token]];
+        $token = "d5L-jqzMXkrrra2PscKBbu:APA91bGMbMjhkjb6WRMA6jzP5F8rojkuXua38e_PIIKvWzMw-DpdFUX68MNABmzxiPcdROu0kNZ5UhKJdeHrBxeXnsEhFY-gfopNbKeoShnKP97BJ6-DqIt1gP2c411R5vKjqjbvPowQ";
+        $fields = [
+            "message" => [
+                "notification" => $msg,
+                "token" => $token,
+                'apns' => [
+                    'payload' => [
+                        'aps' => [
+                            'alert' => [
+                                'body' => $message,
+                                'title' => $title,
+                                'subtitle' => $subtitle
+                            ]
+                        ]
+                    ]
+                ],
+                'data' => ['deeplink' => $deeplink]
+            ]
+        ];
 
         $ch = curl_init();
 
@@ -161,7 +122,49 @@ abstract class Base extends ResourceController
         curl_close($ch);
     }
 
-    public function sendNotification($targetId, $message = '', $title = APP_NAME, $subtitle = '')
+    protected function sendAndroidPush($token, $message = '', $title = APP_NAME, $deeplink = "")
+    {
+        $privateKeyPath = __DIR__ . '/miromie-firebase-service-account.json';
+        $credentials = new ServiceAccountCredentials(
+            ["https://www.googleapis.com/auth/firebase.messaging"],
+            $privateKeyPath
+        );
+        $credentials->useJwtAccessWithScope();
+        $jwt = $credentials->fetchAuthToken()['access_token'];
+
+        $headers = array(
+            "Authorization: Bearer $jwt",
+            'Content-Type: application/json',
+        );
+        $url = "https://fcm.googleapis.com/v1/projects/miromie-93d21/messages:send";
+
+        $msg = array
+        (
+            'body' => $message,
+            'title' => $title,
+        );
+
+        $fields = ["message" => ["notification" => $msg, "token" => $token, 'data' => ['deeplink' => $deeplink]]];
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $url);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 1);
+
+        $res = curl_exec($ch);
+        error_log($res);
+
+        curl_close($ch);
+    }
+
+    public function sendNotification($targetId, $message = '', $title = APP_NAME, $subtitle = '', $deeplink = '')
     {
         $deviceModel = new DeviceModel();
         $pushInfo = $deviceModel->getPushInfo($targetId);
@@ -173,10 +176,10 @@ abstract class Base extends ResourceController
         $platform = $pushInfo['platform'];
         $token = $pushInfo['device_push_token'];
         if ($platform == "ios") {
-            $this->sendIosPush($token, $message, $title, $subtitle);
+            $this->sendIosPush($token, $message, $title, $subtitle, $deeplink);
         }
         if ($platform == "android") {
-            $this->sendAndroidPush($token, $message, $title, );
+            $this->sendAndroidPush($token, $message, $title, $deeplink);
         }
 
 

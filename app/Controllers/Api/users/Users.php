@@ -459,7 +459,7 @@ class Users extends Base
 
 
         $title = strlen($user['name']) > 0 ? $user['name'] : $user['username'];
-        $this->sendNotification($targetId, $message, $title, "Has sent you a message");
+        $this->sendNotification($targetId, $message, $title, "Has sent you a message", deeplink: "/chat/$targetId");
 
 
 

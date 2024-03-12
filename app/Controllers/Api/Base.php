@@ -84,7 +84,6 @@ abstract class Base extends ResourceController
             'body' => $message,
             'title' => $title,
         );
-        $token = "d5L-jqzMXkrrra2PscKBbu:APA91bGMbMjhkjb6WRMA6jzP5F8rojkuXua38e_PIIKvWzMw-DpdFUX68MNABmzxiPcdROu0kNZ5UhKJdeHrBxeXnsEhFY-gfopNbKeoShnKP97BJ6-DqIt1gP2c411R5vKjqjbvPowQ";
         $fields = [
             "message" => [
                 "notification" => $msg,

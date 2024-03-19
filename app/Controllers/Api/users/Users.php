@@ -280,7 +280,7 @@ class Users extends Base
         $res['device_type'] = $user['device_type'];
         $res['measurementPrivacy'] = $user['measurement_privacy'];
         $res['brandSizings'] = $userBrandSizing;
-        
+
         $res['photo_url'] = base_url() . 'uploads/' . $user['photo_name'];
         if ($myId == -1) {
             $myFollow = 0;
@@ -459,7 +459,7 @@ class Users extends Base
 
 
         $title = strlen($user['name']) > 0 ? $user['name'] : $user['username'];
-        $this->sendNotification($targetId, $message, $title, "Has sent you a message", deeplink: "/chat/$targetId");
+        $this->sendNotification($targetId, $message, $title, "Has sent you a message", deeplink: "/chat/$userId");
 
 
 

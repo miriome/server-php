@@ -59,7 +59,8 @@ class Drops extends Migration
             ],
             'dropId' => array(
                 'type' => 'INT',
-                'constraint' => 11,
+                'constraint' => 5,
+                'unsigned' => true,
             ),
 
         );
@@ -74,7 +75,8 @@ class Drops extends Migration
         $fields = array(
             'dropPostId' => array(
                 'type' => 'INT',
-                'constraint' => 11,
+                'constraint' => 5,
+                'unsigned' => true,
             ),
             'index' => array(
                 'type' => 'INT',

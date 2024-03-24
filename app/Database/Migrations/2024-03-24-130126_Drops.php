@@ -53,6 +53,10 @@ class Drops extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => 255,
             ),
+            'price' => array(
+                'type' => 'INT',
+                'constraint' => 11,
+            ),
             'isPetite' => [
                 'type' => 'BOOLEAN',
                 'default' => false,

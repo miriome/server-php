@@ -80,9 +80,11 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
 
     });
 
-    // $routes->resource('employee');
+    $routes->group('drop', function ($routes) {
+        $routes->get('getDrop', 'Drops::getDrop', ['filter' => 'authFilter']);
+        $routes->get('list/(:postId)', 'Drops::list/$1', ['filter' => 'authFilter']);
+    });
 
-    //    $routes->resource('players', ['filter' => 'authJwt']);
     $routes->group('post', function ($routes) {
         $routes->get('', 'Post::index', ['filter' => 'authFilter']);
         $routes->post('addPost', 'Post::addPost', ['filter' => 'authFilter']);
@@ -97,15 +99,6 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
         $routes->post('comment', 'Post::comment', ['filter' => 'authFilter']);
         $routes->get('comments/(:segment)', 'Post::comments/$1', ['filter' => 'authFilter']);
         $routes->post('deleteComment', 'Post::deleteComment', ['filter' => 'authFilter']);
-
-
-        /*
-        $routes->get('index', 'Players::index', ['filter' => 'authJwt']);
-        $routes->get('(:segment)', 'Players::show/$1', ['filter' => 'authJwt']);
-        $routes->get('index/(:segment)', 'Players::show/$1', ['filter' => 'authJwt']);
-        $routes->get('getUserByEmail/(:segment)', 'Players::getUserByEmail/$1', ['filter' => 'authJwt']);
-        $routes->delete('(:segment)', 'Players::deletePlayer/$1');
-        */
     });
 });
 

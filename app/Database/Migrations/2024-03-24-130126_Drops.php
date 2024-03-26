@@ -19,6 +19,9 @@ class Drops extends Migration
             'startTimestamp' => array(
                 'type' => 'TIMESTAMP',
             ),
+            'endTimestamp' => array(
+                'type' => 'TIMESTAMP',
+            ),
         );
 
         $this->forge->addField($fields);
@@ -46,8 +49,8 @@ class Drops extends Migration
                 'constraint' => 255,
             ),
             'isSold' => array(
-                'type' => 'VARCHAR',
-                'constraint' => 255,
+                'type' => 'BOOLEAN',
+                'default' => false,
             ),
             'clothingSize' => array(
                 'type' => 'VARCHAR',

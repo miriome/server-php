@@ -279,7 +279,7 @@ class PostModel extends Model
             ->where('deleted', 0)
             ->get()
             ->getRowArray();
-        if (!empty($post)) {
+        if (!empty ($post)) {
             $mentions = $this->db->table('posts_mentions')->where('post_id', $id)->get()->getResultArray();
             $images = $this->postImagesBuilder->where('post_id', $id)->orderBy('index', 'ASC')
                 ->get()->getResultArray();

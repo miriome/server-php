@@ -45,6 +45,31 @@ class Drops extends Base
         return $this->respond($result, 200);
     }
 
+    function getDropPostDetails($dropPostId)
+    {
+        $dropPost = $this->_dropsPostModel->getPostDetails($dropPostId);
+        $dropPostImages = $this->_dropsPostModel->getImagesForDrop($dropPostId);
+        $dropPostNumberSizing = $this->_dropsPostModel->getBodySizing($dropPostId);
+        $dropPostBrandSizing = $this->_dropsPostModel->getBrandSizing($dropPostId);
+        $data = [
+            'id' => $dropPost['id'],
+            'title' => $dropPost['title'],
+            'isPetite' => $dropPost['isPetite'],
+            'price' => $dropPost['price'],
+            'condition' => $dropPost['condition'],
+            'clothingSize' => $dropPost['clothingSize'],
+            'size' => $dropPost['clothingSize'],
+            'isSold' => $dropPost['isSold'],
+            'images' => $dropPostImages,
+            'caption' => $dropPost['caption'],
+            'numberSizing' => $dropPostNumberSizing,
+            'brandSizing' => $dropPostBrandSizing
+        ];
+        $result = ['status' => true, 'data' => $data];
+        return $this->respond($result, 200);
+    }
+
+
     function getDrop()
     {
         $drop = $this->_dropsModel->getDrop();

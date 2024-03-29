@@ -20,11 +20,11 @@ class UserBrandSizing extends Migration
                 'constraint' => 5,
                 'unsigned' => true,
             ],
-            'brandName' => [
+            'brand_name' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,
             ],
-            'clothingType' => [
+            'clothing_type' => [
                 'type' => 'VARCHAR',
                 'constraint' => 100,
             ],

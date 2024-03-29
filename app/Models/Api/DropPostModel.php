@@ -14,6 +14,8 @@ class DropPostModel extends Model
     public $builder;
 
     private $dropPostImagesBuilder;
+    private $dropBrandSizingBuilder;
+    private $dropBodySizingBuilder;
     public $db;
 
     protected $_userModel;
@@ -24,6 +26,8 @@ class DropPostModel extends Model
         $this->db = \Config\Database::connect();
         $this->builder = $this->db->table($this->table);
         $this->dropPostImagesBuilder = $this->db->table("drop_post_images");
+        $this->dropBodySizingBuilder = $this->db->table("drops_body_sizing");
+        $this->dropBrandSizingBuilder = $this->db->table("drops_brand_sizing");
     }
 
     public function getAllPosts($dropId)
@@ -37,6 +41,43 @@ class DropPostModel extends Model
             ->getResultArray();
 
         return $postData;
+
+    }
+
+    public function getBodySizing($dropPostId)
+    {
+        $bodySizing = $this->dropBodySizingBuilder->select()->where('dropPostId', $dropPostId)->get()->getRowArray();
+        return $bodySizing;
+    }
+
+    public function getBrandSizing($dropPostId)
+    {
+        $bodySizing = $this->dropBrandSizingBuilder->select()->where('dropPostId', $dropPostId)->get()->getResultArray();
+        return $bodySizing;
+    }
+
+    public function getPostDetails($dropPostId)
+    {
+
+        $postData = $this->builder
+            ->select()
+            ->where('id', $dropPostId)
+            ->get()
+            ->getRowArray();
+
+        return $postData;
+
+    }
+
+    public function getImagesForDrop($dropPostId)
+    {
+
+        $images = $this->dropPostImagesBuilder
+            ->select()
+            ->where('dropPostId', $dropPostId)
+            ->get()
+            ->getResultArray();
+        return $images;
 
     }
 

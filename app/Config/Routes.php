@@ -80,9 +80,10 @@ $routes->group('api', ['namespace' => 'App\Controllers\Api'], function ($routes)
 
     });
 
-    $routes->group('drop', function ($routes) {
+    $routes->group('drops', function ($routes) {
         $routes->get('getDrop', 'Drops::getDrop', ['filter' => 'authFilter']);
         $routes->get('list/(:postId)', 'Drops::list/$1', ['filter' => 'authFilter']);
+        $routes->get('getDropPostDetails/(:dropPostId)', 'Drops::getDropPostDetails/$1', ['filter' => 'authFilter']);
     });
 
     $routes->group('post', function ($routes) {

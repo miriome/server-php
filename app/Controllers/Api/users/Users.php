@@ -396,23 +396,16 @@ class Users extends Base
 
     function sendPush()
     {
-        $userId = $this->request->user->userId;
-        // if ($userId != 1) {
-        //     $response = [
-        //         'status' => false,
-        //         'message' => "Invalid account"
-        //     ];
-        //     return $this->response->setJSON($response);
-        // }
         $ids = $this->request->getPost('ids');
         $ids_arr = explode(",", $ids);
         $message = $this->request->getPost('message');
         $title = $this->request->getPost('title');
         $subtitle = $this->request->getPost('subtitle');
+        $deeplink = $this->request->getPost('deeplink') ?? '';
 
         if (is_array($ids_arr)) {
             foreach ($ids_arr as $targetId) {
-                $this->sendNotification($targetId, $message, $title, $subtitle);
+                $this->sendNotification($targetId, $message, $title, $subtitle, $deeplink);
             }
         } else {
             $response = [

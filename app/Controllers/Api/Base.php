@@ -62,6 +62,63 @@ abstract class Base extends ResourceController
         // E.g.: $this->session = \Config\Services::session();
     }
 
+    protected function sendIosOldPush($token, $message = '', $title = APP_NAME, $subtitle = '')
+    {
+        $privateKeyPath = __DIR__ . '/AuthKey_B9GG868T6P.p8';
+        $p8key = file_get_contents($privateKeyPath);
+
+        // $url = "https://api.sandbox.push.apple.com:443";
+        // Swap this out when deploying.
+        $url = "https://api.push.apple.com:443";
+
+
+        $payload = [
+            "iss" => "6N52UUJQBG",
+            "iat" => time()
+        ];
+
+
+
+        $headers = array(
+            'kid' => "B9GG868T6P"
+        );
+        $jwt = JWT::encode($payload, $p8key, 'ES256', null, $headers);
+
+        $msg = array
+        (
+            'body' => $message,
+            'title' => $title,
+            'subtitle' => $subtitle,
+            'badge' => "1",
+            'sound' => 'default' /*Default sound*/
+        );
+
+        $fields = ["aps" => ["alert" => $msg, "mutable-content" => "1"]];
+        $apnsUrl = $url . '/3/device/' . $token;
+        $headers = array(
+            "apns-push-type: alert",
+            "Authorization: bearer $jwt",
+            'Content-Type: application/json',
+            "apns-topic: com.miromie.ios.miromie"
+        );
+
+        $ch = curl_init();
+
+        curl_setopt($ch, CURLOPT_URL, $apnsUrl);
+        curl_setopt($ch, CURLOPT_POST, true);
+        curl_setopt($ch, CURLOPT_HTTPHEADER, $headers);
+        curl_setopt($ch, CURLOPT_HTTP_VERSION, CURL_HTTP_VERSION_2_0);
+        curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+        curl_setopt($ch, CURLOPT_SSL_VERIFYPEER, false);
+        curl_setopt($ch, CURLOPT_POSTFIELDS, json_encode($fields));
+        curl_setopt($ch, CURLOPT_FRESH_CONNECT, true);
+        curl_setopt($ch, CURLOPT_TIMEOUT, 1);
+
+        curl_exec($ch);
+
+        curl_close($ch);
+    }
+
 
     protected function sendIosPush($token, $message = '', $title = APP_NAME, $subtitle = '', $deeplink = "")
     {
@@ -175,7 +232,12 @@ abstract class Base extends ResourceController
         $platform = $pushInfo['platform'];
         $token = $pushInfo['device_push_token'];
         if ($platform == "ios") {
-            $this->sendIosPush($token, $message, $title, $subtitle, $deeplink);
+            if (strlen($token) < 65) {
+                $this->sendIosOldPush($token, $message, $title, $subtitle,);
+            } else {
+                $this->sendIosPush($token, $message, $title, $subtitle, $deeplink);
+            }
+            
         }
         if ($platform == "android") {
             $this->sendAndroidPush($token, $message, $title, $deeplink);

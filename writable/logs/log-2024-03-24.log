@@ -1,0 +1,150 @@
+ERROR - 2024-03-24 13:11:25 --> mysqli_sql_exception: Referencing column 'dropId' and referenced column 'id' in foreign key constraint 'drop_posts_ibfk_1' are incompatible. in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE dro...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE dro...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE dro...')
+#3 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-130126_Drops.php(71): CodeIgniter\Database\BaseConnection->query('ALTER TABLE dro...')
+#4 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\Drops->up()
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2024-03-24 13:12:16 --> mysqli_sql_exception: Table 'drops' already exists in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `d...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `d...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `d...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `d...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-130126_Drops.php(26): CodeIgniter\Database\Forge->createTable('drops')
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\Drops->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2024-03-24 13:13:04 --> mysqli_sql_exception: Referencing column 'dropId' and referenced column 'id' in foreign key constraint 'drop_posts_ibfk_1' are incompatible. in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE dro...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE dro...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE dro...')
+#3 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-130126_Drops.php(71): CodeIgniter\Database\BaseConnection->query('ALTER TABLE dro...')
+#4 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\Drops->up()
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2024-03-24 13:17:31 --> mysqli_sql_exception: Referencing column 'dropId' and referenced column 'id' in foreign key constraint 'drop_posts_ibfk_1' are incompatible. in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE dro...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE dro...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE dro...')
+#3 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-130126_Drops.php(71): CodeIgniter\Database\BaseConnection->query('ALTER TABLE dro...')
+#4 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\Drops->up()
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2024-03-24 13:18:28 --> mysqli_sql_exception: Referencing column 'dropPostId' and referenced column 'id' in foreign key constraint 'drop_post_images_ibfk_1' are incompatible. in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('ALTER TABLE dro...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('ALTER TABLE dro...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('ALTER TABLE dro...')
+#3 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-130126_Drops.php(95): CodeIgniter\Database\BaseConnection->query('ALTER TABLE dro...')
+#4 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\Drops->up()
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#6 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#7 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#8 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#9 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#10 {main}
+ERROR - 2024-03-24 13:25:39 --> mysqli_sql_exception: Failed to open the referenced table 'drop_posts' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `d...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `d...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `d...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `d...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-132431_DropModelSizing.php(40): CodeIgniter\Database\Forge->createTable('drop_model_sizi...')
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\UserBrandSizing->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2024-03-24 13:27:11 --> mysqli_sql_exception: Unknown table 'miromie.drops' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('DROP TABLE `dro...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DROP TABLE `dro...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DROP TABLE `dro...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(637): CodeIgniter\Database\BaseConnection->query('DROP TABLE `dro...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-130126_Drops.php(106): CodeIgniter\Database\Forge->dropTable('drops')
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\Drops->down()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(299): CodeIgniter\Database\MigrationRunner->migrate('down', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/MigrateRollback.php(92): CodeIgniter\Database\MigrationRunner->regress(11)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRollback->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:rollbac...', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2024-03-24 13:27:20 --> mysqli_sql_exception: Failed to open the referenced table 'drop_posts' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `d...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `d...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `d...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `d...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-132431_DropModelSizing.php(40): CodeIgniter\Database\Forge->createTable('drop_model_sizi...')
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\UserBrandSizing->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2024-03-24 13:27:47 --> mysqli_sql_exception: Failed to open the referenced table 'drop_posts' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('CREATE TABLE `d...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('CREATE TABLE `d...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('CREATE TABLE `d...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(546): CodeIgniter\Database\BaseConnection->query('CREATE TABLE `d...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-132431_DropModelSizing.php(40): CodeIgniter\Database\Forge->createTable('drop_model_sizi...')
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\UserBrandSizing->up()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(188): CodeIgniter\Database\MigrationRunner->migrate('up', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/Migrate.php(84): CodeIgniter\Database\MigrationRunner->latest(NULL)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\Migrate->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2024-03-24 13:45:23 --> mysqli_sql_exception: Unknown table 'miromie.drop_model_brand_sizing' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('DROP TABLE `dro...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DROP TABLE `dro...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DROP TABLE `dro...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(637): CodeIgniter\Database\BaseConnection->query('DROP TABLE `dro...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-132431_DropModelSizing.php(91): CodeIgniter\Database\Forge->dropTable('drop_model_bran...')
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\UserBrandSizing->down()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(299): CodeIgniter\Database\MigrationRunner->migrate('down', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/MigrateRollback.php(92): CodeIgniter\Database\MigrationRunner->regress(11)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRollback->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:rollbac...', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}
+ERROR - 2024-03-24 13:46:08 --> mysqli_sql_exception: Unknown table 'miromie.drops_brand_sizing' in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('DROP TABLE `dro...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('DROP TABLE `dro...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('DROP TABLE `dro...')
+#3 /Users/winson.heng/server-php/system/Database/Forge.php(637): CodeIgniter\Database\BaseConnection->query('DROP TABLE `dro...')
+#4 /Users/winson.heng/server-php/app/Database/Migrations/2024-03-24-132431_DropModelSizing.php(91): CodeIgniter\Database\Forge->dropTable('drops_brand_siz...')
+#5 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(877): App\Database\Migrations\UserBrandSizing->down()
+#6 /Users/winson.heng/server-php/system/Database/MigrationRunner.php(299): CodeIgniter\Database\MigrationRunner->migrate('down', Object(stdClass))
+#7 /Users/winson.heng/server-php/system/Commands/Database/MigrateRollback.php(92): CodeIgniter\Database\MigrationRunner->regress(11)
+#8 /Users/winson.heng/server-php/system/CLI/Commands.php(65): CodeIgniter\Commands\Database\MigrateRollback->run(Array)
+#9 /Users/winson.heng/server-php/system/CLI/Console.php(37): CodeIgniter\CLI\Commands->run('migrate:rollbac...', Array)
+#10 /Users/winson.heng/server-php/spark(97): CodeIgniter\CLI\Console->run()
+#11 {main}

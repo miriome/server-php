@@ -1,0 +1,843 @@
+ERROR - 2024-03-26 15:30:06 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:30:06 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-03-26 15:30:23 --> Undefined array key "size"
+in APPPATH/Controllers/Api/Drops.php on line 32.
+ 1 APPPATH/Controllers/Api/Drops.php(32): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "size"', '/Users/winson.heng/server-php/app/Controllers/Api/Drops.php', 32)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Drops->list('1')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Drops))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 15:31:12 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:31:12 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-03-26 15:31:56 --> Undefined array key "isBuyable"
+in APPPATH/Controllers/Api/Drops.php on line 33.
+ 1 APPPATH/Controllers/Api/Drops.php(33): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "isBuyable"', '/Users/winson.heng/server-php/app/Controllers/Api/Drops.php', 33)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Drops->list('1')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Drops))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 15:32:23 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:32:23 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+CRITICAL - 2024-03-26 15:32:33 --> Undefined array key "userData"
+in APPPATH/Controllers/Api/Drops.php on line 34.
+ 1 APPPATH/Controllers/Api/Drops.php(34): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "userData"', '/Users/winson.heng/server-php/app/Controllers/Api/Drops.php', 34)
+ 2 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Drops->list('1')
+ 3 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Drops))
+ 4 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 5 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 6 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 15:33:23 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:33:23 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 15:39:06 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:39:06 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 15:40:30 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:40:30 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 15:41:27 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:41:27 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 15:41:52 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:41:52 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 15:42:25 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:42:25 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 15:43:53 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:43:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 15:46:20 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 15:46:20 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 16:04:46 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 16:04:46 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')
+ERROR - 2024-03-26 16:18:53 --> mysqli_sql_exception: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1 in /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php:295
+Stack trace:
+#0 /Users/winson.heng/server-php/system/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*,...', 0)
+#1 /Users/winson.heng/server-php/system/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*,...')
+#2 /Users/winson.heng/server-php/system/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*,...')
+#3 /Users/winson.heng/server-php/app/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*,...')
+#4 /Users/winson.heng/server-php/app/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+#5 /Users/winson.heng/server-php/system/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+#6 /Users/winson.heng/server-php/system/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+#7 /Users/winson.heng/server-php/system/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(NULL, Object(Config\Cache), false)
+#8 /Users/winson.heng/server-php/public/index.php(67): CodeIgniter\CodeIgniter->run()
+#9 /Users/winson.heng/server-php/system/Commands/Server/rewrite.php(47): require_once('/Users/winson.h...')
+#10 {main}
+CRITICAL - 2024-03-26 16:18:53 --> You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+  ' at line 1
+in SYSTEMPATH/Database/MySQLi/Connection.php on line 295.
+ 1 SYSTEMPATH/Database/MySQLi/Connection.php(295): mysqli->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()', 0)
+ 2 SYSTEMPATH/Database/BaseConnection.php(692): CodeIgniter\Database\MySQLi\Connection->execute('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 3 SYSTEMPATH/Database/BaseConnection.php(606): CodeIgniter\Database\BaseConnection->simpleQuery('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 4 APPPATH/Models/Api/PostModel.php(180): CodeIgniter\Database\BaseConnection->query('SELECT posts.*, RANK() OVER (PARTITION BY posts.added_by ORDER BY likes DESC) AS rank
+        FROM posts
+        INNER JOIN users ON users.id = posts.added_by
+        LEFT JOIN blocked_users ON posts.added_by = blocked_users.user_id
+        WHERE users.pronouns != \'HE\'
+        AND blocked_users.user_id IS NULL
+        AND deleted = 0
+        AND likes > 0
+        ORDER BY rank, likes DESC, RAND()')
+ 5 APPPATH/Controllers/Api/Post.php(256): App\Models\Api\PostModel->getPostsForNewUsers('0', '100', '6')
+ 6 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Post->getPost()
+ 7 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Post))
+ 8 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 9 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+10 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

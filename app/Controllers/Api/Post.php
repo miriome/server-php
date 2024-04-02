@@ -508,7 +508,7 @@ class Post extends Base
         }
         // Send Comment Notification
         if ($userId != $post['added_by']) {
-            $msg = $user['username'] . ' commented your post';
+            $msg = $user['username'] . ' commented on your post';
             $this->sendNotification($post['added_by'], $msg);
             // Add notification history
             $notificationData = [

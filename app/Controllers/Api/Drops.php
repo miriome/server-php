@@ -22,7 +22,8 @@ class Drops extends Base
     function list($dropId)
     {
         $dropList = $this->_dropsPostModel->getAllPosts($dropId);
-        $dropData = array_map(function ($dropData) {
+
+        $dropData = array_map(function ($dropData) use ($dropId) {
             return [
                 'id' => $dropData['id'],
                 'title' => $dropData['title'],
@@ -34,7 +35,7 @@ class Drops extends Base
                 'isSold' => $dropData['isSold'],
                 'images' => [
                     [
-                        'image' => $dropData['image'],
+                        'image' => "drop_{$dropId}/{$dropData['image']}",
                         'index' => $dropData['index']
                     ]
                 ],
@@ -48,7 +49,7 @@ class Drops extends Base
     function getDropPostDetails($dropPostId)
     {
         $dropPost = $this->_dropsPostModel->getPostDetails($dropPostId);
-        $dropPostImages = $this->_dropsPostModel->getImagesForDrop($dropPostId);
+        $dropPostImages = $this->_dropsPostModel->getImagesForDrop($dropPostId, $dropPost['dropId']);
         $dropPostNumberSizing = $this->_dropsPostModel->getBodySizing($dropPostId);
         $dropPostBrandSizing = $this->_dropsPostModel->getBrandSizing($dropPostId);
         $data = [

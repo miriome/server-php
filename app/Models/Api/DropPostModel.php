@@ -69,7 +69,7 @@ class DropPostModel extends Model
 
     }
 
-    public function getImagesForDrop($dropPostId)
+    public function getImagesForDrop($dropPostId, $dropId)
     {
 
         $images = $this->dropPostImagesBuilder
@@ -77,6 +77,15 @@ class DropPostModel extends Model
             ->where('dropPostId', $dropPostId)
             ->get()
             ->getResultArray();
+        $postImages = array_map(function ($data) use ($dropId) {
+            
+            return [
+                'dropPostId' => $data['dropPostId'],
+                'index' => $data['index'],
+                'image' => "drop_{$dropId}/{$data['index']}",
+
+            ];
+        }, $images);
         return $images;
 
     }

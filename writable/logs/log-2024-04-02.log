@@ -1,0 +1,10 @@
+CRITICAL - 2024-04-02 14:13:35 --> Undefined array key "id"
+in APPPATH/Controllers/Api/Drops.php on line 27.
+ 1 APPPATH/Controllers/Api/Drops.php(27): CodeIgniter\Debug\Exceptions->errorHandler(2, 'Undefined array key "id"', '/Users/winson.heng/server-php/app/Controllers/Api/Drops.php', 27)
+ 2 [internal function]: App\Controllers\Api\Drops->App\Controllers\Api\{closure}([...])
+ 3 APPPATH/Controllers/Api/Drops.php(25): array_map(Object(Closure), [...])
+ 4 SYSTEMPATH/CodeIgniter.php(932): App\Controllers\Api\Drops->list('1')
+ 5 SYSTEMPATH/CodeIgniter.php(497): CodeIgniter\CodeIgniter->runController(Object(App\Controllers\Api\Drops))
+ 6 SYSTEMPATH/CodeIgniter.php(366): CodeIgniter\CodeIgniter->handleRequest(null, Object(Config\Cache), false)
+ 7 FCPATH/index.php(67): CodeIgniter\CodeIgniter->run()
+ 8 SYSTEMPATH/Commands/Server/rewrite.php(47): require_once('/Users/winson.heng/server-php/public/index.php')

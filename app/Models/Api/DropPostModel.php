@@ -82,11 +82,11 @@ class DropPostModel extends Model
             return [
                 'dropPostId' => $data['dropPostId'],
                 'index' => $data['index'],
-                'image' => "drop_{$dropId}/{$data['index']}",
+                'image' => "drop_{$dropId}/{$data['image']}",
 
             ];
         }, $images);
-        return $images;
+        return $postImages;
 
     }
 
